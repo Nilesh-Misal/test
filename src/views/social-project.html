@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Social</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/tab-design.css">
+
+	<link rel="stylesheet" href="../assets/css/jquery.contextMenu.min.css">
+
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="../assets/css/custom-font.css">
+
+	<link rel="stylesheet" href="../assets/css/social-project.css">
+
+	<link rel="stylesheet" href="../assets/css/twitter.css">
+	<link rel="stylesheet" href="../assets/css/linkedin.css">
+	<link rel="stylesheet" href="../assets/css/facebook.css">
+	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
+
+	<script src="../assets/js/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../assets/js/include-html.js"></script>
+	<script src="../assets/js/jquery-ui.js"></script>
+  <style type="text/css">
+  	.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+  </style>
+</head>
+<body onload="createNewProject()">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="dropdown _child">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+	        <ul class="dropdown-menu">
+		      <li class="dropdown-submenu">
+		        <a class="test" tabindex="-1" href="#">New <span class="caret"></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+		          <li class="dropdown-submenu">
+		            <a class="test" href="#">Social Project <span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New Social Project</a></li>
+		              <li><a href="#">Open Social Project</a></li>
+		            </ul>
+		          </li>
+		          <li class="dropdown-submenu">
+		            <a class="test" href="#">Email Project <span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New Email Project</a></li>
+		              <li><a href="#">Open Email Project</a></li>
+		            </ul>
+		          </li>
+		        </ul>
+		      </li>
+		      <li><a tabindex="-1" href="#">Save</a></li>
+		      <li><a tabindex="-1" href="#">Save As</a></li>
+		      <li><a tabindex="-1" href="#">Properties</a></li>
+		    </ul>
+	    </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+          <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+          <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+        </ul>
+      </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attach</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Image</a></li>
+          <li><a href="#">Document</a></li>
+          <li><a href="#">Audio</a></li>
+        </ul>
+      </li>
+      <li class="_child"><a href="#">Settings</a></li>
+      <li class="_child"><a href="#">Help</a></li>
+      <li class="_child"><a href="#">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="tab-container">
+			  <ul class="nav nav-tabs" data-asid="tab-layout" id="tab-layout" style="user-select: none;">
+				  	<li class="extra-tabs">
+				  		<span class="scrollLeft">
+				  			<i class="fa fa-caret-left"></i>
+				  		</span>
+				  		<span class="scrollRight">
+				  			<i class="fa fa-caret-right"></i>
+				  		</span>
+				  	</li>
+			  </ul>
+
+			  <div class="tab-content" data-asid="tab-contents" style="user-select: none;"></div>
+			  
+		</div>
+		
+		<div data-asid="no-project" style="user-select: none;">
+			<center style="padding-top: 13%;">
+				<h1>It's look like lonely here</h1>
+				<img src="../assets/images/no-mail.png" style="width: 10%;"><br>
+				<h4>You have not started any social project.</h4>
+				<h5 style="color: #9a9a9a; margin-bottom: 0;">Press Ctrl+N to start new project or</h5>
+				<a action-field="divBtn-start-new" href="javascript:void(0)" style="font-size: 15px;">Start from here</a>
+			</center>
+		</div>
+	</div>
+</div>
+	<script src="../assets/js/jquery.contextMenu.min.js"></script>
+	<script src="../assets/js/jquery.ui.position.js"></script>
+	<script src="../assets/js/social-project.js"></script>
+	<script src="../assets/js/tabOperations.js"></script>
+</body>
+</html>

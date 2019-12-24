@@ -1,0 +1,1847 @@
+ 
+  
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>HTML Project</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/tab-design.css">
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/html-project.css">
+	<link href="../assets/summernote/summernote.css" rel="stylesheet">
+	<link href="../assets/summernote/summernote-bs3.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/codemirror.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/monokai.css" rel="stylesheet">
+
+
+    
+	<script src="../assets/js/jquery-3.3.1.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/include-html.js"></script>
+	<script src="../assets/js/jquery-ui.js"></script>
+	<script src="../assets/summernote/summernote.min.js"></script>
+	<script src="../assets/codemirror/lib/codemirror.js"></script>
+	<script src="../assets/codemirror/lib/xml.min.js"></script>
+	<script src="../assets/js/formatting.js"></script>
+	<script src="../../../src/assets/core/jquery.shapeshift.min.js"></script>
+
+	<!-- jQuery.Shapeshift -->
+	<script src="../../../src/assets/core/jquery.shapeshift.js"></script>
+	<style>
+	.sidemenus	ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  background-color: #333333;
+	  display: block;
+	}
+	
+.toolbox-item-container{
+	background: #54e9c8aa
+}
+.sidemenus	li {
+	  float: left;padding: 3px;color: white;
+	
+	}
+	
+ a{
+		color:white;
+	}
+	.sidemenusli a {
+	  display: block;
+	  color: white;
+	  text-align: center;
+	  padding: 16px;
+	  text-decoration: none;
+	}
+	
+	.sidemenus li a:hover {
+	  background-color: #111111;
+	}
+   
+	</style>
+	<style type="text/css">
+#work-space1 {
+  /* Never get smaller than this */
+  font-size: 14px;
+}
+h6{
+	font-weight: bold;
+	font-size: 12px;
+	padding-left: 5px
+}
+		.dropdown-submenu {
+			position: relative;
+		}
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  padding-top: 100px; /* Location of the box */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+		/* Modal Content */
+		.modal-content {
+		  background-color:whitesmoke;
+		  margin: auto;
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 40%;
+		}
+		/* The Close Button */
+		.close {
+		  color: #aaaaaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		.dropdown-submenu .dropdown-menu { 
+			top: 0;
+			left: 100%;
+			margin-top: -1px;
+		}
+.nav-tabs li{
+background: rgb(45, 43, 104);
+}
+	#menu{
+		
+			visibility: hidden;
+          
+		}
+		.note-editor {
+			margin-bottom: 0 !important;
+			border-radius: 0;
+		    border: 0 !important;
+		}
+		.ui-icon-gripsmall-diagonal-se {
+		    display: none !important;
+		}
+		input[type=text]{
+		background-color: aqua;
+		}
+		.selected_item_here{
+			background-color:gray;
+		}
+        #work-space1{
+            padding: 2px;
+        }
+  
+	</style>
+	 <style>
+			.container {
+			  border: 1px dashed #CCC;
+			  position: relative;
+			}
+		
+			.container > div {
+			  background: #AAA;
+			  position: absolute;
+			  height: 100px;
+			  width: 100px;
+			}
+		
+			.container > div[data-ss-colspan="2"] { width: auto; }
+			.container > div[data-ss-colspan="3"] { width: auto; }
+		
+			.container > .ss-placeholder-child {
+			  background: transparent;
+			  border: 1px dashed blue;
+			}
+			#menu li {
+			font-size: 10px;
+				background: #888;
+			
+				
+			}
+			
+			@media screen and (min-width: 601px) {
+  #work-space1 {
+    font-size: 80px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #work-space1 {
+    font-size: 30px;
+  }
+}
+		  </style>
+</head>
+<body>
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close">&times;</span>
+		  <p class="form-label">Enter file name</p><br/>
+		  <input type="file" id="files"  class="form-control" name="files[]" directory multiple/><br/>
+		  <button id="open1" type="submit" class="btn btn-primary btn-sm" >OPEN</button>
+		</div>
+	  
+	  </div>
+	  <div id="youtubevideomodel" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close">&times;</span>
+		  <p class="form-label">youtube video link</p><br/>
+		  <input type="text" class="form-control" id="youtubelink" value="https://www.youtube.com/embed/668nUCeBHyY" />
+		  <button id="open4" type="submit" class="btn btn-primary btn-sm" >show</button>
+		</div>
+	  
+	  </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid" style="background: linear-gradient(#17154C, #6d6ab8);color:white">
+    <ul class="nav navbar-nav" style="color:white;">
+      <li class="dropdown _child">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#"  style="color: white">File</a>
+	        <ul class="dropdown-menu">
+		      <li class="dropdown-submenu">
+		        <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New <span class="caret"></span></a>
+		        <ul class="dropdown-menu">
+		          <li class="dropdown-submenu">
+		            <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New File<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li><a href="#">HTML File</a></li>
+		              <li><a href="#">CSS File</a></li>
+		              <li><a href="#">JS File</a></li>
+		            </ul>
+		          </li>
+		          <li class="dropdown-submenu">
+		            <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New Project<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li class="dropdown-submenu" >
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">HTML Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="javascript:void(0)" action-field="menuBtn-start-new" data-asid="configure-html-project">New </a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+			             <ul class="dropdown-menu">
+				            <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+				         </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#" style="color: white">New</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#" style="color: white">New</a></li>
+			              <li><a href="#" style="color: white">Open</a></li>
+			            </ul>
+		              </li>
+		            </ul>
+		          </li>
+		        </ul>
+		      </li>
+		      <li><a tabindex="-1" href="#" id="openproject" style="color: white">Open</a></li>
+		      <li><a tabindex="-1" href="#" id="save" style="color: white">Save</a></li>
+		      <li><a tabindex="-1" href="#" style="color: white">Save As</a></li>
+		      <li><a tabindex="-1" href="#" style="color: white">Close Project</a></li>
+		      <li><a tabindex="-1" href="#" style="color: white">Exit</a></li>
+		    </ul>
+	  </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white">Navigate</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+          <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+          <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+        </ul>
+      </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white">Attach</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Image</a></li>
+          <li><a href="#">Document</a></li>
+          <li><a href="#">Audio</a></li>
+        </ul>
+      </li>
+      <li class="_child"><a href="#" style="color: white">Settings</a></li>
+      <li class="_child"><a href="#" style="color: white">Help</a></li>
+      <li class="_child"><a href="#" style="color: white">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-toolbox">
+  <div class="container-fluid">
+    <div class="row">
+    	<div class="col-lg-12"style="padding: 0;">
+    		<center>
+    		<div class="tool-box" style="background: linear-gradient( #323063,rgb(71, 69, 133),  #323063);">
+    			<ul class="tool tool-tabs">
+				    <li class="active"><a class="menu"data-toggle="tab" href="#all">All</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Media</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Big</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Buttons</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Common</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Forms</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Container</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Sliders</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Texts</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Images</a></li>
+				</ul>
+    		</div>
+    		</center>
+    		<div class="tab-content" style="border:0;">
+			    <div id="all" class="tab-pane fade in active">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container" style="background:  linear-gradient( #323063,rgb(71, 69, 133),  #323063);color:white">
+			      		<div class="toolbox-items" id="h1">
+			      			
+			      			<h6>h1</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h2">
+			      			
+			      			<h6>h2</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h3">
+			      			
+			      			<h6>h3</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h4">
+			      			
+			      			<h6>h4</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h5">
+			      			
+			      			<h6>h5</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h6">
+			      			
+			      			<h6>h6</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="p">
+			      			
+			      			<h6>p</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="img">
+							  
+							
+			      			<h6>img</h6>
+			      		</div>
+						  <div class="toolbox-items" id="table">
+							
+			      			<h6>table</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="col">
+						
+			      			<h6>col_*_*</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="iframe">
+						
+			      			<h6>Youtube Video</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="card">
+						
+			      			<h6>Card</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="navbar">
+
+			      		
+			      			<h6>Nav bar</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="assets" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="big" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="buttons" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<im g src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			  </div>
+			  
+			</div>
+    	</div>
+    </div>
+  </div>
+</nav>
+<div id="tablemodel" class="modal">
+
+	<!-- Modal content -->
+	<div class="modal-content">
+	  <span class="close">&times;</span>
+	  <p class="form-label">Enter Number of Rows </p><br/>
+	  <input type="text" id="nrows"  class="form-control"  /><br/>
+	  <p class="form-label">Enter Number of colums </p><br/>
+	  <input type="text" id="ncols"  class="form-control"  /><br/>
+	  <button id="createtable"  class="btn btn-primary btn-sm" >Create table</button>
+	</div>
+  
+  </div>
+
+  <div id="divmodel" class="modal">
+
+	<!-- Modal content -->
+	<div class="modal-content">
+	  <span class="close">&times;</span>
+	  
+	  <p class="form-label">Enter Number of colums </p><br/>
+	  <input type="text" id="ndivcols"  class="form-control"  /><br/>
+	  <button id="creatediv"  class="btn btn-primary btn-sm" >Create table</button>
+	</div>
+  
+  </div>
+<div class="container-fluid" style="background: linear-gradient(#17154C, #6d6ab8) ">
+	<div class="row">
+	    <div class="col-lg-12 filepath-panel" data-asid="filepath-panel"  style="background: #1f1d72;color:#6EC16E">
+	    	<div>
+	    		<nav aria-label="breadcrumb" >
+				  <ol class="breadcrumb" >
+				    <li class="breadcrumb-item " ><i class="fa fa-folder"></i>Home <span class="line-arrow right"></span></li>
+				    <li class="breadcrumb-item"><i class="fa fa-folder"></i>Library <span class="line-arrow right"></span></li>
+				    <li class="breadcrumb-item"><i class="fa fa-file-text-o"></i>Data</li>
+				  </ol>
+				</nav>
+	    	</div>
+	    </div>
+	</div>
+	<div class="row" style="display: flex;">
+	    <div data-asid="directory-panel" class="directory-panel" style="background:linear-gradient(#292763, #6d6ab8);;color:white;">
+	    	<ul class="parent" data-asid="dir">
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 0</span>
+					<ul class="chld">
+						<li>
+							<i class="fa fa-chevron-right"></i><span class="fld">File 1</span>
+      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+							          <li><i class="fa fa-file-text-o"></i>html 1</li>
+							          <li><i class="fa fa-file-text-o"></i>html 2</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+					        </ul>
+						</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 2</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					          <li><i class="fa fa-file-text-o"></i>html 2</li>
+					          <li><i class="fa fa-file-text-o"></i>html 3</li>
+					        </ul>
+      					</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 3</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					        </ul>
+      					</li>
+      					<li>
+      						<i class="fa fa-chevron-right"></i><span class="fld">File 4</span>
+      					</li>
+					</ul>
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 1</span>
+					<ul class="chld">
+						<li><i class="fa fa-chevron-right"></i><span class="fld">File 1</span></li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 2</span></li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 3</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					          <li><i class="fa fa-file-text-o"></i>html 2</li>
+					          <li><i class="fa fa-file-text-o"></i>html 3</li>
+					        </ul>
+      					</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 4</span></li>
+					</ul>
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 2</span>
+					<ul class="chld">
+					   <li><i class="fa fa-file-text-o"></i>html 1</li>
+					   <li><i class="fa fa-file-text-o"></i>html 2</li>
+					   <li><i class="fa fa-file-text-o"></i>html 3</li>
+					</ul>					
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld" id="dir3">Directory 3</span>
+
+				</li>
+			</ul>
+			<ul style="margin-top:100%" id="addedelements">
+				<li></li>
+			</ul>
+	    </div>
+	    <div data-asid="work-panel" class="work-panel">
+	    	<div class="row" style="width: -webkit-fill-available; margin: 0;background:   #4944a1;">
+	    		<div class="tab-container main-container">
+				  <ul class="nav nav-tabs" data-asid="tab-layout" style="background:#17154C">
+				  	<li class="extra-tabs"  style="background: #0c0694;color: white" >
+				  		<span class="scrollLeft">
+				  			<i class="fa fa-caret-left"></i>
+				  		</span>
+				  		<span class="scrollRight"  style="background: #0c0694;color: white">
+				  			<i class="fa fa-caret-right"></i>
+				  		</span>
+				  	</li>
+				  	<li class="active"  style="background:linear-gradient(#17154C, #6d6ab8);color:white"><a data-target="#project" data-toggle="tab" style="color: white">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li style="background:linear-gradient(#17154C, #6d6ab8);"><a data-target="#project" data-toggle="tab" style="color: white">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li style="background:linear-gradient(#17154C, #6d6ab8);"><a data-target="#project1" data-toggle="tab" style="color: white">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li style="background:linear-gradient(#17154C, #6d6ab8);"><a data-target="#project" data-toggle="tab" style="color: white">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li style="background:linear-gradient(#17154C, #6d6ab8);"><a data-target="#project" data-toggle="tab" style="color: white">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li style="background:linear-gradient(#17154C, #6d6ab8);"><a data-target="#project" data-toggle="tab" style="color: white">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li style="background:linear-gradient(#17154C, #6d6ab8);" ><a data-target="#project" data-toggle="tab" style="color: white">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  </ul>
+				
+				  <div class="tab-content" data-asid="tab-contents">
+					  
+				  	<div class="tab-pane active" id="project">
+
+				  		<div class="tabbable tabs-bottom">
+							  
+			                <div class="tab-content" style="border-top: 0;">
+			    				<div class="tab-pane active" id="design">                
+									<div class="row">
+										<div class="col-md-12">
+												<div style="padding: 5px;color:white;font-weight: bold"><span id="workarea_width">Width : <i></i> </span><span id="workarea_height">Height : <i></i></span>  <select id="change_work_area_size" ><option>select</option><option value="360x740">360 x 740</option> <option value="600x400">600 x 400</option><option value="400x200">400 x 200</option></select> <span>100%  </span>  <span><i class="fa fa-search-plus" style="font-size:15px;" id='zoomin'></i>  <i class="fa fa-search-minus" style="font-size:15px;" id="zoomout"></i></span></div>
+												
+											<div class="editor" style="padding: 20px; background:  #17154C;color: white"  >
+												
+												
+												<div id="work-space" style="height: 600px;width:1000px;overflow-y:scroll;margin-bottom: 4%;background:   #17154C">
+													
+												<div id="work-space1" style="margin:2%;height: 400px;width:600px;overflow-y:scroll;margin-bottom: 4%;background:white;color: black">
+
+												</div>
+												
+												
+												</div> 
+												<div id="property-space" class="property-space" style="background: linear-gradient(#17154C,rgb(71, 69, 133), #6d6ab8);" > 
+												  <div> 
+													<span style="padding-left: 5px; color:white;font-weight: bold; cursor: pointer;padding: 4px; background:linear-gradient(#17154C, #6d6ab8)" id="change_properties">Properties</span>
+													<span style="padding-left: 5px; color:white;font-weight: bold; cursor: pointer;padding: 4px; background:linear-gradient(#17154C, #6d6ab8)" id="change_elements">change elements</span>
+													<table class="table table-bordered">
+														<tbody id="props_of_element">
+																<tr>
+																	
+																		<td>Id</td>
+																		<td><input autocomplete="off" id="elementid" type="text"></td>
+																	</tr>
+													   
+																	<tr class="edittext">
+																		
+																	  <td>EditText</td>
+																	  <td><input type="text" autocomplete="off" id="edittext"></td>
+																	</tr>
+														  <tr class="text-size">
+															
+														  <td>text-size</td>
+														  <td><input autocomplete="off"  type="range" min="0" max="100" id="text-size"></td>
+														</tr>
+														<tr class="color">
+															
+														  <td>text color</td>
+														  <td><input type="color" autocomplete="off" id="color" ></td>
+														</tr>
+														<tr class="height">
+															
+														  <td>height</td>
+														  <td><input type="text" autocomplete="off" id="height" ></td>
+														</tr>
+														<tr class="width">
+															
+														  <td>width</td>
+														  <td><input type="text" autocomplete="off" id="width"></td>
+														</tr>
+														<tr class="background-color">
+														
+														  <td>bg-color</td>
+														  <td><input type="color" autocomplete="off" id="background-color" ></td>
+														</tr>
+														<tr class="font-family">
+														
+															<td>font-family</td>
+															<td><select  autocomplete="off" id="font-family" >
+                                                                 <option value="monospace">Monospace</option>
+					                                       		</select>
+															</td>
+														  </tr>
+														</tbody>
+														<tbody id="change_elements_tab">
+
+														</tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+													  </table>
+													  <div  id="html_code_area" style="visibility: hidden;"  >
+                                                            
+													  </div>
+												  </div>  
+												</div>
+											</div>
+										</div>              
+									</div>
+								</div> 
+
+								<div class="tab-pane" id="text"> 
+									<div class="row">
+										<div class="col-md-12">
+											<form accept="">
+												<div class="form-group">
+													<textarea class="form-group summernote" id="code-space" rows="10"></textarea>
+												</div>
+											</form>
+										</div>               
+									</div>
+								</div>
+							</div>
+			                <!-- tab content -->
+							<ul class="nav nav-tabs bottom-tab" style=" background:linear-gradient(#17154C, #6d6ab8);">
+								<li class="active"><a href="#design" data-toggle="tab">Design</a></li>
+								<li><a href="#text" data-toggle="tab">Text</a></li>
+							</ul>
+						</div>
+				  	</div>
+				  	<div class="tab-pane" id="project1">
+						<div class="jumbotron">
+							<h1>About Tab</h1>
+							<p>because they are the most important for an encyclopedia to have, as determined by the community of participating editors..</p>                 
+						</div>
+				  	</div>
+				  </div>
+				</div> 
+	    	</div>
+		    <!-- <div data-asid="editor-panel" class="editor-panel"></div> -->
+			<!-- <div data-asid="properties-panel" class="properties-panel"></div> -->
+			
+			
+		</div>
+	</div>
+</div>
+
+
+
+<script src="../assets/js/html-project.js"></script>
+<script>
+const fs = require('fs');
+const async=require('async');
+const promise=require('promise');
+const JsonFind = require('json-find');
+const searchjson = require('../../tagdataset.json')
+const editable_fields= require('../../editable_fields.json');
+var dataarray={};
+var selected_anchor_tag='';
+var keyarray={};
+var props=[];
+var selected_nav_id='';
+var selecte_element_id='work-space1';
+var i=0;
+var elemetid='';
+var imagepath='';
+var flag=false;
+var append_to_element='';
+var localdata={
+	"h1":0,"h2":0,"h3":0,"h4":0,"h5":0,"h6":0,"p":0,"img":0,"table":0,"div":0,"col":0,"video":0,"iframe":0,"card":0,"navbar":0,"nav-menu":0
+};
+var count1=0;
+$('#workarea_width').find('i').text($('#work-space1').width()+'px');
+$('#workarea_height').find('i').text($('#work-space1').height()+'px');
+$('#dir3').draggable();
+$(document).ready(function(){
+$("#h11").draggable();
+$(document).on({
+	mouseover:function(){
+        $('#menu').css({'visibility':'visible'});
+        drag_random(selecte_element_id);
+        
+/*	if ($(this).find('span').length == 0) {
+        $(this).append('<span  id="menu"><ul  ><li style="float:right;" class="'+selecte_element_id+'" id="close_element"><i class="fa fa-gear"></i></li><li style="float:right;"><i class="fa fa-arrows"></i> </li><li style="float:right;"><i class="fa fa-times" ></i></li></ul></span>');
+  }
+  */
+  //$(this).find('span').css({'border':'1px solid black'})
+  $('#'+selecte_element_id).css({'border':'0.4px solid'});
+  
+  $('#'+selecte_element_id).find('span').css({'visibility':'visible'});
+},
+mouseleave:function(){
+    $('#menu').css({'visibility':'hidden'});
+    $('#'+selecte_element_id).css({'border':'0px '});
+	$('#'+selecte_element_id).find('span').css({'visibility':'hidden'});
+//	$(this).find('span').css({'border':'0px solid black'})
+},
+mouseout:function(){
+	//$(this).find('span').remove()
+    $('#menu').css({'visibility':'hidden'});
+    $('#'+selecte_element_id).css({'border':'0px '});
+	$().find('span').css({'visibility':'hidden'});
+//	$(this).css({'border':'0px solid black'})
+},
+click:function(){
+  //  alert('clicked')
+    $('#menu').css({'visibility':'visible'});
+}
+},'#'+selecte_element_id)
+});
+$(".container").shapeshift({
+        minColumns: 3
+      });
+function hideprops(){
+$('.background-color').show();
+$('.color').hide();
+$('.height').hide();
+$('.edittext').hide();
+$('.width').hide();
+$('.text-size').hide();
+$('.font-family').hide();
+}
+hideprops();
+var localprops={};
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+$('.toolbox-items').click(function(){
+	hideprops();
+//alert('clicked');
+//console.log($(this).html());
+ elemetid = $(this).attr('id');
+ //console.log(elemetid);
+ //console.log('item id'+$(this).attr('id'))
+var count=new Promise((resolve,reject)=>{
+	const doc = JsonFind(localdata);
+//	console.log();
+resolve(doc.checkKey(selecte_element_id))
+}).then(function(data){
+//console.log("this  is  data "+selecte_element_id+' '+elemetid);
+ count1=localdata[elemetid]+1;
+localdata[elemetid]=count1;
+//console.log(localdata);
+var idofcurrentelement='';
+var value=idofcurrentelement.concat(elemetid,count1);
+//console.log("idof"+value);
+var width=$('#work-space1').width();
+ var height=$('#work-space1').width();
+ console.log(width+' '+height);
+var bootstrap_grid_width=width/12;
+var bootstrap_grid_height=height/12;
+$('#work-space1').css({'max-width':width});
+console.log(bootstrap_grid_width);
+selecte_element_id=value;
+console.log("selected element id "+selecte_element_id);
+if(append_to_element!=''){
+}else{
+	append_to_element='work-space1';
+}
+if(elemetid=='h1'||elemetid=='h2'||elemetid=='h3'||elemetid=='h4'||elemetid=='h5'||elemetid=='h6'||elemetid=='p'){
+	$('<'+elemetid+' id="'+value+'" data-ss-colspan="2"  >Edit Text Here</'+elemetid+'><span  id="menu" style="position:right"><ul  ><li style="float:left;" class="'+value+'" ><i class="fa fa-gear"></i></li><li style="float:left;" class="'+value+'"><i class="fa fa-arrows"></i> </li><li style="float:left;" class="'+value+'" id="close_element"><i class="fa fa-times" ></i></li></ul></span>').appendTo('#'+append_to_element);
+//$('#'+value).append('<sub  id="menu" style="position:right"><ul  ><li style="float:left;" class="'+value+'" ><i class="fa fa-gear"></i></li><li style="float:left;" class="'+value+'"><i class="fa fa-arrows"></i> </li><li style="float:left;" class="'+value+'" id="close_element"><i class="fa fa-times" ></i></li></ul></span>');
+	
+	update_html_code_area();
+}else if(elemetid=='img'){
+	$('<'+elemetid+' src="'+imagepath+'" style="height:100px;width:100px;" class="selectimage" id="'+value+'" /><br><br>').appendTo('#'+append_to_element).resizable({
+       appendTo:'#work-space1',
+	   resize: function( event, ui ) {
+   ui.size.height = Math.round( ui.size.height) ;
+   console.log(ui.size.height+' '+ui.size.width);
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'height': Math.round( ui.size.height)+'px'};
+	localprops["#"+selecte_element_id]={'width': Math.round( ui.size.width)+'px'};
+} else {
+	localprops["#"+selecte_element_id]['height']= Math.round( ui.size.height)+'px';
+	localprops["#"+selecte_element_id]={'width': Math.round( ui.size.width)+'px'};
+}
+   
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'height': Math.round( ui.size.height)+'px'};
+	
+} else {
+	localprops["#"+selecte_element_id]['height']= Math.round( ui.size.height)+'px';
+	
+}
+   
+ }
+   }).parent().draggable({
+		cursor: "move",
+        grid: [1,1],
+		start: function(e, ui) {
+            var p=ui.position;
+           
+      //console.log('drag start');    
+		}, 
+		drag: function(e, ui) {
+            var p=ui.position;
+           // console.log('dragging'+' left='+p.left);    
+		},
+		stop: function(e, ui) {
+			selecte_element_id=$(this).attr('id');
+			var p=ui.position;
+		    console.log('id='+$(this).attr('id'));
+			var percentage_left_width=(Math.floor(p.left)/Math.floor(width))*100;
+			var percentage_top=(Math.floor(p.top)/Math.floor(height))*100;
+console.log('width in percent '+Math.floor(percentage_left_width)+' top'+percentage_top);
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':Math.floor(percentage_left_width)+'%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']=Math.floor(percentage_left_width)+'%';
+}
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-top':Math.floor(percentage_top)+'%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-top']=Math.floor(percentage_top)+'%';
+}
+		},
+		containment:"#drop-area"
+	})
+}else if(elemetid=='table'){
+	//let html_code=$('#html_code_area').text();
+//console.log(html_code);
+//let updated_html_code='';
+//console.log(selecte_element_id+' '+elemetid);
+	$('#tablemodel').show();
+}else if(elemetid=='col'){
+	$('#divmodel').show();
+}else if(elemetid=='iframe'){
+	$('#youtubevideomodel').show();
+	
+	
+}else if(elemetid=='navbar'){
+	$('#work-space1').append('<nav class="navbar navbar-default headernav" id="'+value+'">  <div class="container-fluid"> <div class="navbar-header"><a class="navbar-brand title"  href="#">WebSiteName</a></div> <ul class="nav navbar-nav"><li class="active" class="change_anchor"><a href="#" >Home</a></li><li class="change_anchor"><a href="#" >Page 1</a></li> <li class="change_anchor"><a href="#" >Page 2</a></li> <li class="change_anchor"><a href="#">Page 3</a></li> </ul></div></nav>')
+}
+let html_code=$('#html_code_area').text();
+console.log(html_code);
+let updated_html_code='';
+console.log(selecte_element_id+' '+elemetid);
+let previous=$('#html_code_area').text();
+if(elemetid=='img'){
+	
+		updated_html_code=html_code;
+	
+}else if(elemetid=='card'){
+	$('#work-space1').append('<div class="card " ><div class="card-header bg-primary" id="card-header">header</div>  <div class="card-body bg-light" id="card-body">Content</div>   <div class="card-footer bg-info" id="card-footer">Footer</div></div>');
+$('#html_code_area').text(previous+'<div class="card"><div class="card-header bg-primary" id="card-header">Header</div>  <div class="card-body bg-light" id="card-body">Content</div>   <div class="card-footer bg-info" id="card-footer">Footer</div></div>');
+	}else{
+updated_html_code=html_code+'<'+elemetid+'  id="'+value+'">Edit Text Here<'+elemetid+'>';
+}
+//$('#html_code_area').text(updated_html_code);
+//$('#'+selecte_element_id).addClass('selected_item_here');
+$('#elementid').val(selecte_element_id);
+//console.log(searchjson);
+const doc = JsonFind(searchjson);
+//	console.log();
+var fetched_data=[];
+fetched_data=doc.checkKey(elemetid);
+//console.log(fetched_data);
+let i=0;
+//console.log("shown "+JSON.stringify(fetched_data));
+//Here i have fetched possible css attributes from tagdataset.json file
+var dataarray={};
+async.forEachOf(fetched_data,function(value,key,callback){
+  
+//console.log(dataarray)
+dataarray[i]=value;
+$('.'+key).show();
+//$('#props_of_element').append('<tr><td><i class="fa fa-chevron-right"></i></td>	<td>'+key+'</td>	<td><input type="'+value+'" autocomplete="off" id="'+key+'" type="text"></td></tr>')
+     
+//console.log(key+' '+value+' '+i);
+//console.log(dataarray)
+i++;
+})
+});
+});
+$(document).on('change','#color',function(){
+	//console.log('inside');
+console.log($(this).val());
+let color1=$(this).val();
+var selected_item_id=$('#elementid').val();
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	// Object is empty (Would return true in this example)
+	//console.log('Object is empty (Would return true in this example');
+	localprops["#"+selecte_element_id]={'color':color1};
+} else {
+	// Object is NOT empty
+	//console.log('Object is NOT empty');
+	localprops["#"+selecte_element_id]['color']=color1;
+}
+$('#'+selected_item_id).css({'color':color1});
+//localprops["#"+selecte_element_id]={'color':color1};
+console.log(localprops);
+});
+$(document).on('change','#background-color',function(){
+	//console.log('inside');
+console.log($(this).val());
+let color1=$(this).val();
+//var selected_item_id=$('#elementid').val();
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	// Object is empty (Would return true in this example)
+	//console.log('Object is empty (Would return true in this example');
+	localprops["#"+selecte_element_id]={'background-color':color1};
+} else {
+	// Object is NOT empty
+	//console.log('Object is NOT empty');
+	localprops["#"+selecte_element_id]['background-color']=color1;
+}
+$('#'+selecte_element_id).css({'background-color':color1});
+console.log(localprops);
+});
+$(document).on('keyup','#edittext',function(){
+	//console.log('inside');
+console.log($(this).val());
+let text=$(this).val();
+var selected_item_id=$('#elementid').val();
+$('#'+selected_item_id).text(text);
+//$('#'+selected_item_id).css({content:text});
+localprops["#"+selecte_element_id]={content:text};
+console.log(localprops);
+});
+$(document).on('change','#text-size',function(){
+	//console.log('inside');
+console.log($(this).val());
+let val1=$(this).val();
+var selected_item_id=$('#elementid').val();
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	// Object is empty (Would return true in this example)
+	//console.log('Object is empty (Would return true in this example');
+	localprops["#"+selecte_element_id]={'font-size':val1+'px'};
+} else {
+	// Object is NOT empty
+	//console.log('Object is NOT empty');
+	localprops["#"+selecte_element_id]['font-size']=val1+'px';
+}
+$('#'+selected_item_id).css({'font-size':val1+'px'});
+console.log(localprops);
+});
+function hex_to_RGB(hex) {
+    var m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i);
+    return {
+        r: parseInt(m[1], 16),
+        g: parseInt(m[2], 16),
+        b: parseInt(m[3], 16)
+    };
+}
+$('#save').click(function(){
+$('#menu').remove();
+update_code();
+	alert('clicked');
+var body_data=$('#html_code_area').text();
+var fs = require('fs')
+var createHTML = require('create-html')
+ 
+$('.change_anchor').attr('contenteditable','false');
+update_code();
+const Css = require('json-to-css');
+const css = Css.of(localprops);
+ console.log(JSON.stringify(css));
+fs.writeFile('C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/style.css',css,function(err,res){
+	if(err){
+	console.log(err)
+	throw err;
+	}
+})
+var html = createHTML({
+  title: 'index file',
+  css:'C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/style.css',
+  head: '<meta name="description" content="example"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">',
+  body:'<div class="container" >'+body_data+'</div>'
+})
+ var html_schema={title: 'index file',
+  css:'C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/style.css',
+  head: '<meta name="description" content="example"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">',
+  body:'<div class="container" >'+body_data+'</div>'
+ }
+fs.writeFile('C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/html_schema.json', JSON.stringify(html_schema), function (err) {
+  if (err) console.log(err)
+})
+fs.writeFile('C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/css_schema.json', JSON.stringify(localprops), function (err) {
+  if (err) console.log(err)
+})
+fs.writeFile('C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/index.html', html, function (err) {
+  if (err) console.log(err)
+})
+});
+/*
+$(document).on('h1','change', function() {alert('changed')}).on('blur keyup paste', function() { 
+  if (before != $(this).html()) { $(this).trigger('change'); }
+});
+*/
+$(document).on('click','h1',function(){
+//	alert('cliked');
+var id4=$(this).attr('id');
+selecte_element_id=id4;
+console.log('here');
+$('#'+id4).attr('contenteditable','true');
+//console.log("updated html code="+updated_html_code);
+$('#elementid').val(selecte_element_id,elemetid);
+//$('.toolbox-items').trigger('click');
+//console.log('selected element'+selecte_element_id+' elementid '+elemetid);
+changeprops(selecte_element_id,elemetid);
+//hideprops();
+//	const doc1 = JsonFind(searchjson);
+//var fetched_data=[];
+//fetched_data=doc1.checkKey(elementid1);
+//console.log(doc1.checkKey(elementid1)+elementid1);
+//let i=0;
+//var dataarray={};
+//async.forEachOf(fetched_data,function(value,key,callback){
+//dataarray[i]=value;
+//$('.'+key).show();
+//$(document).show('')
+//i++;
+//})
+});
+function changeprops(selected_elment_id1,elementid1){
+	let elementid='';    
+	//hideprops();
+	const doc1 = JsonFind(searchjson);
+var fetched_data=[];
+fetched_data=doc1.checkKey(elementid1);
+console.log("data"+fetched_data+elementid);
+let i=0;
+//var dataarray={};
+async.forEachOf(fetched_data,function(value,key,callback){
+//dataarray[i]=value;
+if($("."+key).is(":visible")){
+                   // alert("The paragraph  is visible.");
+				   console.log('visible '+key)
+				   
+                } else{
+                    console.log("not visible "+key);
+					$('.'+key).css({'visibility':'visible'});
+					document.getElementsByClassName(key).style.visibility = "visible"; 
+                }
+console.log('key after change'+key);
+console.log("$('.'"+key+").show();");
+//$(document).show('')
+i++;
+})
+ 
+}
+/*
+$(document).on('click','p',function(){
+//	alert('dblcliked');
+	var id4=$(this).attr('id');
+selecte_element_id=id4;
+$('#'+id4).attr('contenteditable','true');
+});
+$(document).on('change','p',function(){
+//	alert('dblcliked');
+	var id4=$(this).attr('id');
+selecte_element_id=id4;
+$('#'+id4).attr('contenteditable','true');
+});
+*/
+$(document).on('blur','p',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4;
+  
+        alert('Handler for .change() called.');
+      var contents = $('#'+id4).html();    
+	var content1=	$('#work-space1').html();
+	 $('#html_code_area').text($('#work-space1').html());
+    });
+	$(document).on('blur','h1',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space1').html();   
+	 $('#html_code_area').text($('#work-space1').html());
+    });
+	$(document).on('blur','h2',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space1').html();   
+	 $('#html_code_area').text($('#work-space1').html());
+    });
+	$(document).on('blur','h3',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space1').html();   
+	 $('#html_code_area').text($('#work-space1').html());
+    });
+	$(document).on('blur','h4',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space1').html();   
+	 $('#html_code_area').text($('#work-space1').html());
+    });
+	$(document).on('blur','h5',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space1').html();   
+	 $('#html_code_area').text($('#work-space1').html());
+    });
+	$(document).on('blur','h6',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space1').html();   
+	 $('#html_code_area').text($('#work-space1').html());
+	});
+	
+	$(document).on('click','.selectimage',function(){
+		$('#myModal').show();
+      
+	});
+	function selectimagefunction(){
+var imagep='';
+return imagep;
+	}
+	$(document).on('click','.close',function(){
+		$('#myModal').hide();
+		$('#tablemodel').hide();
+		$('#divmodel').hide();
+	})
+	$(document).on('click','#open1',function(){
+		var filehere=$('#files').prop('files');
+		console.log("file name "+filehere[0].path);
+		$('#'+selecte_element_id).attr('src',filehere[0].path);
+		$('#myModal').hide();
+	/*
+		if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={background: 'url("'+filehere[0].path+'") no-repeat'};
+} else {
+	
+	localprops["#"+selecte_element_id]['background']= 'url("'+filehere[0].path+'") no-repeat';
+}
+*/
+imagepath=filehere[0].path;
+let updated_html_code='';
+let html_code=$('#html_code_area').text();
+//console.log(selecte_element_id+' '+elemetid);
+		updated_html_code=html_code+'<img src="'+imagepath+'" id="'+selecte_element_id+'"></'+elemetid+'><br><br>'
+$('#html_code_area').text(updated_html_code);
+console.log('file path saved'+imagepath)
+	})
+	
+$('#createtable').click(function(){
+	let rows=$('#nrows').val();
+	let cols=$('#ncols').val();
+	alert(rows+' '+cols);
+	generate_table(rows,cols);
+	$('#tablemodel').hide();
+})
+function generate_table(rows,cols){
+   // console.log(rows+' '+cols);
+let i=0,j=0;
+var row123=rows-1;
+let header1='';
+//header1=header(cols);
+new Promise((resolve,reject)=>{
+var localheader='<thead>';
+for(let h=0;h<cols;h++){
+localheader=localheader+'<th>header'+h+'</th>';
+}
+localheader=localheader+'</thead><tbody>';
+console.log(localheader)
+resolve(localheader);
+console.log('rows area'+row123);
+}).then((data)=>{
+alert(data);
+for(i=0;i<rows;i++){
+  
+		$('#work_space').append("<table class='table' id='tbl'>"+data);
+       
+    $('#tbl').append('<tr id="'+i+'">col_'+i+'</tr>');
+for(j=0;j<cols;j++){
+    $('<td id="row'+i+''+j+'" class="changetabledata">row_'+j+'</td>').appendTo('#'+i);
+}
+if(i==row123){
+        console.log("number is "+i+"=="+row123)
+        $('#work-space1').append('<tbody></table>');
+    }
+}
+});
+}
+function header(rows12345){
+    var localheader='<thead>';
+for(let h=0;h<rows12345;h++){
+localheader=localheader+'<th>header'+h+'</th>';
+}
+localheader=localheader+'</thead><tbody>';
+return localheader;
+}
+$(document).on('click','td',function(){
+    let id=$(this).attr('id');
+   // alert(id);
+   append_to_element=id;
+$('#'+id).attr('contenteditable','true');
+//$("#container <all tags here>").contentEditable = "true";
+})
+let updated_html_code='';
+$(document).on('keyup','.changetabledata',function(){
+	$('#html_code_area').text('');
+var updated_html_code1=$('#work-space1').html();
+$('#html_code_area').text(updated_html_code1);
+});
+function update_html_code_area(){
+	var code_area_1=$('#work-space1').html();
+$('#html_code_area').text(code_area_1);
+}
+$('#work-space1').click(function(){
+    append_to_element="work-space1"
+})
+$('#openproject').click(function(){
+		async.series([
+  function(done) {
+	fs.readFile('C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/html_schema.json',function(err,result){
+			if(err) {
+				console.log(err);
+				throw err;
+			}
+			let data=JSON.parse(result)
+			console.log(data)
+			console.log("object fetched"+data.title)
+			console.log("object fetched"+data.body)
+			console.log(data.body)
+			$('#work-space1').html(data.body.html())
+		
+		})
+    done()
+  },
+  function(done) {
+	  let cssarray=[];
+	fs.readFile('C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/css_schema.json',function(err,result){
+			if(err) {
+				console.log(err);
+				throw err;
+			}
+			let data=JSON.parse(result)
+			console.log(data)
+			console.log(data['#h11'])
+			async.forEachOf(data['#h11'],function(value,key,callback){
+			//	console.log('$("#h11").css({'+key+':"'+value+'"})');
+				var x=key;
+			//	console.log(x)
+				let demo={
+					x:value
+				}
+              console.log(value.length);
+			  var demokey="'"+key+"'";
+			  var demovalue="'"+value+"'";
+				var keys="'"+key.toString()+"'";
+				//console.log("$('#h11').css({"+key+":"+value+"})")
+				$('#h11').css({demokey:demovalue})
+			//	console.log(key+":"+' '+value)
+			//$('#h11').css({color:'red','background-color':'blue'})	
+			//$('#h11').css({'background-color':'blue'})			
+			})
+		
+		})
+ 
+  }
+], function(err) {
+  console.log(err.message) // "another thing"
+})
+		var promisereadhtml=new Promise((resolve,reject)=>{
+		fs.readFile('C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/html_schema.json',function(err,result){
+			if(err) {
+				console.log(err);
+				throw err;
+			}
+			let data=JSON.parse(result)
+			console.log(data)
+			console.log("object fetched"+data.title)
+			console.log("object fetched"+data.body)
+			$('#work-space1').html(data.body)
+		resolve(data1);	
+		})
+		
+	}).then((data1)=>{
+		fs.readFile('C:/Users/rishi/OneDrive/Documents/pypsi/htmlproject/css_schema.json',function(err,result){
+			if(err) {
+				console.log(err);
+				throw err;
+			}
+			let data=JSON.parse(result)
+			console.log(data)
+			console.log(data['#h11'])
+			async.forEachOf(data['#h11'],function(value,key,callback){
+				console.log('$("#h11").css({'+key+':"'+value+'"})');
+				$('#h11').css({key:value})
+				
+			})
+		
+			
+		})
+	})
+	})
+$('#creatediv').click(function(){
+var colums=$('#ndivcols').val();
+//alert(colums)
+generatediv(colums);
+})
+function generatediv(col){
+var decided_colums='';
+if(col==1||col==2||col==3||col==4||col==6||col==12){
+$('#work-space1').append('<div id="row'+col+'" class="row"></div>');
+for(let i=0;i<col;i++){
+decided_colums=12/col;
+let count1=localdata[elemetid]+1;
+	$('#row'+col).append('<div class="col-sm-'+decided_colums+' col-lg-'+decided_colums+' col-md-'+decided_colums+' col-xl-'+decided_colums+' eachcol" id="col'+count1+'">hello</div>');
+	localdata[elemetid]=count1;
+	$('#divmodel').hide();
+}
+}else{
+	alert('colums with this number is not allowed choose another number')
+}
+}
+$(document).on('click','.eachcol',function(){
+	var current_div_id=$(this).attr('id');
+append_to_element=current_div_id;
+$('#'+current_div_id).attr('contenteditable','true');
+//alert(current_div_id);
+})
+$(document).on('keyup','.eachcol',function(){
+	var current_div_id=$(this).attr('id');
+append_to_element=current_div_id;
+let data=$('#'+current_div_id).val();
+let previuos_code=$('#work-space1').html();
+$('#html_code_area').text(previuos_code);
+//alert(current_div_id);
+})
+$(document).on('click','#open4',function(){
+var videolink=$('#youtubelink').val();
+let currentid=$('#elementid').val();
+let previous=$('#html_code_area').text();
+let demo='<iframe width="560" height="315" id="'+currentid+'" src="'+videolink+'"  class="youtubevideosrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+//makeDraggable(currentid);
+$('<div style="border:1px solid black"  ><iframe  id="'+currentid+'" src="'+videolink+'"  class="youtubevideosrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div>').appendTo('#'+append_to_element).resizable({
+       appendTo:'#work-space1',
+	   resize: function( event, ui ) {
+   ui.size.height = Math.round( ui.size.height) ;
+   $('#'+currentid).css({"height":ui.size.height,"width":ui.size.width})
+   console.log(ui.size.height+' '+ui.size.width);
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'height': Math.round( ui.size.height)+'px'};
+	localprops["#"+selecte_element_id]={'width': Math.round( ui.size.width)+'px'};
+} else {
+	localprops["#"+selecte_element_id]['height']= Math.round( ui.size.height)+'px';
+	localprops["#"+selecte_element_id]={'width': Math.round( ui.size.width)+'px'};
+}
+   
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'height': Math.round( ui.size.height)+'px'};
+	
+} else {
+	localprops["#"+selecte_element_id]['height']= Math.round( ui.size.height)+'px';
+	
+}
+   
+ }
+   }).draggable({	cursor: "move",
+        grid: [1,1],
+		start: function(e, ui) {
+            var p=ui.position;
+           
+      //console.log('drag start');    
+		}, 
+		drag: function(e, ui) {
+            var p=ui.position;
+           // console.log('dragging'+' left='+p.left);    
+		},
+		stop: function(e, ui) {
+		//	selecte_element_id=currentid;
+			var p=ui.position;
+		    console.log('id='+selecte_element_id);
+			var percentage_left_width=(Math.floor(p.left)/Math.floor(width))*100;
+			var percentage_top=(Math.floor(p.top)/Math.floor(height))*100;
+console.log('width in percent '+Math.floor(percentage_left_width)+' top'+percentage_top);
+$('#'+currentid).css({"left":percentage_left_width+'%',"top":percentage_top+'%'})
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':Math.floor(percentage_left_width)+'%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']=Math.floor(percentage_left_width)+'%';
+} 
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-top':Math.floor(percentage_top)+'%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-top']=Math.floor(percentage_top)+'%';
+}
+		},
+		containment:"#drop-area"
+	});
+	alert(previous)
+$("#html_code_area").text(previous+demo)
+$('#youtubevideomodel').hide();
+});
+$(document).on('click','.card-header',function(){
+	var currentid1=$(this).attr('id');
+	//alert(currentid1)
+	$('#'+currentid1).attr('contenteditable','true');
+	append_to_element=currentid1;
+	
+})
+$(document).on('keyup','.card-header',function(){
+let previousc=$('#work-space1').html();
+$('#html_code_area').text(previousc);
+})
+$(document).on('keyup','.card-body',function(){
+let previousc=$('#work-space1').html();
+$('#html_code_area').text(previousc);
+})
+$(document).on('keyup','.card-footer',function(){
+let previousc=$('#work-space1').html();
+$('#html_code_area').text(previousc);
+})
+$(document).on('click','.card-body',function(){
+	var currentid1=$(this).attr('id');
+	//alert(currentid1)
+	$('#'+currentid1).attr('contenteditable','true');
+	append_to_element=currentid1;
+	
+})
+$(document).on('click','.card-footer',function(){
+	var currentid1=$(this).attr('id');
+	//alert(currentid1)
+	$('#'+currentid1).attr('contenteditable','true');
+	append_to_element=currentid1;
+	makeDraggable(currentid1);
+})
+function makeDraggable(selected_id) {
+	console.log("here i am "+selected_id)
+	$('#'+selected_id).draggable()
+}
+/*
+$(document).on('click',"#work-space1",function(){
+selecte_element_id=='body';
+	alert($(this).attr('id'));
+})
+*/
+$(document).on('click',".headernav1",function(){
+selected_nav_id=$(this).attr('id');
+	//alert($(this).attr('id'));
+	var $div = $( "h1" );
+  var start = Math.floor( Math.random() * $div.length );
+  var end = Math.floor( Math.random() * ( $div.length - start ) ) +start + 1;
+console.log(start+' '+end);
+	const doc = JsonFind(editable_fields);
+//	console.log();
+var fetched_data=[];
+fetched_data=doc.checkKey(elemetid);
+console.log(fetched_data);
+	$(this).find('.navbar-brand').text('sb');
+	$('#props_of_element').hide();
+	$('#change_elements_tab').show();
+	var dataarray={};
+async.forEachOf(fetched_data,function(value,key,callback){
+//console.log(dataarray)
+dataarray[i]=value;
+$('.'+key).show();
+$('#change_elements_tab').append('<tr><td><i class="fa fa-chevron-right"></i></td>	<td>'+key+'</td>	<td><input type="'+value+'" autocomplete="off" id="'+key+'" type="text"></td></tr>')
+i++;
+})
+})
+$('#change_elements').click(function(){
+	$('#props_of_element').hide();
+	$('#change_elements_tab').show();
+})
+$('#change_properties').click(function(){
+	$('#props_of_element').show();
+	$('#change_elements_tab').hide();
+})
+$(document).on('keyup','#link',function(){
+	let title_fetch=$(this).val();
+	console.log(title_fetch);
+	$(selected_anchor_tag).find('a').attr('href',title_fetch);
+	update_code();
+})
+function update_code(){
+	let previous_code=$('#work-space1').html();
+	$('#html_code_area').text(previous_code)
+}
+$(document).on('click','.change_anchor',function(){
+//	alert('clicked')
+	$(this).attr('contenteditable','true');
+//	$(this).find('a').attr('href','http://saurabhsolkar.ml/index.html');
+console.log($(this).text());
+selected_anchor_tag=$(this);
+change_links();
+})
+function change_links(){
+	console.log('selected'+selecte_element_id);
+if(flag){}else{
+	const doc = JsonFind(editable_fields);
+//	console.log();
+var fetched_data=[];
+fetched_data=doc.checkKey(elemetid);
+console.log(fetched_data);
+	$('#props_of_element').hide();
+	$('#change_elements_tab').show();
+	var dataarray={};
+async.forEachOf(fetched_data,function(value,key,callback){
+//console.log(dataarray)
+dataarray[i]=value;
+$('.'+key).show();
+$('#change_elements_tab').append('<tr><td><i class="fa fa-chevron-right"></i></td>	<td>'+key+'</td>	<td><input type="'+value+'" autocomplete="off" id="'+key+'" type="text"></td></tr>')
+i++;
+})
+flag=true;
+}
+	}
+$(document).on('keyup','.change_anchor',function(){
+	let change_value=$(this).text();
+let previous_code=$('#work-space1').html();
+$('#html_code_area').text(previous_code);
+})
+$(document).on('click','#close_element',function(){
+var close_this=$(this).attr('class');
+alert(close_this);
+$('#'+close_this).remove();
+$('.'+close_this).remove();
+update_code();
+})
+$('#change_work_area_size').change(function(){
+let changed_dim=$(this).val();
+alert(changed_dim);
+if(changed_dim=='360x740'){
+	$('#work-space1').width('360');
+	$('#work-space1').height('740');
+}else if(changed_dim=='select'){
+	$('#work-space1').width('1000');
+	$('#work-space1').height('600');
+}
+})
+function drag_random(select_this){
+    let widthx=$('#work-space1').width();
+if(select_this=='work-space1'){
+}else{
+    $('#'+select_this).resizable({
+       appendTo:'#work-space1',
+	   resize: function( event, ui ) {
+   ui.size.height = Math.round( ui.size.height) ;
+   console.log(ui.size.height+' '+ui.size.width);
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'height': Math.round( ui.size.height)+'px'};
+	localprops["#"+selecte_element_id]={'width': Math.round( ui.size.width)+'px'};
+} else {
+	localprops["#"+selecte_element_id]['height']= Math.round( ui.size.height)+'px';
+	localprops["#"+selecte_element_id]={'width': Math.round( ui.size.width)+'px'};
+}
+   
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'height': Math.round( ui.size.height)+'px'};
+	
+} else {
+	localprops["#"+selecte_element_id]['height']= Math.round( ui.size.height)+'px';
+	
+}
+   
+ }
+   }).parent().draggable({
+		cursor: "move",
+        grid: [1,1],
+		start: function(e, ui) {
+            var p=ui.position;
+           
+    console.log('drag start'+p.left);    
+		}, 
+		drag: function(e, ui) {
+            
+            var p=ui.position;
+            if(p.left<0){
+            console.log('dragging'+' left='+p.left+'right ='+p.right+'width'+widthx);   
+            return false;
+            }
+          //   if(p.left+widthx+100>widthx){
+           //     return false;
+           //  }
+           if(p.top<0){
+            console.log('dragging'+' left='+p.left+'right ='+p.right+'width'+widthx);   
+            return false;
+            }
+		},
+		stop: function(e, ui) {
+            if(ui.position.left+widthx+100>widthx){
+     //   $('#'+selecte_element_id).css({'left':'0'})
+            }
+			selecte_element_id=$(this).attr('id');
+			var p=ui.position;
+		    console.log('id='+$(this).attr('id'));
+			var percentage_left_width=(Math.floor(p.left)/Math.floor(width))*100;
+			var percentage_top=(Math.floor(p.top)/Math.floor(height))*100;
+console.log('width in percent '+Math.floor(percentage_left_width)+' top'+percentage_top);
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':Math.floor(percentage_left_width)+'%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']=Math.floor(percentage_left_width)+'%';
+} 
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-top':Math.floor(percentage_top)+'%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-top']=Math.floor(percentage_top)+'%';
+}
+		},
+		containment:"#drop-area"
+    })
+}
+}
+$('#zoomin').click(function(){
+	///let tempzoomin=$('#work-space1').css('zoom');
+//	console.log(tempzoomin+0.5)
+//	$('#work-space1').animate({ 'zoom': tempzoomin+0.2}, 400);
+	$("#work-space1").click(ZoomIn());
+})
+$('#zoomout').click(function(){
+//	let tempzoomin=$('#work-space1').css('zoom');
+//	console.log(tempzoomin+0.5)
+//	$('#work-space1').animate({ 'zoom': tempzoomin+0.2}, 400);
+	$("#work-space1").click(ZoomOut());
+})
+function ZoomIn (event) {
+$("#work-space1 ").width(
+	$("#work-space1").width() * 1.2
+);
+$("#work-space1").height(
+	$("#work-space1").height() * 1.2
+);
+}
+function  ZoomOut (event) {
+$("#work-space1").width(
+	$("#work-space1").width() * 0.5
+);
+$("#work-space1").height(
+	$("#work-space1").height() * 0.5
+);
+}
+	</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+ 

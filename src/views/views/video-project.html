@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Publication Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/tab-design.css">
+    <script src="../assets/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/video-editor.css">
+    <script type="text/javascript" src="../assets/js/include-html.js"></script>
+    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+    <script src="../assets/js/jquery-ui.js"></script>
+    <style type="text/css">
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
+
+    #more {
+        display: none;
+    }
+
+    .w3-main,
+    #main {
+        transition: margin-left .4s, margin-right .4s;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="dropdown _child">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">New <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">New File<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">HTML File</a></li>
+                                        <li><a href="#">CSS File</a></li>
+                                        <li><a href="#">JS File</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">New Project<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">HTML Based<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">New </a></li>
+                                                <li><a href="#">Open</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">New</a></li>
+                                                <li><a href="#">Open</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">New</a></li>
+                                                <li><a href="#">Open</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">New</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">New</a></li>
+                                                <li><a href="#">Open</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a tabindex="-1" href="#">Open</a></li>
+                        <li><a tabindex="-1" href="#">Save</a></li>
+                        <li><a tabindex="-1" href="#">Save As</a></li>
+                        <li><a tabindex="-1" href="#">Close Project</a></li>
+                        <li><a tabindex="-1" href="#">Exit</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown _child">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+                        <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+                        <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown _child">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attach</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Image</a></li>
+                        <li><a href="#">Document</a></li>
+                        <li><a href="#">Audio</a></li>
+                    </ul>
+                </li>
+                <li class="_child"><a href="#">Settings</a></li>
+                <li class="_child"><a href="#">Help</a></li>
+                <li class="_child"><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="work-pan">
+                <div class="w3-sidebar w3-bar-block w3-card w3-animate-left tool-tab-pan" id="leftMenu" style="width: 20%;">
+                    <span class="close-btn"><button id="leftMenu-btn" class="w3-bar-item w3-button w3-medium icn"><i class="fa fa-times" aria-hidden="true"></i></button></span>
+                    <ul class="nav nav-tabs tool-tab">
+                        <li class="active"><a data-toggle="tab" href="#tb0"><i class="fa fa-file-text" aria-hidden="true"></i></a></li>
+                        <li><a data-toggle="tab" href="#tb1"><i class="fa fa-picture-o" aria-hidden="true"></i></a></li>
+                        <li><a data-toggle="tab" href="#tb01"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></li>
+                        <li><a data-toggle="tab" href="#tb11"><i class="fa fa-music" aria-hidden="true"></i></a></li>
+                        <li><a data-toggle="tab" href="#tb2"><i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tb0" class="tab-pane fade in active">
+                            <div class="tab-head">
+                                <p>Text</p>
+                            </div>
+                            <div class="tab-menu">
+                                <ul>
+                                    <li><a class="active" href="#"><i class="fa fa-th-large" data-toggle="tooltip" data-placement="top" title="Grid View!" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-th-list" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="List View!"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-file-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="File!"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-tool-item">
+                                <ul class="nav nav-tabs tool-tab">
+                                    <li><img src="../assets/images/tools/add-new.jpg"><br>
+                                        <p>Add new files</p>
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="tb1" class="tab-pane fade">
+                            <div class="tab-head">
+                                <p>Images</p>
+                            </div>
+                            <div class="tab-menu">
+                                <ul>
+                                    <li><a class="active" href="#"><i class="fa fa-th-large" data-toggle="tooltip" data-placement="top" title="Grid View!" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-th-list" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="List View!"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-file-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="File!"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-tool-item">
+                                <ul class="nav nav-tabs tool-tab">
+                                    <li><img src="../assets/images/tools/dummy-img.jpg"><br>
+                                        <p>Add Image</p>
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="tb01" class="tab-pane fade">
+                            <div class="tab-head">
+                                <p>PDF</p>
+                            </div>
+                            <div class="tab-menu">
+                                <ul>
+                                    <li><a class="active" href="#"><i class="fa fa-th-large" data-toggle="tooltip" data-placement="top" title="Grid View!" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-th-list" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="List View!"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-file-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="File!"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-tool-item">
+                                <ul class="nav nav-tabs tool-tab">
+                                    <li><img src="../assets/images/tools/add-new.jpg"><br>
+                                        <p>Add new files</p>
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="tb11" class="tab-pane fade">
+                            <div class="tab-head">
+                                <p>Music</p>
+                            </div>
+                            <div class="tab-menu">
+                                <ul>
+                                    <li><a class="active" href="#"><i class="fa fa-th-large" data-toggle="tooltip" data-placement="top" title="Grid View!" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-th-list" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="List View!"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-file-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="File!"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-tool-item">
+                                <ul class="nav nav-tabs tool-tab">
+                                    <li><img src="../assets/images/tools/add-music.jpg"><br>
+                                        <p>Select Music</p>
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="tb2" class="tab-pane fade">
+                            <div class="tab-head">
+                                <p>Videos</p>
+                            </div>
+                            <div class="tab-menu">
+                                <ul>
+                                    <li><a class="active" href="#"><i class="fa fa-th-large" data-toggle="tooltip" data-placement="top" title="Grid View!" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-th-list" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="List View!"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-file-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="File!"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-tool-item">
+                                <ul class="nav nav-tabs tool-tab">
+                                    <li><img src="../assets/images/tools/add-video.jpg"><br>
+                                        <p>Add new files</p>
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-sidebar w3-bar-block w3-card w3-animate-right tool-tab-pan" style="right:0;" id="rightMenu">
+                    <span class="close-btn"><button id="rightMenu-btn" class="w3-bar-item w3-button w3-medium icn"><i class="fa fa-times" aria-hidden="true"></i></button></span>
+                    <ul class="nav nav-tabs tool-tab">
+                        <li class="active"><a data-toggle="tab" href="#ntab0"><i class="fa fa-sticky-note" aria-hidden="true"></i></a></li>
+                        <li><a data-toggle="tab" href="#ntab1"><i class="fa fa-volume-up" aria-hidden="true"></i></a></li>
+                        <li><a data-toggle="tab" href="#ntab2"><i class="fa fa-mouse-pointer" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <div class="tab-content" style="height: 624px; overflow: auto;">
+                        <div id="ntab0" class="tab-pane fade in active">
+                            <div class="tab-head">
+                                <p>Transform</p>
+                            </div>
+                            <div class="tab-property">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>accept</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>alt</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>max</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>maxlength</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>min</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-head">
+                                <p>compositing</p>
+                            </div>
+                            <div class="tab-property">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>accept</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>alt</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>autocomplete</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>autofocus</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>max</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>maxlength</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>min</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-head">
+                                <p>Border</p>
+                            </div>
+                            <div class="tab-property">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>accept</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>alt</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>autocomplete</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>autofocus</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-head">
+                                <p>speed</p>
+                            </div>
+                            <div class="tab-property">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>accept</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>alt</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>autocomplete</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-chevron-right"></i></td>
+                                            <td>autofocus</td>
+                                            <td><input autocomplete="off" type="text"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="ntab1" class="tab-pane fade">
+                            <h3>Ntab1</h3>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                        <div id="ntab2" class="tab-pane fade">
+                            <h3>Ntab2</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="main" style="margin-left: 20%; margin-right: 20%;">
+                    <div class="w3-teal" style="background: #f3f3f3 !important;">
+                        <button class="w3-button w3-teal w3-large w3-left" style="border-right: 1px solid #a9a9a9; display: none;">&#9776;</button>
+                        <button class="w3-button w3-teal w3-large w3-right" style="display: none;">&#9776;</button>
+                        <div class="w3-container" style="padding: 0; display: flow-root;">
+                            <div class="video-container">
+                                <video id="video1" width="900" style="margin: auto;">
+                                    <source src="../assets/video/mov_bbb.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bottom-tool-pain">
+                <div class="bottom-tool-menu">
+                    <ul>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Backward!"><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Forward!"><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:void(0)" data-control="play-pause-btn" data-toggle="tooltip" data-placement="top" title="Play!"><i class="fa fa-play"></i></a></li>
+                        <li><a href="javascript:void(0)" data-control="stop-btn" data-toggle="tooltip" data-placement="top" title="Stop!"><i class="fa fa-stop" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-microphone" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Microphone!"></i></a></li>
+                        <li><a href="#"><i class="fa fa-volume-up" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Volume!"></i><i class="fa fa-volume-off hidden" aria-hidden="true"></i></a></li>
+                        <li><a href="#" style="border-right: 1px solid #a9a9a9;" data-toggle="tooltip" data-placement="top" title="Record!"><i class="fa fa-camera" aria-hidden="true"></i></a></li>
+                        <li style="min-width:80px; padding: 0 10px;"><span id="demo"></span></li>
+                        <li><span><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></span></li>
+                        <li style="min-width:80px; padding: 0 10px;"><span id="demo2"> 00:00:00 </span></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Full screen!"><i class="fa fa-arrows-alt" aria-hidden="true"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Fit to screen!"><strong>Fit</strong></a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Pointer!"><i class="fa fa-mouse-pointer" aria-hidden="true"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Crop!" style="border-right: 1px solid #a9a9a9;"><i class="fa fa-crop" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="bottom-tool-sec">
+                    <ul>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Backward!"><i class="fa fa-reply" aria-hidden="true"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Forward!"><i class="fa fa-share" aria-hidden="true"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Scissors!"><i class="fa fa-scissors" aria-hidden="true"></i></a></li>
+                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Full screen!"><i class="fa fa-arrows-h" aria-hidden="true"></i></a></li>
+                        <li style="padding-right: 10px;"><a href="#"><i class="fa fa-minus" aria-hidden="true"></i></a></li>
+                        <li><span> <input type="range" min="1" max="100" value="50" class="slider-sec" id="myRange"> </span></li>
+                        <li style="padding-left: 10px;"><a href="#" style="border-left:0; border-right: 1px solid #a9a9a9;"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/video-project.js"></script>
+</body>
+
+</html>

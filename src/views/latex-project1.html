@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Latex Project</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../assets/css/tab-design.css">
+      <script src="../assets/js/jquery-3.3.1.js"></script>
+      <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/latex-project.css">
+      <script type="text/javascript" src="../assets/js/include-html.js"></script>
+      <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+      <!-- <script src="../assets/js/jquery-ui.js"></script> -->
+      <link href="../assets/summernote/summernote.css" rel="stylesheet">
+	<link href="../assets/summernote/summernote-bs3.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/codemirror.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/monokai.css" rel="stylesheet">
+      
+		<!-- <script src="../assets/summernote/summernote.min.js"></script> -->
+		<script src="../assets/codemirror/lib/codemirror.js"></script>
+		<script src="../assets/codemirror/lib/xml.min.js"></script>
+      <script src="../assets/js/formatting.min.js"></script> 
+
+      <script type="text/javascript"  async src="http://latex.codecogs.com/latexit.js"></script>
+      <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async>
+    </script>
+      
+<link rel="stylesheet" type="text/css" href="../assets/css/equation-6.css"/>
+<script type="text/javascript" src="../assets/js/eq_config.js"></script>
+<script type="text/javascript" src="../assets/js/latex_eq.js"></script>
+<!-- <script type="text/javascript" aysnc src="C:\Users\JCom\Desktop\generator-ak-2 (2) (2)\generator-ak-2\src\assets\js\latex_table.js"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ 
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+<!-- <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+<script type="text/javascript" src="../../node_modules/mathjax-electron/package.json"></script>
+<!-- <script type="text/javascript" async src="C:/Users/JCom/Desktop/generator-ak-2 (2) (2)/generator-ak-2/node_modules/mathjax-electron/MathJax-2.7.5/MathJax.js"></script> -->
+
+
+      <!-- <script src="../assets/js/latex-project.js"></script> -->
+      
+<style type="text/css">
+    #EqnEditor { text-align:left; }
+
+    .close {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+}
+    </style>
+
+      <script src="../assets/js/jquery.library.js"></script>
+
+      <!--to drag and drop math-->
+      <script>
+     
+     $(document).ready(function(){
+    $("#1").click(function(){
+      $("#1").clone().appendTo("#symbol ");
+    });
+  });
+      $(document).ready(function(){
+        $("#2").click(function(){
+          $("#2").clone().appendTo("#symbol ");
+        });
+      });
+
+      $(document).ready(function(){
+        $("#3").click(function(){
+          $("#3").clone().appendTo("#symbol ");
+        });
+      });
+
+      $(document).ready(function(){
+        $("#4").click(function(){
+          $("#4").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#5").click(function(){
+          $("#5").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#6").click(function(){
+          $("#6").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#7").click(function(){
+          $("#7").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#8").click(function(){
+          $("#8").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#9").click(function(){
+          $("#9").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#10").click(function(){
+          $("#10").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#11").click(function(){
+          $("#11").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#12").click(function(){
+          $("#12").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#13").click(function(){
+          $("#13").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#14").click(function(){
+          $("#14").clone().appendTo("#symbol ");
+        });
+      });
+      </script>
+
+
+
+
+		<style type="text/css">
+         .dropdown-submenu {
+         position: relative;
+         }
+         .dropdown-submenu .dropdown-menu {
+         top: 0;
+         left: 100%;
+         margin-top: -1px;
+         }
+      </style>
+   </head>
+   <body>
+        
+      <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+            <ul class="nav navbar-nav">
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+                  <ul class="dropdown-menu">
+                     <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="new">New <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                           <li class="dropdown-submenu">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">New Project<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">HTML Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New </a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a tabindex="-1" href="#" id="open">Open</a></li>
+                     <li><a tabindex="-1" href="#" id="save">Save</a></li>
+                     <li><a tabindex="-1" href="#saveAs" id="saveAs">Save As</a></li>
+                     <li><a tabindex="-1" href="#">Close Project</a></li>
+                     <li><a tabindex="-1" href="#">Exit</a></li>
+                  </ul>
+               </li>
+
+               <div id="open12" class="modal">
+
+                     <!-- Modal content -->
+                     <div class="modal-content">
+                       <span class="close">&times;</span>
+                       <p class="form-label">Enter file name</p><br/>
+                      <input type="file" id="files"  class="form-control" name="files[]" directory multiple/><br/>
+                      <button id="openbtn" type="submit"  class="btn btn-primary btn-sm" >OPEN</button>
+                     </div>
+                   
+                   </div>
+
+
+
+                    
+
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+                     <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+                     <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+                  </ul>
+               </li>
+               <li class="dropdown">
+                     <a class="dropdown-toggle" id="menu_table" role="button" data-toggle="dropdown" href="#">Table </a>
+                     <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop_table">
+                         <li role="presentation" class="dropdown-submenu">
+                     <a role="menuitem" tabindex="-1" href="#" id="table_resize"   onclick=" createTable()">
+                         <i class="icon-fixed-width icon-resize-full"></i> Set size </a>
+                     <ul class="dropdown-menu">
+                         <li><div class="table_size_chooser"><div class="SizeChooser"><table><tbody><tr><td class="SizeChooser-selected SizeChooser-hover"> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td> </td><td> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td> </td><td> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr><tr><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td class=""> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr></tbody></table><form><input><span> x </span><input></form></div></div></li>
+                     </ul>
+                 </li>
+                <li role="presentation" class="divider"></li>
+                 <li role="presentation">
+                     <a role="menuitem" tabindex="-1" href="#" id="table_reset">
+                         <i class="icon-fixed-width icon-circle-blank"></i> Clear table
+                     </a>
+                 </li>
+                         <li role="presentation" class="divider"></li>
+                 <li role="presentation">
+                     <a role="menuitem" tabindex="-1" href="#" id="table_transpose">
+                         <i class="icon-fixed-width icon-rotate-right"></i> Transpose table</a>
+                     
+                 </li>
+                         <li role="presentation" class="divider"></li>
+                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table_add_all_borders">Add all borders</a></li>
+                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table_add_vert_borders">Add vertical borders</a></li>
+                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table_add_horizontal_borders">Add horizontal borders</a></li>
+                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table_remove_all_borders">Remove all borders</a></li>
+                     </ul>
+                     </li>
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attach</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#">Image</a></li>
+                     <li><a href="#">Document</a></li>
+                     <li><a href="#">Audio</a></li>
+                  </ul>
+               </li>
+               <li class="_child"><a href="#">Settings</a></li>
+               <li class="_child"><a href="#">Help</a></li>
+               <li class="_child"><a href="#">About</a></li>
+            </ul>
+         </div>
+      </nav>
+      <nav class="navbar navbar-toolbox">
+           
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12" style="padding: 0;">
+                  <!-- <h2>Animated Modal with Header and Footer</h2> -->
+
+                        <!-- Trigger/Open The Modal -->
+                        <!-- <button id="myBtn">Open Modal</button> -->
+                        <div class="container">
+                              
+                              <!-- Trigger the modal with a button -->
+                              <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                             -->
+                              <!-- Modal -->
+                              <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                   
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                       
+                                    <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>    
+                                     
+                                    </div>
+                                    <div class="modal-body">
+                                   <label>Enter Rows:</label>
+                                   <input type="text" id="rows" ><br/><br/> 
+                                   <label>Enter Columns:</label>
+                                   <input type="text" id="columns" ><br/><br/>
+                                   <input type="submit" id="submit" value="Submit" onclick="createTable()">
+                                    </div>
+                                    <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal" >Create</button>
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                              
+                            </div>
+                       
+                        </div>
+                        <div id="editor">
+
+                        </div>
+                  <!-- <center>
+                     <div class="tool-box">
+                        <ul class="tool tool-tabs">
+                           <li class="active"><a class="menu" data-toggle="tab" href="#math">Math</a></li>
+                           <li><a class="menu"data-toggle="tab" href="#greek">Greek</a></li>
+                           <li><a class="menu" data-toggle="tab" href="#relational">Relation</a></li>
+                           <li><a class="menu" data-toggle="tab" href="#logic">Logic</a></li>
+                           <li><a class="menu" data-toggle="tab" href="#symbols">Symboll</a></li>
+                           <li><a class="menu" data-toggle="tab" href="#arrows">Arrows</a></li>
+                        </ul>
+                     </div>
+                  </center> -->
+                  <div class="tab-content" style="border:0; background: #f3f3f3;">
+<!--                         
+                             <div id="editor"> 
+                              
+                              </div>
+                      -->
+                    
+                                 
+                            <div id="logic" class="tab-pane fade">
+                               </div>
+      
+      
+                           <div id="symbols" class="tab-pane fade">
+                           </div> 
+      
+      
+                           <div id="arrows" class="tab-pane fade">
+                      </div>
+            </div>
+
+                        
+                     
+
+                    
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-12 filepath-panel" data-asid="filepath-panel">
+               <div>
+                  <nav aria-label="breadcrumb">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item "><i class="fa fa-folder"></i>Home <span class="line-arrow right"></span></li>
+                        <li class="breadcrumb-item"><i class="fa fa-folder"></i>Library <span class="line-arrow right"></span></li>
+                        <li class="breadcrumb-item"><i class="fa fa-file-text-o"></i>Data<span class="line-arrow right"></span></li>
+                        <li id="uploadimg" class="breadcrumb-item"><i class="fa fa-file-text-o"><a href="#" id="uploadimg1">upload</a></i></li>
+                     </ol>
+                     
+                        <div id="uploadfiles" class="modal">
+
+                              <!-- Modal content -->
+                              <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <p class="form-label">Enter file name</p><br/>
+                               <input type="file" name="files1[]" /><br/>
+                           
+                              </div>
+                            
+                            </div>                       
+                  
+                  </nav>
+               </div>
+            </div>
+         </div>
+         <div id="filesupload"  class="row" style="display: flex;">
+            <div data-asid="directory-panel" class="directory-panel">
+                  <ul class="parent" data-asid="dir">              
+                           <li ng-class="active">
+                                 <i class="fa fa-chevron-right"></i><span class="fld">Directory 0</span>
+                                 <ul class="chld active" id="directory" >
+                                       <li>
+                                          <i class="fa fa-chevron-right"></i><span class="fld">File 1</span>
+                                          </li>
+                                          </ul>
+                                 
+                                 </li>
+                              </ul>
+                        <!-- <a href="" id="allProjects">All Projects</a></li> -->
+                        <!-- <img id="blah" src="" alt="your image" height="200"/> -->
+
+                  <!-- <i class="fa fa-fw fa-plus" aria-hidden="true">
+                  </i><span class="name">New Folder</span> -->
+               </a>
+            </div>
+            <div data-asid="work-panel" class="work-panel" id="work-area">
+               <div class="row" style="width: -webkit-fill-available; margin: 0;">
+                  <div class="tab-container main-container" id="menu">
+                     <ul class="nav nav-tabs" data-asid="tab-layout" id="ul1">
+                        <!-- <li class="extra-tabs" >
+                           <span class="scrollLeft">
+                           <i class="fa fa-caret-left"></i>
+                           </span>
+                           <span class="scrollRight">
+                           <i class="fa fa-caret-right"></i>
+                           </span>
+                        </li> -->
+                        <!-- <li class="active" id="menu1">
+                         <a data-target="#project" data-toggle="tab" id="close4">Project<label for="close4" class="close closeTab" action-field="project-close" name="close4" id="close1">×</label></a></li> -->
+                        <!-- <li><a data-target="#project" data-toggle="tab" id="close4" >Project<label class="close closeTab" action-field="project-close" id="close1" name="close4">×</label></a></li>
+                        <li><a data-target="#project" data-toggle="tab" id="close4">Project<label class="close closeTab" action-field="project-close" id="close1" name="close4" >×</label></a></li>
+                        <li><a data-target="#project" data-toggle="tab" id="close4">Project<label class="close closeTab" action-field="project-close" id="close1" name="close4">×</label></a></li>
+                        <li><a data-target="#project" data-toggle="tab" id="close4" >Project<label class="close closeTab" action-field="project-close" id="close1" name="close4">×</label></a></li> -->
+                     </ul>
+                     <div class="tab-content" data-asid="tab-contents" id="tab-content">
+                        <div class="tab-pane active" id="project">
+                           <div class="tabbable tabs-bottom">
+                              <div class="tab-content" style="border-top: 0;">
+                                 <div class="tab-pane" id="privew">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="privew-container">
+                                             <div class="privew-wrapper">
+                                                <div class="privew-head">
+                                                   <ul>
+                                                      <li><a href="#">Page 1 - &nbsp;</a></li>
+                                                      <li><a href="#"><input type="text" name="" placeholder="Add Page title"></a></li>
+                                                      <li style="float:right">
+                                                         <div class="dropdown">
+                                                            <div class="" type="" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                                                            <ul class="dropdown-menu">
+                                                               <li><a href="#">Save As Image</a></li>
+                                                               <li><a href="#">Save As HTML</a></li>
+                                                               <li><a href="#">Save As PDF</a></li>
+                                                            </ul>
+                                                         </div>
+                                                      </li>
+                                                   </ul>
+                                                </div>
+                                                <div class="privew-item">
+                                                   <img src="../assets/images/pri.png">
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="tab-pane active" id="text">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <form accept="">
+                                             
+                                             <div class="form-group">
+
+                                                  
+                                                
+                                                <!-- <textarea class="form-group summernote" id="code-space" >
+                                               
+                                                </textarea>
+                                            <h1>Example 1</h1> -->
+                                            <!-- <div id="area1">                                           
+                                            <center><textarea id="testbox" rows="10" cols="40"></textarea></center><br><br></br></br>
+                                        <center> <img id="equation" /></center><br><br></br></br>
+
+                                       <center> <div id="download">
+                                           <a href="https://latex.codecogs.com/gif.download?">Click here to Download Image (GIF)</a>
+                                       </div>
+                                    </div> -->
+ 
+                                    <!-- <div id="fcenter">
+                                    <div class="yellowbox">
+                                       <select id="type" title="Export Format">
+                                       <option value="htmledit" selected="selected">HTML (Edit)</option>
+                                       <option value="html">HTML</option>
+                                       <option value="url">URL</option>
+                                       <option value="urlencoded">URL Encoded</option>
+                                       <option value="latex">LaTeX</option>
+                                       <option value="pre">PRE</option>
+                                       <option value="tw">TiddlyWiki</option>
+                                       <option value="phpBB">phpBB</option>
+                                       <option value="wp">WordPress</option>
+                                    </select>
+                                       <span id="exportmessage">HTML code to embed this equation into a web page is:</span>
+                                       <br>
+                                       <div id="html_copy" style="float:right; position:relative">
+                                       <img src="/latex/images/copy.gif" alt="copy" title="Copy to Clipboard" width="18" height="16">
+                                       <div style="position: absolute; left: 0px; top: 0px; width: 18px; height: 19px; z-index: 99;">
+                                         
+                                          </div></div>
+                                       <textarea id="eqcoderaw" onclick="this.select()" rows="3" readonly=""></textarea>
+                                    </div>
+                                 </div> -->
+                                    <!-- </center> -->
+                                       
+                                            
+                                            <!-- <div id="editor">
+
+                                            </div> -->
+
+                                                 <div id="symbol">
+
+                                                </div>  
+                                                <div   class="content" id="content1">
+                                              <textarea id="testbox" style="font-size: 12px; transform: translate(0px, 0px); width: 842px; height: 700px;">
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{demo}
+\author{ }
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+ 
+                                                           
+                                              </textarea>
+                                                         <center>
+                                                               <div class="button">
+                                                                     <input type="button" value="Compile" id="btn4">
+                                                                     <!-- <input type="button" value="Generate Tables" id="btn5"> -->
+                                                                     <!-- <input type="button" value="MathEquation" id="btn5"> -->
+                                                                     <!-- <input type="button" value="Read file" id="btn7"> -->
+                                                               </div>
+
+                                                            </center>
+                                                        
+                                                 <div class="pdf-canvas" contenteditable="true" id="pdfclass" height="2000" width="1800" style="position: absolute; margin: 0px; left: auto; right: 0px; top: 0px; bottom: 0px; height: 1000px; z-index: 0; width: 800px; display: block; visibility: visible;">
+                                                            <!-- <textarea name="" id="testbox1" cols="120" rows="45"></textarea>
+                                                                                                          -->
+                                                        
+                                                            <!-- <embed id="testbox1" src=" " type="application/pdf">&nbsp; </embed> -->
+                                                            
+                                         </object>
+                                                    </div>
+                                                           
+
+                                                   <div class="ace_content" id="workarea" style="font-size: 12px; transform: translate(0px, 0px); width: 442px; height: 848px;">
+                                                         
+                                                           <div class="ace_layer ace_print-margin-layer">
+                                                         <div class="ace_print-margin" style="left: 582px; visibility: hidden;"></div>
+                                                      </div>
+                                                      <div class="input" id="input">
+                                                         
+
+                                                      </div>                                               
+                                             </div>
+                                             
+                                            <script type="text/javascript">
+                                             EqEditor.embed('editor', '');
+                                             var a = new EqTextArea('equation', 'testbox');
+                                             EqEditor.add(a, false);
+                                         </script>
+                                             </div>
+                                             </div>
+                                          </form>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- tab content -->
+                              <ul class="nav nav-tabs bottom-tab">
+                                 <li class="active"><a href="#text" data-toggle="tab">Text</a></li>
+                                 <li><a href="#privew" data-toggle="tab">Preview</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- <div data-asid="editor-panel" class="editor-panel"></div> -->
+               <!-- <div data-asid="properties-panel" class="properties-panel"></div> -->
+            </div>
+         </div>
+      </div>
+
+      
+
+      <!-- <script src="../assets/js/latex-project.js"></script> -->
+ <script lang="javscript">
+
+// function insertAtCaret(areaId, text) {
+//   var txtarea = document.getElementById('testbox');
+//   if (!txtarea) {
+//     return;
+//   }
+
+//   var scrollPos = txtarea.scrollTop;
+//   var strPos = 0;
+//   var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+//     "ff" : (document.selection ? "ie" : false));
+//   if (br == "ie") {
+//     txtarea.focus();
+//     var range = document.selection.createRange();
+//     range.moveStart('character', -txtarea.value.length);
+//     strPos = range.text.length;
+//   } else if (br == "ff") {
+//     strPos = txtarea.selectionStart;
+//   }
+
+//   var front = (txtarea.value).substring(0, strPos);
+//   var back = (txtarea.value).substring(strPos, txtarea.value.length);
+//   txtarea.value = front + text + back;
+//   strPos = strPos + text.length;
+//   if (br == "ie") {
+//     txtarea.focus();
+//     var ieRange = document.selection.createRange();
+//     ieRange.moveStart('character', -txtarea.value.length);
+//     ieRange.moveStart('character', strPos);
+//     ieRange.moveEnd('character', 0);
+//     ieRange.select();
+//   } else if (br == "ff") {
+//     txtarea.selectionStart = strPos;
+//     txtarea.selectionEnd = strPos;
+//     txtarea.focus();
+//   }
+
+//   txtarea.scrollTop = scrollPos;
+// //   createTable()
+// }
+$( '#table_resize' ).on('click', function(){
+  // alert('using id')
+            var cursorPos = $('#testbox').prop('selectionStart');
+            //alert(cursorPos)
+            var v = $('#testbox').val();
+            var textBefore = v.substring(0,  cursorPos );
+            var textAfter  = v.substring( cursorPos, v.length );
+            $('#testbox').val( textBefore+ $(this).val() +textAfter );
+           // createTable()
+        });
+
+
+         $('#btn5').click(()=>{
+            tableGenerete()
+         })
+
+         function tableGenerete(){
+                  console.log('inside table')
+                  var tabledata=document.getElementById('testbox').value;
+
+                  const spawn = require('child_process').spawn;
+                  const ls = spawn('python', ['src/views/latextable.py', tabledata]);
+
+                  ls.stdout.on('data', (tabledata) => {
+                    // alert('data1')
+                    console.log('first ')
+                    console.log(tabledata.toString())
+                    //$('#testbox').text(data)
+                    $('#pdfclass').append(tabledata);
+                     resolve(data)
+                     
+                 // console.log(`stdout: ${data}`);
+                  });
+
+                  ls.stderr.on('data', (data) => {
+                     reject(data);
+                     console.log('second ')
+                     $('#testbox').text(data)
+                  console.log(`stderr: ${data}`);
+                  });
+
+                  ls.on('close', (code) => {
+                  console.log(`child process exited with code ${code}`);
+            });
+
+         }
+
+         /*All project*/
+
+         $('#allprojects').click(()=>{
+
+            allprojects();
+
+         })
+
+         function allProjects(){
+            var allfiles={'newProject':0};
+
+
+
+         }
+
+         /* Compiler Development*/
+       
+
+         $('#btn4').click(()=>{
+          // compileData();
+               readand();
+
+         })
+         
+
+         async function readand(){
+            alert('compile')
+        
+            const latex = require('node-latex')
+            const fs = require('fs')
+            var 
+            s = require('promise');
+            var PdfReader = require("pdfreader");
+            var pdfUtil = require('pdf-to-text');
+            var {PythonShell} = require('python-shell');
+
+
+            var pdfdata=document.getElementById('testbox').value;
+
+            var promise45=new Promise(function(resolve,reject){
+                     alert('child')
+               const spawn = require('child_process').spawn;
+                  const ls = spawn('python', ['E:/Nilesh/generator-ak-2 (2)/generator-ak-2/src/views/latexexample.py', pdfdata, 'arg2']); 
+                  
+                  ls.stdout.on('data', (data) => {
+                     //alert('data1')
+                    console.log('first ')
+                     resolve(data)
+                    console.log(`stdout: ${data}`);
+                  });
+
+                  ls.stderr.on('data', (data) => {
+                     reject(data);
+                     console.log('second ')
+                  console.log(`stderr: ${data}`);
+                  });
+
+                  ls.on('close', (code) => {
+                  console.log(`child process exited with code ${code}`);
+                  });
+                 }).then((data)=>{
+                   // console.log(data);
+                  
+                    console.log(data)
+                    $('embed').remove();
+                  $('#pdfclass').append('<embed src="E:/Nilesh/generator-ak-2 (2)/generator-ak-2/file1.pdf" width="650" height="1175" type="application/pdf">');
+                 })
+
+
+
+   //   await promise45;
+ 
+     
+    
+
+   //     var promise44 = new Promise(function(resolve,reject){
+   //           // alert('inside promise')
+
+    
+   //          fs.readFile('file4.pdf',function(err,data45){
+   //              if(err) 
+   //               {
+   //                //alert(err)
+   //               reject(err)
+   //               throw err;
+   //               }
+   //               //alert(data45);
+   //               //alert('data2');
+   //               console.log('second ')
+   //               resolve(data45)
+   //               //alert('file1')
+                 
+   //               //Omit option to extract all text from the pdf file
+   //             $('embed').remove();
+   //             $('#pdfclass').append(' <embed src="C:/Users/JCom/Desktop/generator-ak-2 (2) (2)/generator-ak-2/file4.pdf" width="650" height="1175"   type="application/pdf">');
+   //            // console.log('last'); //print all text    
+   //             });
+           
+                 
+   //           //  });
+   //          });
+
+            
+
+   //          await promise44;        
+         }
+             
+ 
+        
+
+         
+
+               
+      //       var promise4 = new Promise(function(resolve,reject){
+              
+              
+      //                 const input = fs.createReadStream('C:/Users/JCom/Desktop/generator-ak-2 (2) (2)/generator-ak-2/texfile.tex')
+
+      //              const output = fs.createWriteStream('output44.pdf');
+      //              const pdf = latex(input);
+      //               //alert(pdf+'pdf')
+      //              var datafile=pdf.pipe(output);
+      //              //resolve(datafile);
+      //              pdf.on('error', err =>{ console.log(err);reject(err)})
+      //             var generated= pdf.on('finish', () =>{ console.log('PDF generated!')
+      //             resolve('success')})
+      //           //  alert(generated);
+ 
+                  
+ 
+      //        });
+
+
+            
+            
+             
+        
+
+
+         $('#btn5').click(()=>{
+            mathEquation();
+         })
+
+            function mathEquation(){
+               var mjAPI = require("mathjax-node");
+               var pdfdata1=document.getElementById('testbox').value;
+
+
+                  mjAPI.config({
+                  MathJax: {
+                     // traditional MathJax configuration
+                  }
+                  });
+                  mjAPI.start();
+
+                  var yourMath = pdfdata1;
+
+                  mjAPI.typeset({
+                  math: yourMath,
+                  format: "TeX", // or "inline-TeX", "MathML"
+                  html:true,      // or svg:true, or html:true
+                  }, function (data) {
+                  if (!data.errors) 
+                  {
+                     console.log(data)
+                     //alert(data.html);
+                     var x=$.parseHTML( data.html);
+                     console.log('data'+$.parseHTML( data.html))
+                     $('#pdfclass').html(data.html);
+                  }
+                  // will produce:
+                  // <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                  //   <mi>E</mi>
+                  //   <mo>=</mo>
+                  //   <mi>m</mi>
+                  //   <msup>
+                  //     <mi>c</mi>
+                  //     <mn>2</mn>
+                  //   </msup>
+                  // </math>
+                  });
+            }
+ 
+               $('#btn7').click(function(){
+                  alert('hello');
+
+                  
+               var upload = "C:/Users/JCom/Desktop/generator-ak-2 (2) (2)/generator-ak-2/output44.pdf";
+               
+               //option to extract text from page 0 to 10
+               var option = {from: 0, to: 10};
+               
+               
+               //Omit option to extract all text from the pdf file
+               pdfUtil.pdfToText(upload, function(err, data) {
+               if (err) throw(err);
+               console.log(data); //print all text    
+               });
+
+
+               })
+   
+
+         var dynamic_id={'newfile':0}
+
+         $('#new').click(()=>{
+            filecreate()
+         })
+
+         function  filecreate(){
+            // makeArrayTable();
+            // makeEquationsMatrix();
+           
+            var filename=document.getElementById('projectname').value;
+           // alert(filename)
+
+            var x= dynamic_id['newfile']
+               var y=dynamic_id['newfile']=x+1;
+               //alert(y);
+               var area=document.getElementById('pdfclass'); 
+                //alert(area);                                                                                                                                                                                                                                                                                                                                                  
+               $('#ul1').append('<li id="close'+dynamic_id['newfile']+'"><a data-target="#project" data-toggle="tab" id="close4" class="close'+dynamic_id['newfile']+'" name="cls">'+filename+y+'.tex <label class="close'+dynamic_id['newfile']+'" id="closeEle">&nbsp;&nbsp; X</label></a></li>');
+               $('.ace_content').click(()=>{
+                  $('.selected').removeClass('selected');
+                  $(this).addClass(selected)
+               })
+               var fileid=$('#close'+dynamic_id['newfile']).attr('id');
+      }
+
+
+           
+
+         // $('#new').click(()=>{
+         //    opennewfile1()
+         // // })
+
+         var dynamic_id={'newfile':0}
+
+
+            $('#new').click(()=>{
+               opennewfile1();
+            //filecreate()
+
+            })
+
+
+
+
+            function opennewfile1(){
+              // alert('popup')
+
+                 var model = document.getElementById("myModal");
+                 // alert(model);
+                     // Get the button that opens the modal
+                     var btn = document.getElementById("new");
+
+                     // Get the <span> element that closes the modal
+                     var span = document.getElementsByClassName("close")[0];
+
+                     // When the user clicks the button, open the modal 
+                     btn.onclick = function() {
+                     modal.style.display = "block";
+                     }
+
+                     // When the user clicks on <span> (x), close the modal
+                     span.onclick = function() {
+                     modal.style.display = "none";
+                     }
+
+                     // When the user clicks anywhere outside of the modal, close it
+                     window.onclick = function(event) {
+                     if (event.target == modal) {
+                        modal.style.display = "none";
+                     }
+                     }
+
+            }
+
+
+            function opennewfile(){
+               // $('#menu').tabs();
+               // var newWindow = window.open("","_blank");
+               var x= dynamic_id['newfile']
+               var y=dynamic_id['newfile']=x+1;
+               //alert(y);
+               var area=document.getElementById('area1'); 
+                //alert(area);                                                                                                                                                                                                                                                                                                                                                  
+               $('#ul1').append('<li id="close'+dynamic_id['newfile']+'"><a data-target="#project" data-toggle="tab" id="close4" class="close'+dynamic_id['newfile']+'" name="cls">Untitled'+dynamic_id['newfile']+'.txt <label class="close'+dynamic_id['newfile']+'" id="closeEle">&nbsp;&nbsp; X</label></a></li>');
+               $('#tab-content').append(area);
+               var fileid=$('#close'+dynamic_id['newfile']).attr('id');
+
+               //alert(fileid);
+
+
+              
+              // $('#tab-content').text('')
+               // var id1=
+               // $("#"+y).onclick(()=>{
+               //    alert('inside fun');
+               // })
+         }
+
+    
+      $(document).on('click','#closeEle',function(){
+    
+          var id12= $(this).attr("class");
+            alert("Do you want To Close Window")
+            $('#'+id12).remove();
+            $('#tab-content').text('');
+
+    })
+
+
+           
+      //texttoimages2();
+
+//       function texttoimages2(){
+//         // alert('in fun');
+//         var PdfReader=require('pdfreader');
+// //    new PdfReader().parseFileItems("D:/pypsi/generator-ak-2/output1.pdf", function(err, item) {
+// //   if (err) callback(err);
+// //   else if (!item) callback();
+// //   else if (item.text) {alert(item.text);}
+//       var fs = require("fs");
+
+//       fs.readFile("D:/pypsi/generator-ak-2/output1.pdf", (err, pdfBuffer) => {
+//    // alert(pdfBuffer);
+//      //  alert('read file')
+//   // pdfBuffer contains the file content
+//    new PdfReader().parseBuffer(pdfBuffer, function(err, item) {
+// //alert('pdf')
+//     if (err) {
+//        alert(err);
+//        callback(err);
+//    }
+//     else if (!item) callback();
+//     else if (item.text) alert(item.text);
+//   });
+// });
+//       }
+
+            var filename="C:/Users/JCom/Desktop/generator-ak-2 (2) (2)/generator-ak-2/src/views/demo.txt"
+
+            //  $("#saveAs").click( function() {
+            //    var text = $("#testbox").val();
+            //    var filename = $("#input-fileName").val()
+            //    var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+            //    saveAs(blob, filename+".txt");
+            //    });
+            var selectedfileLocation='';
+            var pathfile='';
+
+            $('#save').on('click',()=>{
+							console.log('selected file location='+selectedfileLocation);
+                     if(selectedfileLocation=='nd'){
+	                  openfilesaver();
+                     }else{
+                        var fs = require('fs');
+                        var data = $("#testbox").text();
+                        console.log('inside not null')
+                        var fs= require('fs');
+                           var data=$('#testbox').text();
+                  //console.log(data);
+                       fs.writeFile(pathfile,data, 'utf8',		// callback function
+                                 function(err) {
+                                    if (err) throw err;
+                                    console.log("Data is appended to file successfully."+pathfile)
+                              });
+                      }
+         });
+
+
+
+
+         var fs = require('fs')
+         fs.appendFile('log.txt', 'new data', function (err) {
+         if (err) {
+            // append failed
+         } else {
+            // done
+         }
+         })
+
+
+      $('#saveAs').click(()=>{
+          alert('clicked')
+         saveImages();
+         })
+
+         function saveImages(){
+
+            let fs=require('fs');
+            var data12=document.getElementById('testbox').value;
+            fs.writeFile('abc.tex', data12, function(err, data){
+               if(err) throw err;
+            
+            })
+
+
+           // var download = document.createElement('a');
+           
+           // alert(download)
+            // download.href = data12;
+            // download.download = 'File name';
+            // download.click();           
+         }
+
+      //    function saveImages(evt, cb) {
+	
+      //    var FileSaver = require('file-saver');
+      //    var data12=document.getElementById('testbox').value;
+
+      // var blob = new Blob([data12.toString()], {type: "text/plain;charset=utf-8"});
+      // FileSaver.saveAs(blob, "hello world.txt");
+      //    }
+
+
+
+
+         // $('#save').click(()=>{
+         //    alert('saved');
+         //    filesaved();
+         // })
+
+         // function filesaved(){
+         //    alert('inside function');
+         //    var data1=$('#testbox').val();
+         //    alert(data1); 
+            //$('#tab-content').click(()=>{
+              
+            //    var data=$(this).attr('tab-content');
+            //    alert(data);
+            //    alert('hello')
+            // })
+          
+         // }
+
+         var isCtrl = false;
+         document.onkeyup=function(e){
+            if(e.keyCode == 17) isCtrl=false;
+         }
+
+         document.onkeydown=function(e){
+            if(e.keyCode == 17) isCtrl=true;
+            if(e.keyCode == 83 && isCtrl == true) {
+               //run code for CTRL+S -- ie, save!
+               return false;
+            }
+         }
+
+
+         $('#open').click(()=>{
+         $('#open12').trigger('click');
+     
+        fileopen();
+         })
+
+         // $('#open12').click((e)=>{
+         //    var filehere=e.target.files;
+         //    var output=[];
+
+         //    for(var i=0,f; f=files[i]; i++){
+         //       output.push('<li><strong>', escape(f.name),'</strong>(', f.type || 'n/a',')-',
+         //          f.size,'bytes, lastmodified:',
+         //          f.lastModifiedData ?
+         //          f.lastModifiedData.toLocalDateString():'n/a',
+         //          '</li>');
+
+         //    }
+         //    console.log(output)
+         //    document.getElementById('pdfclass').innerHTML=output.join('')
+         //    // console.log(filehere);
+
+         //    })
+
+         
+         function fileopen(){
+            $('#files').trigger('click');
+          //  alert('inside fun')
+
+            var fileload=document.getElementById('files').files[0];
+            alert('filelaod'+fileload)
+
+            var fileReader = new FileReader();
+
+            fileReader.onload=function(fileload)
+            {
+               var textFileload = fileload.target.result;
+               console.log(textFileload);
+               document.getElementById('testbox').innerHTML=textFileload;
+
+            };
+            fileReader.readAsText(fileload,'UTF-8');    
+       }
+
+
+       $('#uploadimg1').click(()=>{
+         $('#uploadfiles').trigger('click');
+        
+         previewFile()
+
+       })
+
+         //var imagespath1='';
+         
+       function previewFile() 
+       {
+         
+       $('#files').trigger('click');
+
+       var fs = require('fs-extra');
+      // fs.copySync(path.resolve(__dirname,'./mainisp.jpg'), './test/mainisp.jpg');
+    
+        // var preview = document.querySelector('#blah');
+        
+            var file    = document.querySelector('input[type=file]').files[0];
+        // alert(file.path)
+            // fs.copy(file,imagespath1)
+            //    .then(() => console.log('success!'))
+            //    .catch(err => console.error(err))
+                        
+            $('#directory').append('<li class="active"><img src="'+file.path+'" height=100; width=100></li>')
+             var reader  = new FileReader();
+
+               reader.addEventListener("load", function () {
+                  //preview.src = reader.result;
+               
+               }, false);
+
+               if (file) {
+                  //alert(file[0]);pdf
+                  reader.readAsDataURL(file);
+               }
+               }
+             
+
+
+            //  $('#table_resize').click(()=>{
+
+             
+            //     popup();
+            //  })
+
+            //  function  popup(){
+            //    var modal = document.getElementById("menu1");
+
+            //       // Get the button that opens the modal
+            //       var btn = document.getElementById("table_resize");
+
+            //       // Get the <span> element that closes the modal
+            //             var span = document.getElementsByClassName("close")[0];
+
+            //       // When the user clicks on the button, open the modal 
+            //       btn.onclick = function() {
+            //       modal.style.display = "block";
+            //       }
+
+            //       // When the user clicks on <span> (x), close the modal
+            //       span.onclick = function() {
+            //       modal.style.display = "none";
+            //       }
+
+            //       // When the user clicks anywhere outside of the modal, close it
+            //       window.onclick = function(event) {
+            //       if (event.target == modal) {
+            //          modal.style.display = "none";
+            //       }
+            //       }
+
+            //  }
+
+             
+            function vLine(level) {
+            if(level <= border)
+               return '|';
+            else
+               return '';
+         }
+
+            
+         async function createTable(){
+        
+               
+
+               //setFormat()
+               //console.log(type)
+            // var LatexTable = require('tbltex');
+            //  alert('Hello')
+            var tab = '&nbsp;&nbsp;&nbsp;&nbsp;';
+	         var lineBreak = '\n';
+            var rows12=''
+         
+
+            var i = 0; var dim = prompt('Enter the Row and columns separated by a comma (e.g. "2,3" for 2 rows and 3 columns):', '');
+              //       alert('hello');
+                     if (dim !== '' && dim !== null)
+                      {
+                        dim = dim.split(','); m = parseInt(dim[0]); n = parseInt(dim[1]);
+                        if (!isNaN(m) && !isNaN(n)) {
+                           for (j = 1; j <= n; j++)rows12=  rows12 +  'l';
+                        // var output ='\\documentclass{article}'+ lineBreak +  '\\begin{tabular}{}' + lineBreak + '\\begin{table}[]' + lineBreak +  '\\begin{tabular}{}';
+                        var matr ='\\documentclass{article}' + lineBreak  +'\\begin{document}'+ lineBreak + '\\begin{table}' + lineBreak+ '\\caption{}' + lineBreak+ '\\begin{center}' + lineBreak +'\\begin{tabular}{l'+rows12+'}'; 
+                        var row = "\n";  
+                        var mend1 = "\n\\end{ tabular}";
+
+                        var mend = "\n\\end{tabular}"
+                        var mend1= "\n\\end{center}"   
+                        var mend4="\n\\end{table}"  
+                        
+                        var mend2="\n\\end{document}"
+            // var i = 0; var dim = prompt('Enter the Row and columns separated by a comma (e.g. "2,3" for 2 rows and 3 columns):', '');
+                     // var isNumbered = document.getElementById('rows').value;
+                     //       var isConditional = document.getElementById("columns").value;
+
+                   
+                        
+                           for (i = 2; i <= n; i++)row = row + ' & ';
+                           //alert(i)
+                           for (i = 1; i <= m - 1; i++)matr = matr + row + '\\\\ '; 
+                           matr = matr +  row + mend + mend1 + mend4 + mend2;
+                           $('#testbox').text(matr)
+                           console.log( matr)
+
+                 
+                        }
+                     }
+                     // var tabledata=document.getElementById('testbox').value;
+                     // console.log
+                  
+                 
+                                             
+                      
+
+                           // var header = ["Column1", "Column2"];
+                           // var body = [[1,"a"],[2,"b"]];
+                           // /* Generate latex code */
+                           // var latex = LatexTable(body, header);
+                                          
+
+                           // alert(latex)
+                  
+                           // init_latex_tables_ui();        //makeArrayMatrix ()
+                           // insertAtCaret('testbox', 'Latex code ')
+                           // return true;
+            }
+            
+
+     
+ 
+
+
+   var border=4;
+      var newLineChar = '\\\\'
+
+   function generateTable() {
+	
+	var col =5
+	var row = 4
+	if(col > 5) {
+		$('body').css('width','auto');
+	}
+	else {
+		$('body').css('width','1024px');
+	}
+	output = "<table id='table'>";
+	
+	output += "<tr id='alignRow' class='nodrag'><th></th>";
+	for(var j = 0; j < col; j++) {
+		output += '<th>Align <select title="Align column" onchange="generateCode();alignColumn(' + j + ');" onClick="generateCode();alignColumn(' + j + ');" id="alignRow' + j + '"><option value="l">Left</option><option value="r">Right</option><option value="c">Center</option></select></th>';
+	}
+	output += "</tr>";
+	
+	
+	for(var i = 0; i < row; i++) {
+		output += "<tr><td class='dragndrop' title='Drag to reorder rows'>&nbsp;</td>";
+		for(var j = 0; j < col; j++) {
+			var tekst = '';
+			try {
+     			tekst = $('#table')[0].childNodes[0].childNodes[i+1].childNodes[j+1].childNodes[0].value;
+			}
+			catch(e) {
+			
+			}
+			output += '<td><textarea class="tableInput tableColumn'+ j +'" type="text" id="cell' + i + '-' + j + '"  onkeyup="generateCode()" onchange="generateCode()">' + tekst + '</textarea></td>';
+		}
+		output += "</tr>";
+	}
+	$('#testbox').html(output);
+	generateCode();
+	$("#table").tableDnD({onDrop: function(table, row) {
+            generateCode();
+        }});
+}
+
+function generateCode() {
+	var col = 5;
+	var row =  4;
+	var tab = '&nbsp;&nbsp;&nbsp;&nbsp;';
+	var lineBreak = '\n';
+
+	var output = '\\begin{table}' + lineBreak + tab + '\\begin{tabular}{';
+	
+	output+=vLine(2);
+		
+	for(var i = 0; i < col; i++) {
+		output += $('#alignRow' + i).val() + vLine(4);
+	}
+	if(border == 2)
+		output += '|';
+	output += '}' + lineBreak;
+	if(border >= 2)
+		output += tab;
+	
+	output += tab + hLine(2) + lineBreak;
+	for(var i = 0; i < row; i++) {
+		output += tab + tab;
+		for(var j = 0; j < col; j++) {
+			var value = encodeText($('#table')[0].childNodes[0].childNodes[i+1].childNodes[j+1].childNodes[0].value);
+			var m = getMaxColumnWidth(j);
+			if(value == '') {
+				output += createExtraSpaces('~',m);
+			}
+			else
+				output += createExtraSpaces(value, m);
+				
+			if(j < col-1)
+				output += ' & '
+		}
+		
+		if(i == row -1)
+			output += ' ' + newLineChar  + lineBreak;
+		else
+			output += ' ' + newLineChar  + ' ' + either(hLineNon(6),putLine(i)) + lineBreak;
+	}
+
+
+	if(border >= 2)
+		output += tab + tab;
+	output += hLine(2) + lineBreak + tab + '\\end{tabular}' + lineBreak + '\\end{table}';
+
+	$('.code').html(output);
+}
+
+      
+      </script>
+
+
+   </body>
+</html>

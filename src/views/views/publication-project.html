@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Publication Project</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../assets/css/tab-design.css">
+      <script src="../assets/js/jquery-3.3.1.js"></script>
+      <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/publication.css">
+      <script type="text/javascript" src="../assets/js/include-html.js"></script>
+      <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+      <script src="../assets/js/jquery-ui.js"></script>
+      <style type="text/css">
+         .dropdown-submenu {
+         position: relative;
+         }
+         .dropdown-submenu .dropdown-menu {
+         top: 0;
+         left: 100%;
+         margin-top: -1px;
+         }
+         #more {
+         display: none;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+            <ul class="nav navbar-nav">
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+                  <ul class="dropdown-menu">
+                     <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">New <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                           <li class="dropdown-submenu">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">New File<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                 <li><a href="#">HTML File</a></li>
+                                 <li><a href="#">CSS File</a></li>
+                                 <li><a href="#">JS File</a></li>
+                              </ul>
+                           </li>
+                           <li class="dropdown-submenu">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">New Project<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">HTML Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New </a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a tabindex="-1" href="#">Open</a></li>
+                     <li><a tabindex="-1" href="#">Save</a></li>
+                     <li><a tabindex="-1" href="#">Save As</a></li>
+                     <li><a tabindex="-1" href="#">Close Project</a></li>
+                     <li><a tabindex="-1" href="#">Exit</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+                     <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+                     <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+                  </ul>
+               </li>
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attach</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#">Image</a></li>
+                     <li><a href="#">Document</a></li>
+                     <li><a href="#">Audio</a></li>
+                  </ul>
+               </li>
+               <li class="_child"><a href="#">Settings</a></li>
+               <li class="_child"><a href="#">Help</a></li>
+               <li class="_child"><a href="#">About</a></li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <div class="row">
+            <div style="display: flex;">
+               <div id="menu-holder" class="accessible">
+                  <div style="width: calc(100% + 30px); min-width: 510px;">
+                     <div class="arrow opened">
+                        <span><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                     </div>
+                     <div class="tab">
+                        <center>
+                           <button class="tablinks" onclick="openCity(event, 'Templates')" id="defaultOpen">
+                           <img src="../assets/images/svg/ic_template.svg"><br>Templates</button>
+                           <button class="tablinks" onclick="openCity(event, 'Elements')">
+                           <img src="../assets/images/svg/ic_element.svg"><br>Elements</button>
+                           <button class="tablinks" onclick="openCity(event, 'Text')">
+                           <img src="../assets/images/svg/ic_text.svg"><br>Text </button>
+                           <button class="tablinks" onclick="openCity(event, 'Background')">
+                           <img src="../assets/images/svg/ic_bkground.svg"><br>Background </button>
+                           <button class="tablinks" onclick="openCity(event, 'Upload')">
+                           <img src="../assets/images/svg/ic_uploads.svg"><br>Upload </button>
+                        </center>
+                     </div>
+                  </div>
+                  <div id="menu-container">                  	
+	                  <div id="Templates" class="tabcontent">
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-templates" data-value="more">
+	                           <span>Templates</span>
+	                           <span>
+	                           <span class="mode-templates">More </span>
+	                           <span class="fa icon-templates fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div>
+	                        <img src="../assets/images/tools/templete.jpg">
+	                        <img src="../assets/images/tools/templete.jpg">
+	                        <img src="../assets/images/tools/templete.jpg">
+	                        <span id="extra-templates" style="display: none;">
+	                        <img src="../assets/images/tools/templete.jpg">
+	                        <img src="../assets/images/tools/templete.jpg">
+	                        <img src="../assets/images/tools/templete.jpg"> 
+	                        </span>
+	                     </div>
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-templates1" data-value="more">
+	                           <span>Resume</span>
+	                           <span>
+	                           <span class="mode-templates1">More </span>
+	                           <span class="fa icon-templates1 fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div>
+	                        <img src="../assets/images/tools/resume.jpg">
+	                        <img src="../assets/images/tools/resume.jpg">
+	                        <img src="../assets/images/tools/resume.jpg">
+	                        <span id="extra-templates1" style="display: none;">
+	                        <img src="../assets/images/tools/resume.jpg">
+	                        <img src="../assets/images/tools/resume.jpg">
+	                        <img src="../assets/images/tools/resume.jpg"> 
+	                        </span>
+	                     </div>
+	                  </div>
+	                  <div id="Elements" class="tabcontent">
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-elements" data-value="more">
+	                           <span>Grid</span>
+	                           <span>
+	                           <span class="mode-elements">More </span>
+	                           <span class="fa icon-elements fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div>
+	                        <img src="../assets/images/tools/g1.png">
+	                        <img src="../assets/images/tools/g2.png">
+	                        <img src="../assets/images/tools/g3.jpg">
+	                        <span id="extra-elements" style="display: none;">
+	                        <img src="../assets/images/tools/g2.jpg">
+	                        <img src="../assets/images/tools/g4.jpg">
+	                        </span>
+	                     </div>
+	                  </div>
+	                  <div id="Text" class="tabcontent">
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-texts" data-value="more">
+	                           <span>Texts</span>
+	                           <span>
+	                           <span class="mode-texts">More </span>
+	                           <span class="fa icon-texts fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div>
+	                        <img src="../assets/images/tools/txt1.jpg">
+	                        <img src="../assets/images/tools/txt.jpg">
+	                        <span id="extra-texts" style="display: none;">
+	                        <img src="../assets/images/tools/txt1.jpg">
+	                        <img src="../assets/images/tools/txt1.jpg">
+	                        <img src="../assets/images/tools/txt1.jpg">
+	                        <img src="../assets/images/tools/txt.jpg"> 
+	                        </span>
+	                     </div>
+	                  </div>
+	                  <div id="Background" class="tabcontent">
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-bkground" data-value="more">
+	                           <span>Grid</span>
+	                           <span>
+	                           <span class="mode-bkground">More </span>
+	                           <span class="fa icon-bkground fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div>
+	                        <img src="../assets/images/tools/bck.jpg">
+	                        <img src="../assets/images/tools/bck.jpg">
+	                        <img src="../assets/images/tools/bck.jpg">
+	                        <span id="extra-bkground" style="display: none;">
+	                        <img src="../assets/images/tools/bck1.jpg">
+	                        <img src="../assets/images/tools/bck1.jpg">
+	                        </span>
+	                     </div>
+	                  </div>
+	                  <div id="Upload" class="tabcontent">
+	                     <div class="file-upload">
+	                        <div class="form-group">
+	                           <label for="inputsm" class="btn btn-success">Upload an image</label>
+	                           <input class="form-control" id="inputsm" type="file" style="display: none;">
+	                        </div>
+	                     </div>
+	                  </div>
+                  </div>
+               </div>
+               <div id="work-space-container" class="work-space-collapsed">
+                  <div data-asid="work-panel" class="work-panel">
+                     <div class="row" style="width: -webkit-fill-available; margin: 0;">
+                        <div class="tab-container main-container">
+                           <ul class="nav nav-tabs" data-asid="tab-layout">
+                              <li class="extra-tabs" style="">
+                                 <span class="scrollLeft">
+                                 <i class="fa fa-caret-left"></i>
+                                 </span>
+                                 <span class="scrollRight">
+                                 <i class="fa fa-caret-right"></i>
+                                 </span>
+                              </li>
+                              <li class="active"><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                              <li><a data-target="#project1" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                              <li><a data-target="#project2" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                           </ul>
+                           <div class="tab-content" data-asid="tab-contents">
+                              <div class="tab-pane active" id="project">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="editor">
+                                          <div id="work-space" class="work-space">
+                                             <div class="work-space-top-tool">
+                                                <div class="work-space-top-tool-item">
+                                                   <ul>
+                                                      <li style="float:right">
+                                                         <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                      </li>
+                                                      <li style="float:right">
+                                                         <a href="#"><i class="fa fa-arrows-alt" aria-hidden="true"></i></a>
+                                                      </li>
+                                                      <li style="float:right">
+                                                         <a href="#"><i class="fa fa-search-minus" aria-hidden="true"></i><input type="text" name=""><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                      </li>
+                                                      <li style="float:right">
+                                                         <a href="#"><span><strong>Fill</strong></span></a>
+                                                      </li>
+                                                      <li style="float:right">
+                                                         <a href="#"><span><strong>Fit</strong></span></a>
+                                                      </li>
+                                                   </ul>
+                                                </div>
+                                             </div>
+                                             <div class="design-temp-container">
+                                                <div class="design-temp-container-items">
+                                                   <div style="margin: auto;">
+                                                      <div class="design-temp-container-items-wrapper">
+                                                         <div class="design-tool">
+                                                            <ul>
+                                                               <li><a href="#">Page 1 - &nbsp</a></li>
+                                                               <li><a href="#"><input type="text" name="" placeholder="Add Page title"></a></li>
+                                                               <li style="float:right">
+                                                                  <a href="#" data-toggle="tooltip" title="Delete Page!"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                               </li>
+                                                               <li style="float:right">
+                                                                  <a href="#" data-toggle="tooltip" title="Copy Page"><i class="fa fa-clone" aria-hidden="true"></i></a>
+                                                               </li>
+                                                               <li style="float:right">
+                                                                  <a href="#" data-toggle="tooltip" title="Page Down"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                                               </li>
+                                                               <li style="float:right">
+                                                                  <a href="#" data-toggle="tooltip" title="page Up"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+                                                               </li>
+                                                            </ul>
+                                                         </div>
+                                                         <div class="design-contents"></div>
+                                                         <div class="add-new-page"> + Add New Page </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div id="property-space" class="property-space">
+                                             <div>
+                                                <p>
+                                                <h6> &nbsp Properties</h6>
+                                                </p>
+                                                <table class="table">
+                                                   <tbody>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>accept</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>align</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>alt</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>autocomplete</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>autofocus</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>checked</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>disabled</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>form</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>formaction</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>formmethod</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>height</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>list</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>max</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>maxlength</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>min</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>multiple</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>name</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>pattern</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>placeholder</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>readonly</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>size</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>src</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="tab-pane" id="project1">
+                                 <div class="">
+                                    <h1>Lorem ipsum</h1>
+                                    <p>Lorem ipsum is the dummy content for an encyclopedia to have, as determined by the community of participating editors..</p>
+                                 </div>
+                              </div>
+                              <div class="tab-pane" id="project2">
+                                 <div class="jumbotron">
+                                    <h1>About Tab</h1>
+                                    <p>because they are the most important for an encyclopedia to have, as determined by the community of participating editors..</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="../assets/js/publication-project.js"></script>
+   </body>
+</html>

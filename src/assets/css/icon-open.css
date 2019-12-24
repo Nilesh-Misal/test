@@ -1,0 +1,90 @@
+.upload_pic{
+	border: 1px solid #a9a9a9;
+    padding: 10px;
+    border-radius: 4px;
+	display: flex;
+}
+
+.pic_sec h5{
+	font-size: 16px;
+    font-weight: 600;
+	letter-spacing: 0.5px;
+	margin-bottom: 20px;
+}
+.pic_sec{
+	margin: 30px 0 30px 0;
+}
+.img_sec img{
+	width: 50px;
+    margin-top: 10px;
+}
+.img_sec{
+	margin-right: 20px;
+}
+.inputsec img{
+	width: 60px;
+	cursor: pointer;
+}
+.inputsec{
+	margin-top: 10px;
+}
+.tophead{
+	font-size: 16px;
+    font-weight: 600;
+	letter-spacing: 0.5px;
+}
+.upload{
+	font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+textarea .form-control{
+	border: 1px solid #a9a9a9;
+}
+.iconshow img{
+	width: 50%;
+    margin-top: 40px;
+	border: 1px solid #efefef;
+    padding: 10px;
+    background: #efefef;
+}
+.iconshow{
+	display: block;
+    text-align: center;
+}
+.inputsec i{
+	font-size: 40px;
+    color: #31446e;
+	cursor: pointer;
+	border: 1px solid #a9a9a9;
+    padding: 10px;
+    margin: 0 20px 0 0;
+}
+.iconshow h5{
+	font-size: 22px;
+    font-weight: 600;
+    margin-top: 0;
+}
+.iconshow{
+	height: 100vh;
+    border-right: 1px solid #a9a9a9;
+	background: #ededed
+}
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: none;
+}
+.no-padding{
+	padding: 0px;
+}
+textarea.form-control {
+    height: 200px;
+}
+.inputsec img{
+	font-size: 40px;
+    color: #31446e;
+    cursor: pointer;
+    border: 1px solid #a9a9a9;
+    padding: 10px;
+    margin: -20px 20px 0 0;
+}

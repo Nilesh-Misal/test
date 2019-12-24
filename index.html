@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <XtermContainer
+    width={width}
+    height={height}
+    innerRef={node => (this.node = node)}
+/>
+<script>
+componentDidMount() {
+    Terminal.applyAddon(webLinks);
+    Terminal.applyAddon(localLinks);
+    Terminal.applyAddon(fit);
+
+    this.xterm = new Terminal({
+      convertEol: true,
+      fontFamily: `'Fira Mono', monospace`,
+      fontSize: 15,
+      rendererType: 'dom', // default is canvas
+    });
+
+    this.xterm.setOption('theme', {
+      background: COLORS.blue[900],
+      foreground: COLORS.white,
+    });
+
+    this.xterm.open(this.node);
+    this.xterm.fit();
+
+    /* ... some addon setup code here (not relevant for the problem) ... */
+}
+
+
+</script>
+  
+</body>
+</html>

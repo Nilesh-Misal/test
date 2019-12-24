@@ -1,0 +1,24 @@
+The goal of this module is to allow users to prepare high quality publications (such as
+books, magazines, long reports, etc…). While LaTeX is definitely a top quality engine for
+typesetting scientific documents, it has its shortcomings. Most notably is the rigidity of the
+language and the inability of the user to draw the layout of the publication pages flexibly.
+Publishers (especially for magazines and journals) like to have the flexibility of designing
+the pages in anyway they want. We aim to build on the technology used for the HTML
+webpage module, and add to it the following features (when the Publication Primary
+module is used)
+1. It must be built on a good freeBSD word processor. I heard from Shreyansh that
+such free libraries for word processing exist. The word processor should support
+things like table of contents, index, and bibliography.
+2. The ability to select a document class (we will have some default settings and the
+customer can make a customized document and save it)
+3. Select the pages size (in mm and inch), margins
+4. Select the paper quality (type the paper quality in an empty field - for the use of the
+printing press); later we will make a list of options once we are in contact with a
+printing press.
+5. Select the cover type (softcover, Glossy Hardcover, Leatherbound hardcover,
+with/without dust jacket etc…); For these we also need to be in contact with a
+printing press for books.
+6. Select some global settings for the document (default font size,type,color) for the
+main body text, and the same for the headers, sections etc… ; one can of course
+change manually within the text, but we need some default settings to be defined
+with every document.  

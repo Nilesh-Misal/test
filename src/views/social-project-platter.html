@@ -1,0 +1,149 @@
+   <div class="row" data-asid="typeSelector">
+      <ul class="ul_all">
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector" data-asid="twitter">
+               <img src="../assets/images/social_icon/twitter_410515.svg">
+               <h5>twitter</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector" data-asid="linkedIn">
+               <img src="../assets/images/social_icon/linkedin_410519.svg">
+               <h5>linkedin</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector" data-asid="facebook">
+               <img src="../assets/images/social_icon/facebook_410527.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/google_410518.svg">
+               <h5>google plus</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/evernote_410525.svg">
+               <h5>evernote</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/instagram2_410507.svg">
+               <h5>instagram</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/pinterest_410509.svg">
+               <h5>pinterest</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/skype_410517.svg">
+               <h5>skype</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/Gmail_99073.png">
+               <h5>gmail</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/Chrome .svg">
+               <h5>Crome</h5>
+            </a>
+         </li>
+      </ul>
+      <ul class="ul_all">
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/youtube_410520.svg">
+               <h5>YouTube</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/Cloud .svg">
+               <h5>Cloud</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/evernote_410525.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/instagram2_410507.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/linkedin_410519.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/pinterest_410509.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/skype_410517.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/twitter_410515.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/evernote_410525.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+         <li>
+            <a href="javascript:void(0)" action-field="social-type-selector">
+               <img src="../assets/images/social_icon/youtube_410520.svg">
+               <h5>facebook</h5>
+            </a>
+         </li>
+      </ul>
+   </div>
+<script>
+   $("label[action-field=project-close]").click(function () {
+      var tabId = $(this).parent().attr("data-target");
+      var prevTab = $(this).parent().parent().prev().children().attr('data-target');
+      if ($('#tab-layout li').length == 1) {
+         $('div[data-asid=no-project]').show();
+         $('#tab-layout').hide();
+      } else if (prevTab != 'undefined') {
+         $(this).parent().parent().remove();
+         $(tabId).remove();
+         $('a[data-target="' + prevTab + '"]').parent().addClass('active');
+         $(prevTab).addClass('active');
+      }
+   });
+
+   $('a[action-field=social-type-selector]').click(function () {
+      var currentType = $(this).attr('data-asid');
+      if (currentType != null) {
+         $(this).parent().parent().parent().html('').load(currentType + '.html');
+      }
+   });
+
+</script>

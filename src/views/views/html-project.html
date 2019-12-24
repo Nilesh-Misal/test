@@ -1,0 +1,717 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>HTML Project</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/tab-design.css">
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/html-project.css">
+	<link href="../assets/summernote/summernote.css" rel="stylesheet">
+	<link href="../assets/summernote/summernote-bs3.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/codemirror.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/monokai.css" rel="stylesheet">
+
+
+	<script src="../assets/js/jquery-3.3.1.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/include-html.js"></script>
+	<script src="../assets/js/jquery-ui.js"></script>
+	<script src="../assets/summernote/summernote.min.js"></script>
+	<script src="../assets/codemirror/lib/codemirror.js"></script>
+	<script src="../assets/codemirror/lib/xml.min.js"></script>
+	<script src="../assets/js/formatting.js"></script>
+	<style type="text/css">
+		.dropdown-submenu {
+			position: relative;
+		}
+
+		.dropdown-submenu .dropdown-menu {
+			top: 0;
+			left: 100%;
+			margin-top: -1px;
+		}
+		.note-editor {
+			margin-bottom: 0 !important;
+			border-radius: 0;
+		    border: 0 !important;
+		}
+		.ui-icon-gripsmall-diagonal-se {
+		    display: none !important;
+		}
+	</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="dropdown _child">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+	        <ul class="dropdown-menu">
+		      <li class="dropdown-submenu">
+		        <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New <span class="caret"></span></a>
+		        <ul class="dropdown-menu">
+		          <li class="dropdown-submenu">
+		            <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New File<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li><a href="#">HTML File</a></li>
+		              <li><a href="#">CSS File</a></li>
+		              <li><a href="#">JS File</a></li>
+		            </ul>
+		          </li>
+		          <li class="dropdown-submenu">
+		            <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New Project<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li class="dropdown-submenu" >
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">HTML Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="javascript:void(0)" action-field="menuBtn-start-new" data-asid="configure-html-project">New </a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+			             <ul class="dropdown-menu">
+				            <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+				         </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		            </ul>
+		          </li>
+		        </ul>
+		      </li>
+		      <li><a tabindex="-1" href="#">Open</a></li>
+		      <li><a tabindex="-1" href="#">Save</a></li>
+		      <li><a tabindex="-1" href="#">Save As</a></li>
+		      <li><a tabindex="-1" href="#">Close Project</a></li>
+		      <li><a tabindex="-1" href="#">Exit</a></li>
+		    </ul>
+	  </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+          <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+          <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+        </ul>
+      </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attach</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Image</a></li>
+          <li><a href="#">Document</a></li>
+          <li><a href="#">Audio</a></li>
+        </ul>
+      </li>
+      <li class="_child"><a href="#">Settings</a></li>
+      <li class="_child"><a href="#">Help</a></li>
+      <li class="_child"><a href="#">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-toolbox">
+  <div class="container-fluid">
+    <div class="row">
+    	<div class="col-lg-12"style="padding: 0;">
+    		<center>
+    		<div class="tool-box">
+    			<ul class="tool tool-tabs">
+				    <li class="active"><a class="menu"data-toggle="tab" href="#all">All</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Media</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Big</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Buttons</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Common</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Forms</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Container</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Sliders</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Texts</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Images</a></li>
+				</ul>
+    		</div>
+    		</center>
+    		<div class="tab-content" style="border:0;">
+			    <div id="all" class="tab-pane fade in active">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="assets" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="big" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="buttons" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			  </div>
+			  
+			</div>
+    	</div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12 filepath-panel" data-asid="filepath-panel">
+	    	<div>
+	    		<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb">
+				    <li class="breadcrumb-item " ><i class="fa fa-folder"></i>Home <span class="line-arrow right"></span></li>
+				    <li class="breadcrumb-item"><i class="fa fa-folder"></i>Library <span class="line-arrow right"></span></li>
+				    <li class="breadcrumb-item"><i class="fa fa-file-text-o"></i>Data</li>
+				  </ol>
+				</nav>
+	    	</div>
+	    </div>
+	</div>
+	<div class="row" style="display: flex;">
+	    <div data-asid="directory-panel" class="directory-panel">
+	    	<ul class="parent" data-asid="dir">
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 0</span>
+					<ul class="chld">
+						<li>
+							<i class="fa fa-chevron-right"></i><span class="fld">File 1</span>
+      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+							          <li><i class="fa fa-file-text-o"></i>html 1</li>
+							          <li><i class="fa fa-file-text-o"></i>html 2</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+					        </ul>
+						</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 2</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					          <li><i class="fa fa-file-text-o"></i>html 2</li>
+					          <li><i class="fa fa-file-text-o"></i>html 3</li>
+					        </ul>
+      					</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 3</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					        </ul>
+      					</li>
+      					<li>
+      						<i class="fa fa-chevron-right"></i><span class="fld">File 4</span>
+      					</li>
+					</ul>
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 1</span>
+					<ul class="chld">
+						<li><i class="fa fa-chevron-right"></i><span class="fld">File 1</span></li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 2</span></li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 3</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					          <li><i class="fa fa-file-text-o"></i>html 2</li>
+					          <li><i class="fa fa-file-text-o"></i>html 3</li>
+					        </ul>
+      					</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 4</span></li>
+					</ul>
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 2</span>
+					<ul class="chld">
+					   <li><i class="fa fa-file-text-o"></i>html 1</li>
+					   <li><i class="fa fa-file-text-o"></i>html 2</li>
+					   <li><i class="fa fa-file-text-o"></i>html 3</li>
+					</ul>					
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 3</span>
+
+				</li>
+			</ul>
+	    </div>
+	    <div data-asid="work-panel" class="work-panel">
+	    	<div class="row" style="width: -webkit-fill-available; margin: 0;">
+	    		<div class="tab-container main-container">
+				  <ul class="nav nav-tabs" data-asid="tab-layout">
+				  	<li class="extra-tabs" style="">
+				  		<span class="scrollLeft">
+				  			<i class="fa fa-caret-left"></i>
+				  		</span>
+				  		<span class="scrollRight">
+				  			<i class="fa fa-caret-right"></i>
+				  		</span>
+				  	</li>
+				  	<li class="active"><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project1" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  </ul>
+
+				  <div class="tab-content" data-asid="tab-contents">
+				  	<div class="tab-pane active" id="project">
+
+				  		<div class="tabbable tabs-bottom">
+			                <div class="tab-content" style="border-top: 0;">
+			    				<div class="tab-pane active" id="design">                
+									<div class="row">
+										<div class="col-md-12">
+											<div class="editor">
+												<div id="work-space" class="work-space">
+													
+												</div> 
+												<div id="property-space" class="property-space"> 
+												  <div>
+													<h6 style="padding-left: 5px; color: #000;">Properties</h6>
+													<table class="table table-bordered">
+														<tbody>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>accept</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></td>
+													        <td>align</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>alt</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>autocomplete</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>autofocus</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>checked</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>disabled</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>form</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>formaction</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>formmethod</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>height</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>list</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></td>
+													        <td>max</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></td>
+													        <td>maxlength</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>min</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>multiple</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></td>
+													        <td>name</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>pattern</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>placeholder</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>readonly</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></td>
+													        <td>size</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></td>
+													        <td>src</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></td>
+													        <td>type</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></td>
+													        <td>value</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>width</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></i></td>
+													        <td>z-index</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td></i></td>
+													        <td>z-index</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      	<td><i class="fa fa-chevron-right"></i></td>
+													        <td>vertical-align</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      	<td></i></td>
+													        <td>align-contents</td>
+													        <td><input autocomplete="off" type="text"></td>
+													      </tr>
+													      <tr>
+													      
+													    </tbody>
+													  </table>
+												  </div>  
+												</div>
+											</div>
+										</div>              
+									</div>
+								</div> 
+								<div class="tab-pane" id="text"> 
+									<div class="row">
+										<div class="col-md-12">
+											<form accept="">
+												<div class="form-group">
+													<textarea class="form-group summernote" id="code-space" rows="10"></textarea>
+												</div>
+											</form>
+										</div>               
+									</div>
+								</div>
+							</div>
+			                <!-- tab content -->
+							<ul class="nav nav-tabs bottom-tab">
+								<li class="active"><a href="#design" data-toggle="tab">Design</a></li>
+								<li><a href="#text" data-toggle="tab">Text</a></li>
+							</ul>
+						</div>
+				  	</div>
+				  	<div class="tab-pane" id="project1">
+						<div class="jumbotron">
+							<h1>About Tab</h1>
+							<p>because they are the most important for an encyclopedia to have, as determined by the community of participating editors..</p>                 
+						</div>
+				  	</div>
+				  </div>
+				</div> 
+	    	</div>
+		    <!-- <div data-asid="editor-panel" class="editor-panel"></div> -->
+		    <!-- <div data-asid="properties-panel" class="properties-panel"></div> -->
+		</div>
+	</div>
+</div>
+<script src="../assets/js/html-project.js"></script>
+</body>
+</html>

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Latex Project</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../assets/css/tab-design.css">
+      <script src="../assets/js/jquery-3.3.1.js"></script>
+      <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/latex-project.css">
+      <script type="text/javascript" src="../assets/js/include-html.js"></script>
+      <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+      <script src="../assets/js/jquery-ui.js"></script>
+      <link href="../assets/summernote/summernote.css" rel="stylesheet">
+	<link href="../assets/summernote/summernote-bs3.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/codemirror.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/monokai.css" rel="stylesheet">
+      
+		<script src="../assets/summernote/summernote.min.js"></script>
+		<script src="../assets/codemirror/lib/codemirror.js"></script>
+		<script src="../assets/codemirror/lib/xml.min.js"></script>
+      <script src="../assets/js/formatting.js"></script> 
+
+
+      <script src="../assets/js/latex-project.js"></script>
+      <script src="../assets/js/jquery.library.js"></script>
+
+      <!--to drag and drop math-->
+      <script>
+     
+     $(document).ready(function(){
+    $("#1").click(function(){
+      $("#1").clone().appendTo("#symbol ");
+    });
+  });
+      $(document).ready(function(){
+        $("#2").click(function(){
+          $("#2").clone().appendTo("#symbol ");
+        });
+      });
+
+      $(document).ready(function(){
+        $("#3").click(function(){
+          $("#3").clone().appendTo("#symbol ");
+        });
+      });
+
+      $(document).ready(function(){
+        $("#4").click(function(){
+          $("#4").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#5").click(function(){
+          $("#5").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#6").click(function(){
+          $("#6").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#7").click(function(){
+          $("#7").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#8").click(function(){
+          $("#8").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#9").click(function(){
+          $("#9").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#10").click(function(){
+          $("#10").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#11").click(function(){
+          $("#11").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#12").click(function(){
+          $("#12").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#13").click(function(){
+          $("#13").clone().appendTo("#symbol ");
+        });
+      });
+      $(document).ready(function(){
+        $("#14").click(function(){
+          $("#14").clone().appendTo("#symbol ");
+        });
+      });
+      </script>
+
+
+
+
+		<style type="text/css">
+         .dropdown-submenu {
+         position: relative;
+         }
+         .dropdown-submenu .dropdown-menu {
+         top: 0;
+         left: 100%;
+         margin-top: -1px;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+            <ul class="nav navbar-nav">
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+                  <ul class="dropdown-menu">
+                     <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">New <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                           <li class="dropdown-submenu">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">New Project<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">HTML Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New </a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a tabindex="-1" href="#">Open</a></li>
+                     <li><a tabindex="-1" href="#">Save</a></li>
+                     <li><a tabindex="-1" href="#">Save As</a></li>
+                     <li><a tabindex="-1" href="#">Close Project</a></li>
+                     <li><a tabindex="-1" href="#">Exit</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+                     <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+                     <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+                  </ul>
+               </li>
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attach</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#">Image</a></li>
+                     <li><a href="#">Document</a></li>
+                     <li><a href="#">Audio</a></li>
+                  </ul>
+               </li>
+               <li class="_child"><a href="#">Settings</a></li>
+               <li class="_child"><a href="#">Help</a></li>
+               <li class="_child"><a href="#">About</a></li>
+            </ul>
+         </div>
+      </nav>
+      <nav class="navbar navbar-toolbox">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12" style="padding: 0;">
+                  <center>
+                     <div class="tool-box">
+                        <ul class="tool tool-tabs">
+                           <li class="active"><a class="menu" data-toggle="tab" href="#math">Math</a></li>
+                           <li><a class="menu"data-toggle="tab" href="#greek">Greek</a></li>
+                           <li><a class="menu" data-toggle="tab" href="#relational">Relation</a></li>
+                           <li><a class="menu" data-toggle="tab" href="#logic">Logic</a></li>
+                           <li><a class="menu" data-toggle="tab" href="#symbols">Symboll</a></li>
+                           <li><a class="menu" data-toggle="tab" href="#arrows">Arrows</a></li>
+                        </ul>
+                     </div>
+                  </center>
+                  <div class="tab-content" style="border:0; background: #f3f3f3;">
+                     <div id="math" class="tab-pane fade">
+                        <div class="row toolbox-holder">
+                           <div class="col-md-12 toolbox-item-container">
+                              <div class="toolbox-items" >
+                                 <img src="../assets/images/symbols/math/bigcap.png" id="1">
+                              </div>
+                             
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/bigcup.png" id="2">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/bigoplus.png"id="3">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/bigotimes.png"id="4">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/bigsqcup.png"id="5">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/bigvee.png"id="6">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/bigwedge.png"id="7">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/coprod.png" id="8">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/curly.png" id="9">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/fdash.png"id="10">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/frac.png"id="11">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/int.png"id="12">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/limit.png"id="13">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/matrix.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/oint.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/overbrace.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/overleftarrow.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/overline.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/overrightarrow.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/para.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/partial.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/prod.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/select.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/sqrt.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/sqrtn.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/sum.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/underbrace.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/underline.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/widehat.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/widetilde.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/xpk.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/math/xuk.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="greek" class="tab-pane fade in active">
+                        <div class="row toolbox-holder">
+                           <div class="col-md-12 toolbox-item-container">
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/alpha.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/beta.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/chi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/delta.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/epsilon.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/eta.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/gamma.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/kappa.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/lambda.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/mu.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/nu.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/o.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/omega.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/phi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/pi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/psi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/rho.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/sigma.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/tau.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/theta.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/upsilon.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/varphi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/varpi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/varrho.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/varsigma.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/vartheta.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/xi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek/zeta.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Delta.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/dol.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Gamma.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Lambda.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Omega.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Phi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Pi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Psi.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Sigma.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Theta.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Upsilon.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/greek_logic/Xi.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="relational" class="tab-pane fade">
+                        <div class="row toolbox-holder">
+                           <div class="col-md-12 toolbox-item-container">
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/approx.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/asymp.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/bowtie.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/colon.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/cong.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/dashv.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/doteq.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/equiv.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/frown.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/geq.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/gg.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/gt.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/in.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/join.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/leq.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/lhd.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/ll.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/lt.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/mid.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/relational/models.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="logic" class="tab-pane fade">
+                        <div class="row toolbox-holder">
+                           <div class="col-md-12 toolbox-item-container">
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/amalg.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/ast.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/bigcirc.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/bigtriangledown.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/bigtriangleup.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/bullet.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/cap.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/circ.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/cup.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/div.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/lhd.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/minus.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/odot.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/ominus.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/oplus.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/oslash.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/otimes.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/plus.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/rhd.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/setminus.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/sqcap.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/sqcup.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/star.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/times.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/triangleleft.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/triangleright.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/unlhd.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/unrhd.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/uplus.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/vee.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/wedge.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/logic/wr.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="symbols" class="tab-pane fade">
+                        <div class="row toolbox-holder">
+                           <div class="col-md-12 toolbox-item-container">
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/aleph.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/angle.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/backslash.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/bot.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/Box.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/cdots.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/clubsuit.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/ddots.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/Diamond.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/diamondsuit.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/div.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/dot.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/ell.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/emptyset.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/exists.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/symbols/flat.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="arrows" class="tab-pane fade">
+                        <div class="row toolbox-holder">
+                           <div class="col-md-12 toolbox-item-container">
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/arrows/cDownarrow.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/arrows/cLeftarrow.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/arrows/cLeftrightarrow.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/arrows/cLongleftarrow.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/arrows/cLongleftrightarrow.png">
+                              </div>
+                              <div class="toolbox-items">
+                                 <img src="../assets/images/symbols/arrows/cLongrightarrow.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-12 filepath-panel" data-asid="filepath-panel">
+               <div>
+                  <nav aria-label="breadcrumb">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item "><i class="fa fa-folder"></i>Home <span class="line-arrow right"></span></li>
+                        <li class="breadcrumb-item"><i class="fa fa-folder"></i>Library <span class="line-arrow right"></span></li>
+                        <li class="breadcrumb-item"><i class="fa fa-file-text-o"></i>Data</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
+         </div>
+         <div class="row" style="display: flex;">
+            <div data-asid="directory-panel" class="directory-panel">
+               <ul class="parent" data-asid="dir">
+                  <li>
+                     <i class="fa fa-chevron-right"></i><span class="fld">Directory 0</span>
+                     <ul class="chld">
+                        <li>
+                           <i class="fa fa-chevron-right"></i><span class="fld">File 1</span>
+                           <ul class="chld">
+                              <li>
+                                 <i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+                                 <ul class="chld">
+                                    <li>
+                                       <i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+                                       <ul class="chld">
+                                          <li>
+                                             <i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+                                             <ul class="chld">
+                                                <li>
+                                                   <i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+                                                   <ul class="chld">
+                                                      <li><i class="fa fa-file-text-o"></i>html 1</li>
+                                                      <li><i class="fa fa-file-text-o"></i>html 2</li>
+                                                   </ul>
+                                                </li>
+                                             </ul>
+                                          </li>
+                                       </ul>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <i class="fa fa-chevron-right"></i><span class="fld">File 2</span>
+                           <ul class="chld">
+                              <li><i class="fa fa-file-text-o"></i>html 1</li>
+                              <li><i class="fa fa-file-text-o"></i>html 2</li>
+                              <li><i class="fa fa-file-text-o"></i>html 3</li>
+                           </ul>
+                        </li>
+                        <li>
+                           <i class="fa fa-chevron-right"></i><span class="fld">File 3</span>
+                           <ul class="chld">
+                              <li><i class="fa fa-file-text-o"></i>html 1</li>
+                           </ul>
+                        </li>
+                        <li>
+                           <i class="fa fa-chevron-right"></i><span class="fld">File 4</span>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <i class="fa fa-chevron-right"></i><span class="fld">Directory 1</span>
+                     <ul class="chld">
+                        <li><i class="fa fa-chevron-right"></i><span class="fld">File 1</span></li>
+                        <li><i class="fa fa-chevron-right"></i><span class="fld">File 2</span></li>
+                        <li>
+                           <i class="fa fa-chevron-right"></i><span class="fld">File 3</span>
+                           <ul class="chld">
+                              <li><i class="fa fa-file-text-o"></i>html 1</li>
+                              <li><i class="fa fa-file-text-o"></i>html 2</li>
+                              <li><i class="fa fa-file-text-o"></i>html 3</li>
+                           </ul>
+                        </li>
+                        <li><i class="fa fa-chevron-right"></i><span class="fld">File 4</span></li>
+                     </ul>
+                  </li>
+                  <li>
+                     <i class="fa fa-chevron-right"></i><span class="fld">Directory 2</span>
+                     <ul class="chld">
+                        <li><i class="fa fa-file-text-o"></i>html 1</li>
+                        <li><i class="fa fa-file-text-o"></i>html 2</li>
+                        <li><i class="fa fa-file-text-o"></i>html 3</li>
+                     </ul>
+                  </li>
+                  <li><i class="fa fa-chevron-right"></i><span class="fld">Directory 3</span>
+                  </li>
+               </ul>
+            </div>
+            <div data-asid="work-panel" class="work-panel">
+               <div class="row" style="width: -webkit-fill-available; margin: 0;">
+                  <div class="tab-container main-container">
+                     <ul class="nav nav-tabs" data-asid="tab-layout">
+                        <li class="extra-tabs" style="">
+                           <span class="scrollLeft">
+                           <i class="fa fa-caret-left"></i>
+                           </span>
+                           <span class="scrollRight">
+                           <i class="fa fa-caret-right"></i>
+                           </span>
+                        </li>
+                        <li class="active"><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                        <li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                        <li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                        <li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                        <li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                     </ul>
+                     <div class="tab-content" data-asid="tab-contents">
+                        <div class="tab-pane active" id="project">
+                           <div class="tabbable tabs-bottom">
+                              <div class="tab-content" style="border-top: 0;">
+                                 <div class="tab-pane" id="privew">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="privew-container">
+                                             <div class="privew-wrapper">
+                                                <div class="privew-head">
+                                                   <ul>
+                                                      <li><a href="#">Page 1 - &nbsp;</a></li>
+                                                      <li><a href="#"><input type="text" name="" placeholder="Add Page title"></a></li>
+                                                      <li style="float:right">
+                                                         <div class="dropdown">
+                                                            <div class="" type="" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                                                            <ul class="dropdown-menu">
+                                                               <li><a href="#">Save As Image</a></li>
+                                                               <li><a href="#">Save As HTML</a></li>
+                                                               <li><a href="#">Save As PDF</a></li>
+                                                            </ul>
+                                                         </div>
+                                                      </li>
+                                                   </ul>
+                                                </div>
+                                                <div class="privew-item">
+                                                   <img src="../assets/images/pri.png">
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="tab-pane active" id="text">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <form accept="">
+                                             <div class="form-group">
+                                                <textarea class="form-group summernote" id="code-space" >
+                                               
+                                                </textarea>
+                                                <div id="symbol">
+
+                                                </div>
+                                             </div>
+                                          </form>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- tab content -->
+                              <ul class="nav nav-tabs bottom-tab">
+                                 <li class="active"><a href="#text" data-toggle="tab">Text</a></li>
+                                 <li><a href="#privew" data-toggle="tab">Preview</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- <div data-asid="editor-panel" class="editor-panel"></div> -->
+               <!-- <div data-asid="properties-panel" class="properties-panel"></div> -->
+            </div>
+         </div>
+      </div>
+      <script src="../assets/js/latex-project.js"></script>
+   </body>
+</html>

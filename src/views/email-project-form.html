@@ -1,0 +1,877 @@
+<!-- <Html>
+   <head>
+
+      <h1>Email</h1>
+   </head> -->
+   <body>
+         <form class="data-form"  onsubmit="sendmail()">
+         <div class="form-group">
+            <input type="email" placeholder="From" data-asid="from" id="from" class="form-control" required>
+         </div>
+         <div class="form-group" data-asid="to-selector">   
+            <div class="input-group">
+               <!-- <div id="emails"> -->
+               <!-- <input type="email" placeholder="To" data-asid="to" id="to" class="form-control"> -->
+               <input type="email" placeholder="To" data-asid="to" id="to1" class="form-control" required>
+            <!-- </div> -->
+               <input type="file"  name="files" id="files2" style="width: 50px;" multiple>
+               <span data-asid="cc-span" class="input-group-addon"><a data-asid="cc-RequiredCheck" field-handler="field-activator" href="javascript:void(0)" id="cc1" >Cc</a></span>
+               <span data-asid="bcc-span" class="input-group-addon"><a data-asid="bcc-RequiredCheck" field-handler="field-activator" href="javascript:void(0)" id="bcc1" > Bcc</a></span>
+            </div>
+         </div>
+         <div class="form-group">
+            <input type="text" placeholder="Subject" data-asid="subject" id="subject" class="form-control">
+         </div>
+         <div data-asid="cc-selector" class="form-group" style="display: none;">
+            <div class="input-group">							    
+               <input data-asid="cc-InputBox" type="email" placeholder="Cc" id="cc2" class="form-control">
+               <span data-asid="bcc-spann" class="input-group-addon"><a field-handler="field-activator" href="javascript:void(0)" id="cc">Bcc</a></span>
+            </div>
+         </div>
+         <div data-asid="bcc-selector" class="form-group" style="display: none;">
+            <div class="input-group">							    
+               <input type="email" data-asid="bcc-InputBox" placeholder="Bcc"  id="bcc2" class="form-control">
+               <span data-asid="cc-spann" class="input-group-addon"><a field-handler="field-activator" href="javascript:void(0) "id="bcc">Cc</a></span>
+            </div>
+         </div>
+         <div class="form-group">
+            <textarea class="editor dnd" name="editor" data-asid="text" id="bodyarea" placeholder="Type a message..."></textarea>
+         </div>
+         <div>
+            <p id="demo"></p>
+         </div>
+         <div class="form-group" style="display: -webkit-box;">
+            <input type="file" class="custom-file-input" data-asid="files" name="files" style="width: 50px;" multiple>
+            <select class="form-control" style="position: relative; bottom: 3px;width: auto; min-width: 50%;">
+               <option>Select any template...</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+            </select>
+         </div>
+         <div class="form-group" style="display: -webkit-box;">
+            <label for="start">Date and Time</label>
+      
+            <input type="date" id="start" name="trip-start">
+                   <!-- value="2019-06-24"
+                   min="2019-06-24" max="2099-12-31">
+                    -->
+                    <input type="time" id="appt" name="appt"
+                     value="00:00:00"
+                          min="00:00:00" max="11:59:60" required>
+         </div>
+      
+         <div class="form-group" data-asid="file-preview"></div>
+         <!-- <div id="sendclass" class="form-group" style="margin-top: 15px;"> -->
+            <input type="submit" id="sendEmail" value="Send"  >
+         <!-- </div> -->
+      </form>
+      <script>
+            const fs = require('fs');
+         //    var csvfdata=[];
+      
+         // $('#files1').on('change',function(e,d){
+      
+         //    var filePath,filetype,fileSize,fileName;
+      
+         //    for(var i=0;i<=(this).files.length;i++)
+         //    {
+               
+         //     fileName = e.target.files[i].name;
+         //     fileSize = e.target.files[i].size;
+         //     filetype = e.target.files[i].type;
+         //     filePath = e.target.files[i].path;
+         //    alert(filePath)
+          
+      
+         //    // if(filetype == 'csv'){
+         //       alert('if')
+         //       fs.readFile(filePath, function(err,data){
+         //          if(err)
+         //          { 
+         //             alert(err)
+         //             throw err;
+      
+         //          }
+         //          else{
+         //             //alert(data)
+         //             data = data + '';
+         //             //alert(data)
+         //             var data1=data.split(',')
+         //             //alert(data1)
+         //             csvfdata.push(data1);
+         //             // alert(csvfdata)
+         //             // document.getElementById('to').innerHTML=data1
+         //             $('#to').attr('value')=data1
+         //             $('.emails').append(data1)
+      
+         //          //     for(var j=0; j<data1.length; j++){
+         //          //       //data4[j]={};
+      
+         //          //       alert(data1[j])
+         //          //       // 
+         //          //       document.getElementById('to').innerHTML=data1[j]
+                    
+         //          // }
+         //          //alert('data'+data1)
+                 
+         //           // document.getElementById('to').innerHTML=data1
+         //          }
+         //       })
+               
+         //   // }//else
+         //    // {
+         //    //    alert('Please Select CSV files')
+         //    // }
+      
+         // }
+      
+         // })
+      
+         
+      
+      
+      var filessend=[];
+      var filesnames=[];
+      
+      $(document).ready(function(){
+        
+      
+       
+         // var formNumber = $('.data-form').length;
+         // if ($('.editor').hasClass('dnd')) {
+         //    $('.dnd').attr('id', 'editor' + formNumber);
+         //    $('.dnd').removeClass('dnd');
+         //    CKEDITOR.replace($('.editor').not('.dnd').attr('id'));
+         //    CKEDITOR.add;
+         // }
+      
+         $("label[action-field=project-close]").click(function () {
+            //there are multiple elements which has .closeTab icon so close the tab whose close icon is clicked
+            if ($('div[data-asid=tab-contents]').html() == "") {
+               $('div[data-asid=no-project]').show();
+               $('#tab-layout li').hide();
+            } else {
+               //there are multiple elements which has .closeTab icon so close the tab whose close icon is clicked
+               var tabId = $(this).parent().attr("data-target");
+               var prevTab = $(this).parent().parent().prev().children().attr('data-target');
+               if (prevTab != "undefined") {
+                  $('a[data-target="' + prevTab + '"]').parent().addClass('active');
+                  $(prevTab).addClass('active');
+               }
+               $(this).parent().parent().remove();//remove li of tab      
+               $(tabId).remove();//remove respective tab content
+            }
+         });
+      
+         
+         $("label[action-field=project-close]").click(function () {
+            var tabId = $(this).parent().attr("data-target");
+            var prevTab = $(this).parent().parent().prev().children().attr('data-target');
+            if ($('#tab-layout li').length < 2) {
+               $('div[data-asid=no-project]').show();
+               $('#tab-layout').hide();
+            } else if (prevTab != 'undefined') {
+               $(this).parent().parent().remove();
+               $(tabId).remove();
+               $('a[data-target="' + prevTab + '"]').parent().addClass('active');
+               $(prevTab).addClass('active');
+            }
+         });
+      
+         // cc-bcc activator
+         $('a[field-handler="field-activator"]').on('click', function () {
+            var elementType = $(this).parent().attr('data-asid').split('-').shift();
+            if ((elementType == 'cc') && ($('div[data-asid="bcc-selector"]').css('display') != 'block')) {
+               $('div[data-asid="to-selector"] .input-group').removeClass();
+               $('span[data-asid="cc-span"], span[data-asid="bcc-span"]').hide();
+               $('div[data-asid="cc-selector"]').slideDown('fast');
+               $('input[data-asid="cc-InputBox"]').focus();
+            } else if ((elementType == 'bcc') && ($('div[data-asid="cc-selector"]').css('display') != 'block')) {
+               $('div[data-asid="to-selector"] .input-group').removeClass();
+               $('span[data-asid="cc-span"], span[data-asid="bcc-span"]').hide();
+               $('div[data-asid="bcc-selector"]').slideDown('fast');
+               $('input[data-asid="bcc-InputBox"]').focus();
+            } else if ((elementType == 'bcc') && ($('div[data-asid="cc-selector"]').css('display') == 'block')) {
+               $('div[data-asid="bcc-selector"] .input-group, div[data-asid="cc-selector"] .input-group').removeClass();
+               $('span[data-asid="cc-span"], span[data-asid="bcc-span"], span[data-asid="cc-spann"], span[data-asid="bcc-spann"]').hide();
+               $('div[data-asid="bcc-selector"]').slideDown('fast');
+               $('input[data-asid="bcc-InputBox"]').focus();
+            } else {
+               $('div[data-asid="bcc-selector"] .input-group, div[data-asid="cc-selector"] .input-group').removeClass();
+               $('span[data-asid="cc-span"], span[data-asid="bcc-span"], span[data-asid="cc-spann"], span[data-asid="bcc-spann"]').hide();
+               $('div[data-asid="cc-selector"]').slideDown('fast');
+               $('input[data-asid="cc-InputBox"]').focus();
+            }
+         });
+      
+         // attachment lister
+        
+      
+         $('input[data-asid="files"]').on('change', function (e, decimals) {
+            for(var i=0;i<=(this).files.length;i++)
+            {
+            var fileName = e.target.files[i].name;
+            var fileSize = e.target.files[i].size;
+            var filetype = e.target.files[i].type;
+            let filePath = e.target.files[i].path;
+            var convertedSize = formatBytes(fileSize);
+           
+            console.log(fileSize/1024/1024)
+      var fsize_inmb=fileSize/1024/1024;
+      // console.log(Math.floor(convertedSize.split(' ')[0]))
+      //file size validation      
+      if(fsize_inmb>=25){
+      alert("file size must under")
+            }
+           // alert(filePath)
+      
+      
+         //  $('input[data-asid="files"]').change(function(){
+         //       for(var i = 0 ; i <= this.files.length ; i++){
+         //       var filename = this.files[i].name;
+         //       var filePath=this.files[i].path;
+         //       var fileSize=this.files[i].size;
+         //       var filetype=this.files[i].type;
+      
+               // alert(filePath);
+               // alert(filename)
+            //  $('div[data-asid="file-preview"]').append('<div class="name"><a id="attachment1" href="' + filePath + '" target="_blank"></a>' + filename + '</div>');
+               // }
+           // });
+            //converting any file size into byte format
+            function formatBytes(bytes, decimals) {
+               if (bytes == 0) return '0 Bytes';
+               var k = 1024,
+                  dm = decimals <= 0 ? 0 : decimals || 2,
+                  sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+                  i = Math.floor(Math.log(bytes) / Math.log(k));
+               return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+                  }
+                 // $('div[data-asid="text"]').append('<p>'+textarea+'</p>')
+                  $('div[data-asid="file-preview"]').append('<div id="attachment" class="col-md-12  file-preview-list"><a id="attachment1" href="' + filePath + '" target="_blank"><span>' + fileName + '</span> <span>(' + convertedSize + ')</span>' + '</a><a href="javascript:void(0)" action-field="remove-attachment" class="close-list-btn"><i class="fa fa-times-circle  "></i></a></div>');
+                  filessend.push({"filename":fileName,"path":filePath})
+                  
+                  // if(fsize_inmb<=25)
+                  // {
+                  
+               // }
+               //    else
+               //    {
+                     //alert("file size must under 25MB");
+                  // }
+                //  filesnames.push({"name":fileName})
+               //     for(var j=0;j<=filessend.length;j++){
+               //    var name1=filessend[j].split(/[\\\/]/).pop();
+               //    demoarr.push({"name":name1,"path":filessend})
+               // }
+              // alert(filessend["name"])
+              // console.log(filessend)
+      
+                  $('a[action-field="remove-attachment"]').on('click', function () {
+                     $(this).parent().remove();
+                  });
+               }
+               });
+            
+            });
+      
+      // $('#sendEmail').click(()=>{
+      //    sendEmail();
+      //    alert('clicked')
+      // })
+      
+      // function SendEmail(){
+      
+      //       var from=document.getElementById('from').value;
+      //       var to=document.getElementById('to').value;
+      //       var subject=document.getElementById('subject').value;
+      //       var cc=document.getElementById('cc').value;
+      //       var bcc=document.getElementById('bcc').value;
+      //       var textarea= document.getElementsByName('editor').values;
+      
+      //       console.log(from)
+      //       alert(from+'from')
+      
+      // 		const sgMail = require('@sendgrid/mail');
+      // 		//sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+      // 		const msg = {
+      // 		to: to,
+      // 		from:from,
+      // 		subject:subject,
+      // 		text:textarea,
+      // 		html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      // 		};
+      // 		sgMail.send(msg)
+      // }
+         var filesdata=[]
+         function sendmail(){
+          
+            alert('clicked');
+                    // alert(filessend)
+      
+                     var from=document.getElementById('from').value;
+                     var hbs = require('nodemailer-express-handlebars');
+                     var express = require('express');
+                     var schedule = require('node-schedule');
+                     var app = express();
+                         //alert(from)
+                        // alert('clicked2')
+                        var date=document.getElementById('start').value;
+                        var time=document.getElementById('appt').value;
+      
+                        var datetime = date+':'+time;
+                        
+                       // var d=new Date();
+                        //alert(d)
+                        // if(datetime.getTime()<=d.getTime())
+                        // {
+                        //    alert('job cann\'t schedule on this date');
+                        // }
+                        // else{
+                        //    //....
+                        // }
+      
+                     //   $('#start').val()=d;
+                     //   $('#appt').val()=getTime();
+                        // $('start').placeholder=Date();
+                        alert('hii')
+                        alert(datetime+'datetime');
+      
+                           var to=document.getElementById('to1').value;
+                           //alert(to)
+                           var subject=document.getElementById('subject').value;
+                           var cc =document.getElementById('cc2').value;
+                           // alert('CC'+cc)
+                           var bcc=document.getElementById('bcc2').value;
+                           // alert('bcc'+bcc)
+                           var textarea= document.getElementById('bodyarea').value;
+                        //  alert('textarea')
+                        // alert("hello");
+                        //var a= document.getElementById("demo").innerHTML = textarea;
+                        
+                        var nodemailer = require('nodemailer');
+      //                      var app=require('express');
+      //                      app.use(bodyParser.urlencoded({ extended: false }));
+      //                      app.use(bodyParser.json());
+      //                      app.post('/send', (req, res) => {
+      //   const output = `
+      //   <h3>Subject</h3>
+      //   <p>${req.body.subject}</p>
+      //   <h3>Message</h3> 
+      //   <p>${req.body.bodyarea}</p>
+      //   $('div[data-asid="file-preview"]').append('<div id="attachment" class="col-md-12  file-preview-list"><a id="attachment1" href="' + filePath + '" target="_blank"><span>' + fileName + '</span> <span>(' + convertedSize + ')</span>' + '</a><a href="javascript:void(0)" action-field="remove-attachment" class="close-list-btn"><i class="fa fa-times-circle  "></i></a></div>')  
+      //   `
+                     // var fs=require("fs");
+                  //   var Busboy = require('busboy');
+                     var smtpTransport = require('nodemailer-smtp-transport');
+                     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+        
+                     //console.log(filessend)
+                     // alert("hello")
+                     // var rawdata = fs.readFileSync('src/views/data1.json');
+                     // var student = JSON.parse(rawdata);
+                    
+                     // var  attach=$('#attachment1').attr('href');
+      
+                     // filessend.forEach(function(file){
+                     //    filesdata.push(file)
+                     // });
+                 // alert(filesdata[0])
+                // var fileName = e.target.files[i].name;
+               //  var demoarr=[];
+                 
+               // for(var j=0;j<=filessend.length;j++){
+               //    var name1=filessend[j].split(/[\\\/]/).pop();
+               //   // demoarr.push({"name":name1,"path":filessend})
+               // }
+      
+               //   // alert(filessend[j])
+                  
+               //        
+               //  var name2=attach.split(/[\\\/]/).pop();
+               //          //   var name3=filesdata[2].split(/[\\\/]/).pop();
+               //          //   var name4=filesdata[3].split(/[\\\/]/).pop();
+               //          //   var name5=filesdata[4].split(/[\\\/]/).pop();
+      
+               //            alert(name1)
+      
+               //   }
+      
+               // if(cc==null)
+               // {
+      
+               //alert('inside');
+                     
+               
+                        // var multiplefiles={};
+                        // multiplefiles["mails"]=filessend
+                        // alert(multiplefiles['mails'])
+      
+      
+                     //    var demoarr = [
+                     //       {
+                     //          filename: 'anc',
+                     //          path: "C:/Users/JCom/Desktop/generator-ak-2 (2) (2)/generator-ak-2/demo.jpg"
+                     //       },
+                     //       {
+                     //          filename: 'andfdfc',
+                     //          path: "C:/Users/JCom/Desktop/generator-ak-2 (2) (2)/generator-ak-2/demo1.jpg"
+                     //       },
+      
+                     //       // {
+                     //       //    filename: 'ancfdfffff',
+                     //       //    path: "C:/Users/JCom/Deskto/generator-ak-2 (2) (2)/generator-ak-2/src/views/demo.jpg"
+                     //       // }
+      
+                     //   ]
+                     //    // var myJSON = JSON.stringify(multiplefiles);
+                     //     alert(demoarr)
+                           // var OauthKey="239735111041-vpkoa4vs5e48h3rkeqig7oolbp5ba4cs.apps.googleusercontent.com";
+                           // var secreateKey="1xYm8LRRkl9Kt2Qnz-0aGrok";
+      
+      
+                           // var scopes =
+                           //    'https://www.googleapis.com/auth/gmail.readonly '+
+                           //    'https://www.googleapis.com/auth/gmail.send';
+      
+                           // var options = {
+                           //    viewEngine: {
+                           //          extname: '.hbs',
+                           //          layoutsDir: 'src/views/views/views1/email',
+                           //          defaultLayout : 'template',
+                           //       partialsDir : 'src/views/partials'
+                           //    },
+                           //    viewPath: 'src/views/views/views1/email',
+                           //    extName: '.hbs'
+                           // };
+                          // var rule = new schedule.RecurrenceRule();
+                           //rule.seconds = 05;
+                          // alert('scheduler')
+      var data1;
+      
+      // async function loaddata(){
+      //    let promise= new Promise((resolve,reject)=>{
+            
+      //       fs.readFile('C:/project/backups/generator-ak-2/generator-ak-2/home.ejs',
+      //                // fs.require(filePaths,
+      //                 function(err,data){  
+      //                    if (err) {
+      //                      alert( err);
+      //                       alert('err')
+      //                       reject(err)
+      //                       throw err;
+      //                       }
+      //                   resolve(data)
+      //                 } );
+      //    })
+      //     data1=await promise();
+      //     alert('omkar p');
+      // }
+      
+      
+      
+                  var d=new Date();
+            
+                           var j = schedule.scheduleJob(datetime,async function(){
+                           // console.log('The answer to life, the universe, and everything!');
+                           // alert('The answer to life, the universe, and everything!');
+      
+                         //alert('inside')
+                         
+                        // if(datetime.getTime()<=d.getTime())
+                        // {
+                        //    alert('job cann\'t schedule on this date');
+                        // }
+                        // else{
+                        //    //....
+                           
+                        // }
+      
+                        
+                                 var transporter = nodemailer.createTransport(smtpTransport({
+                                     service: 'Gmail',
+                                     host: 'smtp.gmail.com',
+                                     port: 465,
+                                     secureConnection: true,
+                                     auth: {
+                                     user:'panaskaromkar@gmail.com',
+                                     pass: 'ieztsutaskkvyluq'
+                                     }
+                               }));
+                              
+                           //     alert('handlerbar')
+      
+                           //   transporter.use('compile', hbs(options))
+      
+                           //  alert('hello')
+                               //alert(window.location)
+      
+         //    
+                  // var filedata='';
+                  
+         //           async function loaddata(){
+         //             alert('omkar p');
+         // let promise= new Promise((resolve,reject)=>{
+            
+            fs.readFile('home.ejs',
+                     
+                      function(err,data){  
+                         if (err) {
+                           alert( err);
+                            alert('err')
+                           // reject(err)
+                            throw err;
+                            }
+                            else{
+                        //resolve(data)
+                     // } );
+       //  })
+          //data1=await promise();
+          //alert('omkar p');
+      
+      
+            
+      
+                  transporter.sendMail({ 
+                            from: from,
+                            subject:subject ,
+                            text: "hello",
+                            html:textarea+data,
+                            attachments:filessend,                                                       
+                             to: to ,
+      
+                           },
+               //alert
+      
+                                              function(error, info) {
+                                                   if (error) {
+                                                     
+                                                    return alert(error);
+                                                   }
+                                                    alert("Mail sent successfully")
+                                                   console.log('Message %s sent: %s', info.messageId, info.response);
+                                                    console.log("Mail sent successfully");
+                                                 
+                                  });
+                                 
+                                 }
+      
+      
+                                 });
+      
+         //       let mailOptions = {
+         //    from:from, // sender address
+         //    to: to, // list of receivers
+         //    subject: subject, // Subject line
+         //    text: textarea, // plain text body
+         //    html: output // html body
+         // };
+      //    transporter.sendMail(mailOptions, (error, info) => {
+      //       if (error) {
+      //           return console.log(error);
+      //       }
+      //       console.log('Message sent: %s', info.messageId);   
+      //       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      //   });
+                      
+                  
+      
+                                
+      
+         //             }
+         //             else
+         //             {
+         //              alert('inside else');
+                   
+                  
+         //                         var transporter = nodemailer.createTransport(smtpTransport({
+         //                                     service: 'Gmail',
+         //                                    host: 'smtp.gmail.com',
+         //                                    port: 465,
+         //                                     secureConnection: true,
+         //                                      auth: {
+         //                                      user: 'misalnil18@gmail.com',
+         //                                      pass: 'Nil@1803'
+         //                             }
+         //                       }));
+         //                       alert('hello')
+         //                       //alert(window.location)
+                      
+         //                                  transporter.sendMail({
+         //                                     from: from,
+         //                                     subject:subject ,
+         //                                     text: textarea,
+         //                                     // cc:cc,
+         //                                     // bcc:bcc,
+                                             
+         //                                      html: `<h1>Hello  ,  
+      
+         //                                                 'Your account password token is  '
+         //                                                 'This token is valid only within two minutes.'
+      
+         //                                                 'Thanks,'
+         //                                                 'Team. '</h1>`,
+         //                                     attachments:[
+         //                                                 {
+         //                                                 filename: name1,
+         //                                                 path: filesdata[0]
+         //                                                  },
+         //                                                 //  {
+         //                                                 // filename: name2,
+         //                                                 // path: filesdata[1]
+         //                                                 //  },
+         //                                                 //  {
+         //                                                 // filename: name3,
+         //                                                 // path: filesdata[2]
+         //                                                 //  },
+         //                                                 //  {
+         //                                                 // filename: name4,
+         //                                                 // path: filesdata[3]
+         //                                                 //  },
+         //                                                 //  {
+         //                                                 // filename: name5,
+         //                                                 // path: filesdata[4]
+         //                                                 //  }
+         //                                                 ] ,
+         //                                                 // to:to
+         //                                               to: student['email']
+                                                                        
+         //                                              },
+         //                                      function(error, info) {
+         //                                           if (error) {
+                                                     
+         //                                            return alert(error);
+         //                                           }
+         //                                           alert("Mail sent successfully")
+         //                                           console.log('Message %s sent: %s', info.messageId, info.response);
+         //                                           console.log("Mail sent successfully");
+                                                 
+         //                                        });
+      
+      
+      
+         // }
+                                          
+                         
+      
+                           // var promise45=new Promise(function(resolve,reject){
+      
+                           //             alert('inside promise')
+                           //             fs.readFile(attach,function(err,data54){
+                           //                if(err) 
+                           //                {
+                           //                   alert('err')
+                           //                   alert(err)
+                           //                reject(err)
+                           //                throw err;
+                           //                }
+                           //                //alert(data45);
+                           //             // alert('data2');
+                           //             //   var str=String(data5);
+                           //             //   alert(str);
+                           //                //alert('second ' + data54)
+                           //                resolve(data54)
+      
+                           //             //   alert(data54)
+                           //             //   console.log(data54)
+                           //                })
+                                          
+                           //             }).then((data444)=>{
+                           //             // alert(data444);
+                           //             //alert('then')
+                                   
+      
+                                                      
+                                                            
+                           //                      //console.log()
+                                                   
+      
+      
+                           //             })
+      
+                       
+                        
+      
+                        // } else{
+                        //    break;
+                        // }
+                      
+                        // alert(getFileName())
+                      //  alert(name)
+      
+                       // alert()
+                       
+          
+      
+                       
+                        //var href1 = attach.match(/href="file([^"]*)/)[1];
+                        
+                       // alert(attach)
+      
+                        
+                       //alert('hiii')
+                        
+      
+                  
+         //             alert('inside mail');
+         //            // const attachmentsParser = require('nodemailer-attachments-parser');
+         //            // var attachments = [];
+      
+         //             var transporter = nodemailer.createTransport(smtpTransport({
+         //             service: 'Gmail',
+         //             host: 'smtp.gmail.com',
+         //             port: 465,
+         //             secureConnection: true,
+         //             auth: {
+         //                user: 'misalnil18@gmail.com',
+         //                pass: 'Nil@12345'
+         //             }
+         //          }));
+      
+         //             transporter.sendMail({
+         //                from: from,
+         //                subject:subject ,
+         //                text: textarea,
+         //                //cc:cc,
+         //                html:' <h1 style="color:blue;">This is a Blue Heading</h1>',
+         //                 attachments:[{
+         //                           filename: name,
+         //                           path:filessend
+         //                }] ,
+         //                to: to,
+                        
+         //             },
+                     
+         //  //console.log()
+         //       function(error, info) {
+         //      if (error) {
+         //          return alert(error);
+         //      }
+         //      console.log('Message %s sent: %s', info.messageId, info.response);
+         //      console.log("Mail sent successfully");
+         //  });
+      // async..await is not allowed in global scope, must use a wrapper
+         }
+      
+         // .bind(null,transporter)
+                            ) };
+      
+      
+      
+      
+                  function attachment()
+                  {
+      
+      
+      
+                           const gulp = require('gulp');
+                        const pug = require('gulp-pug');
+                        const sass = require('gulp-sass');
+                        const replace = require('gulp-replace');
+                        const inlineCss = require('gulp-inline-css');
+                        const rename = require('gulp-rename');
+                        const browserSync = require('browser-sync').create();
+      
+                        // browserSync base directory
+                        // this will be the base directory of files for web preview
+                        // since we are building `index.pug` templates (located in src/emails) to `dist` folder.
+                        const baseDir = "./dist";
+      
+                        // compile sass to css
+                        gulp.task('compileSass', function () {
+                           return gulp
+                              // import all email .scss files from src/scss folder
+                              // ** means any sub or deep-sub files or foders
+                              .src('./src/sass/**/*.scss')
+      
+                              // on error, do not break the process
+                              .pipe(sass().on('error', sass.logError))
+      
+                              // output to `src/css` folder
+                              .pipe(gulp.dest('./src/css'));
+                        });
+      
+                        // build complete HTML email template
+                        // compile sass (compileSass task) before running build
+                        gulp.task('build', ['compileSass'], function () {
+                           return gulp
+                              // import all email template (name ending with .template.pug) files from src/emails folder
+                              .src('src/emails/**/*.template.pug')
+      
+                              // replace `.scss` file paths from template with compiled file paths
+                              .pipe(replace(new RegExp('\/sass\/(.+)\.scss', 'ig'), '/css/$1.css'))
+      
+                              // compile using Pug
+                              .pipe(pug())
+      
+                              // inline CSS
+                              .pipe(inlineCss())
+      
+                              // do not generate sub-folders inside dist folder
+                              .pipe(rename({dirname: ''}))
+      
+                              // put compiled HTML email templates inside dist folder
+                              .pipe(gulp.dest('dist'))
+                        });
+      
+                        // browserSync task to launch preview server
+                        gulp.task('browserSync', function () {
+                           return browserSync.init({
+                              reloadDelay: 2000, // reload after 2s, compilation is finished (hopefully)
+                              server: { baseDir: baseDir }
+                           });
+                        });
+      
+                        // task to reload browserSync
+                        gulp.task('reloadBrowserSync', function () {
+                           return browserSync.reload();
+                        });
+      
+                        // watch source files for changes
+                        // run `build` task when anything inside `src` folder changes (except .css)
+                        // and reload browserSync
+                        gulp.task('watch', ['build', 'browserSync'], function () {
+                           return gulp.watch([
+                              'src/**/*',
+                              '!src/**/*.css',
+                           ], ['build', 'reloadBrowserSync']);
+                        });
+                        }
+      
+                   
+                        
+      
+               $('#files2').on('change',function(e,d){
+      
+               let filePaths;
+      
+            // for(var i=0;i<=(this).files.length;i++)
+            // {
+               
+            //  fileName = e.target.files[i].name;
+            //  fileSize = e.target.files[i].size;
+            //  filetype = e.target.files[i].type;
+             filePaths = e.target.files[0].path;
+           // alert(filePath)
+           // }
+      
+               fs.readFile(filePaths,function(err,data){
+                  if(err)
+                  {
+                     alert(err)
+                     throw err;
+                  }
+                  else{
+                    // alert(data)
+                     //$('#to1').attr('value',data)
+                     $('#to1').att('value',data);
+                  }
+               })
+       
+      })
+       
+      
+      </script>
+      <!-- </body>
+      </Html> -->

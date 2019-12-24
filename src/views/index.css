@@ -1,0 +1,38 @@
+/* html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+} */
+
+/* *, *::before, *::after {
+    box-sizing: border-box;
+} */
+
+window html, #term {
+    padding: 4px;
+    background-color: black;
+    opacity: 0.7;
+    height: 400px;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 200;
+    font-size: 14px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow-y: auto
+  
+    
+  
+  }
+  .window #term::after {
+    content: "|";
+    animation: blink 2s steps(1) infinite;
+  }
+  
+  

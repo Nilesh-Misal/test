@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Computation module</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../assets/css/darcula.css" rel="stylesheet">
+	<script src="../assets/js/highlight.pack.js"></script>
+	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/tab-design.css">
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/html-project.css">
+	<link href="../assets/summernote/summernote.css" rel="stylesheet">
+	<link href="../assets/summernote/summernote-bs3.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/codemirror.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/monokai.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="../assets/xterm/dist/xterm.css" >
+      <script src="../assets/xterm/dist/xterm.js"></script>
+      <script src="../assets/xterm/dist/addons/fit/fit.js"></script>
+	<script src="../assets/js/jquery-3.3.1.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/include-html.js"></script>
+	<script src="../assets/js/jquery-ui.js"></script>
+	<script src="../assets/summernote/summernote.min.js"></script>
+	<script src="../assets/codemirror/lib/codemirror.js"></script>
+	<script src="../assets/codemirror/lib/xml.min.js"></script>
+	<script src="../assets/js/formatting.min.js"></script>
+
+	<script>hljs.initHighlightingOnLoad();</script>
+	<style type="text/css">
+		.dropdown-submenu {
+			position: relative;
+		}
+
+		.dropdown-submenu .dropdown-menu {
+			top: 0;
+			left: 100%;
+			margin-top: -1px;
+		}
+		.note-editor {
+			margin-bottom: 0 !important;
+			border-radius: 0;
+		    border: 0 !important;
+		}
+		.ui-icon-gripsmall-diagonal-se {
+		    display: none !important;
+		}
+
+
+		/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  padding-top: 100px; /* Location of the box */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+		  background-color: black;
+		  margin: auto;
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 40%;
+		}
+
+		/* The Close Button */
+		.close {
+		  color: #aaaaaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+}
+#codesymbol{
+	height: 15px;
+	width: 20px;
+	background: transparent;
+}
+#codesymbol1{
+	height: 12px;
+	width: 16px;
+	background: transparent;
+}
+	</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="dropdown _child">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+	        <ul class="dropdown-menu">
+		      <li class="dropdown-submenu">
+		        <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New <span class="caret"></span></a>
+		        <ul class="dropdown-menu">
+		          <li class="dropdown-submenu">
+		            <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New File<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li><a  href="#" type="submit" id="htmlfile">HTML File</a></li>
+		              <li><a href="#" id="cssfile">CSS File</a></li>
+		              <li><a href="#" id="jsfile">JS File</a></li>
+		            </ul>
+		          </li>
+		          <li class="dropdown-submenu">
+		            <a class="dropdown-toggle test" data-toggle="dropdown" href="#" >New Project<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li class="dropdown-submenu" >
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#" >HTML Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="javascript:void(0)" action-field="menuBtn-start-new" data-asid="configure-html-project" id="myBtn">New </a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+			             <ul class="dropdown-menu">
+				            <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+				         </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+										<li><a href="#">Open</a></li>
+										
+			            </ul>
+		              </li>
+		            </ul>
+		          </li>
+		        </ul>
+		      </li>
+					<li><a tabindex="-1" href="#" id="browse">Open</a></li>
+					<li><a tabindex="-1" href="#" id="browsefolder">Open Folder</a></li>
+		      <li><a tabindex="-1" href="#" id="save">Save</a></li>
+		      <li><a tabindex="-1" href="#" id="saveAs">Save As</a></li>
+		      <li><a tabindex="-1" href="#" id="closeproject">Close Project</a></li>
+		      <li><a tabindex="-1" href="#" id="exit">Exit</a></li>
+		    </ul>
+	  </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+          <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+          <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+        </ul>
+      </li>
+             <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Run</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" id="submit" >Run</a></li>
+					<li><a href="#">Compile</a></li>
+					<li><a href="#" id="runToptoBottom">Run Sequentially</a></li>
+
+        </ul>
+      </li>
+			
+			<li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings</a>
+        <ul class="dropdown-menu">
+					<li><a href="#" id="javasettings" >Java Settings</a></li>
+					
+         
+
+        </ul>
+      </li>
+      <li class="_child"><a href="#">Help</a></li>
+      <li class="_child"><a href="#">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close1">&times;</span>
+    <p class="form-label">Enter file name</p><br/>
+	<input type="text" id="filename"  class="form-control"><br/>
+	<button  type="submit" class="btn btn-primary btn-sm" id="create-html-project">Create</button>
+  </div>
+
+</div>
+<div id="open" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p class="form-label">Enter file name</p><br/>
+	<input type="file" id="files"  class="form-control" name="files[]" directory multiple/><br/>
+	<button id="open1" type="submit" class="btn btn-primary btn-sm" >OPEN</button>
+  </div>
+
+</div>
+
+
+<div id="openfolder" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p class="form-label">Browse folder</p><br/>
+		<input type="file" id="files1" class="form-control"  webkitdirectory directory multiple />
+	<button  id="open2" class="btn btn-primary btn-sm" >OPEN</button>
+  </div>
+
+</div>
+
+
+
+<div id="javaset" class="modal" >
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+  <table class="table">
+		<tbody>
+		<tr>
+			<td >Set Javac path</td><td><input type="text" id="javacpath" class="form-control" /></td>
+		</tr>
+		<tr>
+				<td >Path to Java</td><td><input type="text" id="javapath" class="form-control" /></td>
+			</tr>
+			<tr>
+				<td ></td><td><input type="button" class="form-control" id="savepaths" value="Save" /></td>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+
+</div>
+
+<div id="openfolder" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p class="form-label">Browse folder</p><br/>
+		<input type="file" id="files2" class="form-control"  saveFile />
+	<button  id="open3" class="btn btn-primary btn-sm" >OPEN</button>
+  </div>
+
+</div>
+
+<div id="openfolder1" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p class="form-label">Browse folder</p><br/>
+		<input type="file" id="files3" class="form-control"  webkitdirectory directory multiple />
+	<button  id="open4" class="btn btn-primary btn-sm" >OPEN</button>
+  </div>
+
+</div>
+<!--<nav class="nav
+	bar navbar-toolbox">-->
+  <!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+    	<!--<div class="col-lg-12"style="padding: 0;">-->
+
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12 filepath-panel" data-asid="filepath-panel">
+	    	<div>
+	    		<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb">
+				    
+				  </ol>
+				</nav>
+	    	</div>
+	    </div>
+	</div>
+	<div class="row" style="display: flex;">
+	    <div data-asid="directory-panel" class="directory-panel">
+	    	<ul class="parent" data-asid="dir">
+				<li><i class="fa fa-chevron-right" id="logochange" ></i><span class="fld" id="list" ></span></li>
+				<ul id="listfiles">
+
+				</ul>
+				
+				
+			</ul>
+	    </div>
+	    <div data-asid="work-panel" class="work-panel">
+	    	<div class="row" style="width: -webkit-fill-available; margin: 0;">
+	    		<div class="tab-container main-container">
+				  <ul class="nav nav-tabs dblclike-event" data-asid="tab-layout" id="menunames">
+				  	<li class="extra-tabs" style="">
+				  		<span class="scrollLeft">
+				  			<i class="fa fa-caret-left"></i>
+				  		</span>
+				  		<span class="scrollRight">
+				  			<i class="fa fa-caret-right"></i>
+				  		</span>
+				  	</li>
+				  
+				  </ul>
+
+
+								<div class="" id="text">
+									<div class="row">
+										<div class="col-md-12 ">
+											<p id="arrayprint"></p>
+                                           <form accept="">
+<pre class="col-md-12" style="height:400px;overflow:hidden;" >
+<code class="java" id="code-space" contenteditable="true" style="width:100%;height:100%;">
+	
+</code>
+</pre>
+											
+                                           </form><hr/>
+                                            <div dir="ltr" class="col-md-12 " id="out" style="overflow:scroll" >
+                                               
+										    </div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+				  	</div>
+
+				  </div>
+				</div>
+	    	</div>
+		    <!-- <div data-asid="editor-panel" class="editor-panel"></div> -->
+		    <!-- <div data-asid="properties-panel" class="properties-panel"></div> -->
+		</div>
+	</div>
+</div>
+<script src="../assets/js/compute-project.js"></script>
+<script>
+
+var javac="";
+var javapath="";
+var executionpath=""
+$(document).ready(function(){
+	var fs = require('fs');
+	fs.readFile('configure.json','utf-8',function(err,data){
+		javac=JSON.parse(data)[0].javac;
+		javapath=JSON.parse(data)[1].java;
+		executionpath=JSON.parse(data)[4].executionpath;
+		//console.log(javac+' '+java+' '+executionpath);
+	})
+})
+hljs.highlightBlock($('code').get(0));
+
+
+//Terminal code
+
+var term = new Terminal({
+  cursorBlink: true,
+});
+
+
+
+term.open(document.getElementById('out'));
+term.refresh();
+term.write('Hello /x1B[1;3;31mSjain/x1B[0m $ ');
+term.on('key', (key, ev) => {
+        console.log(key.charCodeAt(0));
+        if (key.charCodeAt(0) == 13)
+            term.write('/n');
+        term.write(key);
+});
+
+
+        <!--$('#submit').on('click',()=>{-->
+           <!--var py = $("#code-space").val();-->
+
+
+            <!--let resultPromise = python.runSource(py);-->
+            <!--resultPromise-->
+                <!--.then(result => {-->
+                          <!--term.write(result['stdout']);-->
+                       <!--term.write(result['stderr']);-->
+                    <!--console.log(result);-->
+                <!--})-->
+                <!--.catch(err => {-->
+                    <!--console.log(err);-->
+                <!--});-->
+
+         <!--});-->
+
+ <!--$('#submit').on('click',()=>{-->
+
+<!--python.runFile('compute_input.py', { stdin:''}, (err, result) => {-->
+    <!--if(err){-->
+        <!--console.log(err);-->
+    <!--}-->
+    <!--else{-->
+        <!--term.write(result['stdout']);-->
+        <!--term.write(result['stderr']);-->
+        <!--&lt;!&ndash;term.on()&ndash;&gt;-->
+        <!--console.log(result);-->
+    <!--}-->
+<!--});-->
+<!--});-->
+</script>
+
+<script>
+// Get the modal to create new file
+var modal = document.getElementById('myModal');
+var selectedfile='';
+var selectedfileLocation='';
+var pathfile='';
+var openedfiles=[];
+var folderfilesarray=[];
+var folderpath='';
+var openedtabs=[];
+var folderfilenames=[];
+const {c, cpp, node, python, java} = require('compile-run');
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+/*
+var create = document.getElementById("create_file");
+create.onclick = function() {
+         var fs = require('fs');
+
+			fs.appendFile($('#filename').val(),'/n Write your code here.', function (err) {
+			  if (err) throw err;
+			  console.log('Created!');
+			});
+     modal.style.display = "none";
+}
+*/
+// When the user clicks the button, open the modal
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+
+
+
+// When the user clicks on <span> (x), close the modal
+<!--span.onclick = function() {-->
+  <!--modal.style.display = "none";-->
+  <!---->
+<!--}-->
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+</script>
+<script>
+<!--const path = require('path')-->
+
+<!--var absolutePath = path.join(root,req.files['filename'].path)-->
+<!--$('#browse').click(function(){-->
+  <!--$('#directory').text(absolutePath);-->
+  <!--console.log(absolutePath);-->
+<!--});-->
+
+// Get the modal to create new file
+var modal1 = document.getElementById('open');
+var modal2 = document.getElementById('openfolder');
+var modal3 = document.getElementById('javaset');
+var mdoel4=document.getElementById('openfolder1');
+// Get the button that opens the modal
+var btn1 = document.getElementById("browse");
+var btn2=document.getElementById("browsefolder");
+//var btn3=document.getElementById("html-based-new-project");
+//var btn3=document.getElementById("javasettings");
+//var btn3=document.getElementById("save");
+// Get the <span> element that closes the modal
+<!--var span1 = document.getElementsByClassName("close")[0];-->
+var create1 = document.getElementById("open1");
+var create2 = document.getElementById("open2");
+var create3 = document.getElementById("open4");
+
+
+<!--const fs = require('fs');-->
+<!--const path = require('path');-->
+<!--create1.onclick = function() {-->
+<!--const folderPath = $('#files');-->
+
+<!--fs.readdirSync(folderPath).map(fileName => {-->
+  <!--return path.join(folderPath, fileName);-->
+  <!--console.log(filename);-->
+<!--}-->
+
+<!--}-->
+
+//require('C:/Users/Shradha/Documents/pypsi/generator-ak/src/assets/js/renderer.js');
+	
+function handleFileSelect5(evt,cb){
+	
+
+   create1.onclick = function() {
+    term.clear();
+    term.refresh();
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of Filze objects. List some properties.
+    var output = [];
+
+
+     console.log(document.getElementById("files").files[0].path);
+
+    for (var i = 0, f; f = files[i]; i++) {
+    var reader = new FileReader();
+	  reader.onload = function(e) {
+		// The file's text will be printed here
+		console.log(e.target.result)
+		$('#code-space').text(e.target.result);
+		
+		/*
+		$('#submit').on('click',()=>{
+
+console.log('selected'+selectedfile);
+			var fileextention=selectedfile;
+		//	var extention=fileextention.split('.');
+			///console.log(fileextention+extention);
+//			console.log('selected='+fileextention);
+			if(fileextention!=''){
+				alert('no file extention')
+
+			}else if(fileextention!='c'){
+				alert('c')
+			}else if(fileextention!='cpp'){
+				alert('cpp')
+      }else if(fileextention!='java'){
+				alert('java')
+      }else if(fileextention!='py'){
+				alert('py')
+       }
+					 const {c, cpp, node, python, java} = require('compile-run');
+					 
+
+
+
+
+      
+		python.runFile(document.getElementById("files").files[0].path, { stdin:''}, (err, result) => {
+			if(err){
+				console.log(err);
+			}
+			else{
+				term.write(result['stdout']);
+				term.write(result['stderr']);
+			
+				console.log(result);
+			}
+		});
+
+		
+
+		});
+		*/
+
+
+	  };
+      reader.readAsText(f);
+      output.push('<li>'+ escape(f.name));
+      $('#out1').text(f.name);
+
+
+
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    if(cb) cb();
+     modal1.style.display = "none";
+   }
+
+
+	
+	 
+	
+  
+
+}
+
+
+  function handleFileSelect(evt, cb) {
+	$('#code-space').text('');
+   create1.onclick = function() {
+    term.clear();
+    term.refresh();
+    var files = evt.target.fileInput; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+
+//console.log()
+    // console.log(files.path);
+
+    for (var i = 0, f; f = files[i]; i++) {
+    var reader = new FileReader();
+	  reader.onload = function(e) {
+		// The file's text will be printed here
+		console.log("inside handle file 1"+e.target.result)
+	//	$('#code-space').text('');
+		
+		$('#code-space').text(e.target.result);
+		
+	
+
+	  };
+	  console.log(f);
+      reader.readAsText(f);
+      output.push('<li>'+ escape(f.name));
+      $('#out1').text(f.name);
+
+
+
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    if(cb) cb();
+     modal1.style.display = "none";
+   }
+	
+  }
+
+
+
+
+
+	
+$(document).on('click','#submit',function(){
+	
+	//var datacs=['hello','world'];
+
+	var async = require("async");
+	const {PythonShell} = require('python-shell');
+	
+	console.log('selected'+selectedfile);
+			var fileextention=selectedfile;
+		//	var extention=fileextention.split('.');
+			///console.log(fileextention+extention);
+//			console.log('selected='+fileextention);
+			if(selectedfile==''){
+				alert('no file extention')
+
+			}else if(selectedfile=='c'){
+				
+
+				let resultPromise = c.runFile(pathfile, {});
+resultPromise
+    .then(result => {
+       	term.write(result['stdout']);
+				term.write(result['stderr']);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+
+		
+			}else if(selectedfile=='cpp'){
+
+				cpp.runFile(pathfile,{
+    compilationPath: 'C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin' // something like C://Program Files//gcc//bin
+},(err,result)=>{
+	if(err) throw err;
+	term.write(result['stdout']);
+				term.write(result['stderr']);
+});
+
+		
+      
+			}else if(selectedfile=='java'){
+			
+				java.runFile(pathfile,{
+            compilationPath: javac,
+            executionPath: javapath
+        },(err,result)=>{
+          if(err) {
+						//throw err;
+					//	alert(err)
+					}
+					term.write(result['stdout']);
+			//	alert("result"+result['stdout']);
+          if(result['stderr']!=''){
+						term.write(result['stderr']);
+					//	alert("err"+result['stderr']);
+          }
+
+
+        });
+
+      }else if(selectedfile=='py'){
+/*
+//var PythonShell = require('python-shell');
+let {PythonShell} = require('python-shell');
+ 
+PythonShell.runString('x=1+1;print(x)', null, function (err) {
+	console.log(err);
+  if (err) throw err;
+  console.log('finished');
+});
+*/
+//alert('inside py')
+				var sourcecode=$('#code-space').text();
+			//	console.log(sourcecode);
+			let resultPromise = python.runSource(sourcecode);
+resultPromise
+    .then(result => {
+			async.series([
+    function(callback) {
+			console.log('first callback');
+			WriteintoCsv(result['stdout']);
+			callback();
+		 },
+    function(callback2) { 
+			console.log('second callback');
+			Readcsv();
+			callback2();
+		}
+]);
+	
+
+			term.write(result['stdout']);
+	//		var datacsv=['output1','hello'];
+			//createCSVFile('C:/Users/Shradha/Documents/pypsi/pypsinew/new/generator-ak/src/Output/Output.csv',datacsv);
+	
+				term.write(result['stderr']);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+
+       }else{
+				alert('no compiler found for this extention')
+			 }
+					
+
+})
+
+	markButtons();
+
+function markButtons() {
+    $('ul li:not(.marked)')
+        .addClass("marked");
+        
+}
+
+$('.fa-chevron-right').hide();
+$('#list').hide();
+
+  function handleFileSelect1(evt, cb) {
+
+		
+
+
+var theFiles = evt.target.files;
+    var relativePath = theFiles[0].webkitRelativePath;
+		var folder = relativePath.split("/");
+		folderpath=relativePath.split("/")[0];
+		$('.breadcrumb').append(' <li class="breadcrumb-item " ><i class="fa fa-folder"></i>'+folderpath+' <span class="line-arrow right"></span></li>')
+		console.log("folder:"+folder.length);
+		let j=0;
+		for(j;j<folder.length-1;j++){
+			$('.breadcrumb').append(' <li class="breadcrumb-item " ><i class="fa fa-folder"></i>'+folder[j]+' <span class="line-arrow right"></span></li>')
+		}
+		var mainfoldername=folder[0];
+
+		
+
+
+
+    //alert(folder[0]);
+
+	//	alert('herere'+ evt.target.files.length+mainfoldername);
+var i=0;
+
+
+
+$('.parent').append('<li ><i class="fa fa-chevron-right" id="logochange"></i><span class="fld" id="t'+mainfoldername+'" >'+mainfoldername+'</span><ul class="chld active" id="'+mainfoldername+'"></ul></li>');
+var extentionoffile='';
+var subfoldernames='';
+
+$('.fa-chevron-right').show(200);
+$('#list').show(200);
+for(i=0;i<evt.target.files.length;i++){
+
+	folderfilesarray.push(evt.target.files[i].path);
+//console.log(mainfoldername);
+folderfilenames.push(evt.target.files[i].name);
+console.log(evt.target.files[i].name.split('/')[1])
+extentionoffile=evt.target.files[i].name.split('.')[1];
+if(extentionoffile=='c'){
+	$('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt.target.files[i].path+'" class="subfiles" ><img src="../assets/images/symbols/programming-languages/c.png" id="codesymbol"> '+evt.target.files[i].name+'</li>')
+}else if(extentionoffile=='cpp'){
+	$('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt.target.files[i].path+'" class="subfiles" ><img src="../assets/images/symbols/programming-languages/c++.png" id="codesymbol"> '+evt.target.files[i].name+'</li>')
+}else if(extentionoffile=='java'){
+	$('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt.target.files[i].path+'" class="subfiles" ><img src="../assets/images/symbols/programming-languages/java.png" id="codesymbol"> '+evt.target.files[i].name+'</li>')
+}else if(extentionoffile=='py'){
+	$('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt.target.files[i].path+'" class="subfiles" ><img src="../assets/images/symbols/programming-languages/python.png" id="codesymbol"> '+evt.target.files[i].name+'</li>')
+}else{
+
+}
+	
+	//console.log(evt.target.files[i]);
+	
+	}
+		//console.log(evt.target.files);
+		/*
+		create2.onclick = function() {
+
+		var files = evt.targe.folderPath; 
+
+	alert('cliked'+evt.targe);
+	modal2.style.display = "none";
+	 }
+*/
+modal2.style.display = "none";
+
+	}
+	function WriteintoCsv(filelocation1,output){
+
+		
+		const createCsvWriter = require('csv-writer').createObjectCsvWriter;  
+	
+	console.log(output);
+		const csvWriter = createCsvWriter({  
+  path:filelocation1.split('.')[0]+'.csv',
+  header: [
+    {id: 'fname', title: 'fname'},
+    {id: 'Output', title: 'output'}
+    
+  ]
+});
+		const data = [  
+  {
+    fname: selectedfileLocation,
+    Output: output
+  
+  }
+];
+
+Promise.resolve()
+    .then(() => csvWriter.writeRecords(data));
+/*
+csvWriter  
+  .writeRecords(data)
+	.then(()=> console.log('The CSV file was written successfully'));
+	*/
+	}
+
+function Readcsv(){
+	const csv = require('csv-parser');  
+const fs = require('fs');
+
+fs.createReadStream('out.csv')  
+  .pipe(csv())
+  .on('data', (row) => {
+    console.log(row);
+  })
+  .on('end', () => {
+    console.log('CSV file successfully processed');
+  });
+}
+
+  function handleFileSelect2(evt, cb) {
+	
+		var FileSaver = require('file-saver');
+var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+FileSaver.saveAs(blob, "hello world.txt");
+/*
+var theFiles = evt.target.files[0];
+    var relativePath = theFiles[0].webkitRelativePath;
+    var folder = relativePath.split("/");
+		var mainfoldername=folder[0];
+console.log(evt.target.files[0].name+' '+relativePath);
+modal2.style.display = "none";
+*/
+	}
+
+
+
+$(document).on('click','.subfiles',(event)=>{
+	console.log($(event.target).attr('id'))
+var fname=$(event.target).attr('id');
+var path=$(event.target).attr('value');
+
+var extentionoffile=fname.split('.')[1];
+$('code').removeClass();
+$('code').addClass(extentionoffile);
+hljs.highlightBlock($('code').get(0));
+
+//alert(extentionoffile);
+
+/*
+if(extentionoffile=='c'){
+	$('#menunames').append('<li><img src="../assets/images/symbols/programming-languages/c.png" id="codesymbol1"> <a data-target="#project" data-toggle="tab" value="'+path+'" id="'+fname+'" class="tabname">'+fname+'<label class="close closeTab" id="c'+fname+'"  action-field="project-close">×</label></a></li>')
+
+}else if(extentionoffile=='cpp'){
+	$('#menunames').append('<li><img src="../assets/images/symbols/programming-languages/c++.png" id="codesymbol1"> <a data-target="#project" data-toggle="tab" value="'+path+'" id="'+fname+'" class="tabname">'+fname+'<label class="close closeTab" id="c'+fname+'"  action-field="project-close">×</label></a></li>')
+
+}else if(extentionoffile=='java'){
+	$('#menunames').append('<li><img src="../assets/images/symbols/programming-languages/java.png" id="codesymbol1"> <a data-target="#project" data-toggle="tab" value="'+path+'" id="'+fname+'" class="tabname">'+fname+'<label class="close closeTab" id="c'+fname+'"  action-field="project-close">×</label></a></li>')
+
+}else if(extentionoffile=='py'){
+	$('#menunames').append('<li><img src="../assets/images/symbols/programming-languages/python.png" id="codesymbol1"> <a data-target="#project" data-toggle="tab" value="'+path+'" id="'+fname+'" class="tabname">'+fname+'<label class="close closeTab" id="c'+fname+'"  action-field="project-close">×</label></a></li>')
+
+}
+*/
+var x1=0;
+console.log(jQuery.trim(fname)+' '+openedfiles);
+x1=jQuery.inArray( jQuery.trim(fname),openedfiles );
+console.log('x1='+x1);
+
+
+if(x1==0){
+//alert('add file'+x1);
+}else if(x1==-1){
+//	alert('add file'+x1);
+	$('#menunames').append('<li> <a data-target="#project" data-toggle="tab" value="'+path+'" id="'+fname+'" class="tabname">'+fname+'<label class="close closeTab" id="c#'+fname+'"  action-field="project-close">×</label></a></li>')
+
+if (openedfiles.indexOf(fname) == -1) {
+	openedfiles.push(fname);
+}
+	//openedfiles.push(fname);
+	$('#listfiles').append('<li id="sublist">'+fname+' <i class="fa fa-close"></i></li>');
+
+	$('.tabname').trigger('click');
+}else if(x1==1){
+//	alert('add file'+x1);
+}
+
+if(x1==0){
+//alert('add file');
+}else{
+
+/*
+$('#menunames').append('<li> <a data-target="#project" data-toggle="tab" value="'+path+'" id="'+fname+'" class="tabname">'+fname+'<label class="close closeTab" id="c#'+fname+'"  action-field="project-close">×</label></a></li>')
+
+if (openedfiles.indexOf(fname) == -1) {
+	openedfiles.push(fname);
+}
+	//openedfiles.push(fname);
+
+	$('.tabname').trigger('click');
+*/
+}
+
+//alert(fname);
+
+});
+var fs=require('fs');
+
+$(document).on('click','.tabname',(event)=>{
+	var i=0;
+
+	//console.log($(event.target).attr('id'))
+
+var fname=$(event.target).attr('id');
+var path=$(event.target).attr('value');
+var classname=fname.split('.')[1];
+
+let o=0;
+
+var flag=true;
+if(flag=false){
+console.log(flag)
+}else {
+	$('code').removeClass();
+$('code').addClass(classname);
+hljs.highlightBlock($('code').get(0));
+//var hljs=require('hljs');
+//hljs.registerLanguage('c', c);
+console.log(openedfiles);
+if(fname=='Untitled.txt'){
+console.log('Untitled.txt');
+}else{
+ console.log('not selected');
+}
+selectedfile=classname;
+pathfile=path;
+selectedfileLocation=path;
+hljs.highlightBlock($('code').get(0));
+fs.readFile(pathfile, 'utf8', function(err, contents) {
+ if(err) throw err;
+$('#code-space').text(contents);
+//console.log(contents);
+});
+}
+});
+
+function handleFileSelect3(evt, cb) {
+ 
+	  var path1=require('path');
+	  var theFiles = evt.target.files;
+    var relativePath = theFiles[0].webkitRelativePath;
+		var folder = relativePath.split("/");
+		folderpath=relativePath.split("/")[0];
+		console.log(theFiles[0].path.split(".").pop()[0]);
+		//var folder = relativePath.split("/");
+		//folderpath=relativePath.split("/")[0];
+		//console.log("folder:"+folder.length);
+	//	console.log(relativePath);
+	 
+	 //model3.style.display="none";
+  }
+
+
+
+
+ document.getElementById('files').addEventListener('change', handleFileSelect5, false);
+
+ document.getElementById('files1').addEventListener('change', handleFileSelect1, false);
+
+ document.getElementById('files2').addEventListener('change', handleFileSelect2, false);
+
+ document.getElementById('files3').addEventListener('change', handleFileSelect3, false);
+
+ btn2.onclick = function(){
+	$('#files1').trigger('click');
+	$('#open2').trigger('click');
+//	modal2.style.display = "block";
+}
+/*
+btn3.onclick = function(){
+	$('#files3').trigger('click');
+	$('#open4').trigger('click');
+
+//	modal4.style.display = "block";
+}
+
+*/
+
+ <!--$('#submit').on('click',()=>{-->
+<!--var fileInput = document.querySelector('input[type="file"]');-->
+
+<!--function read(callback) {-->
+  <!--var file = fileInput.files.item(0);-->
+  <!--var reader = new FileReader();-->
+
+  <!--reader.onload = function(e) {-->
+    <!--callback(reader.result);-->
+
+            <!--let resultPromise = python.runSource(e.target.result);-->
+            <!--resultPromise-->
+                <!--.then(result => {-->
+                          <!--term.write(result['stdout']);-->
+                       <!--term.write(result['stderr']);-->
+                    <!--console.log(result);-->
+                <!--})-->
+                <!--.catch(err => {-->
+                    <!--console.log(err);-->
+                <!--});-->
+
+  <!--}-->
+
+  <!--reader.readAsText(file);-->
+  <!--}-->
+  <!--});-->
+
+
+
+// When the user clicks the button, open the modal
+btn1.onclick = function() {
+	$('#files').trigger('click');
+	$('#open1').trigger('click');
+ // modal1.style.display = "block";
+}
+
+
+$('#saveAs').click(()=>{
+	openfilesaver();
+	})
+function openfilesaver(){
+	console.log('open file saver');
+	var FileSaver = require('file-saver');
+var blob = new Blob(["Edit code here"], {type: "text/plain;charset=utf-8"});
+FileSaver.saveAs(blob, "Untitled.txt");
+console.log('file saved');
+}
+
+// When the user clicks on <span> (x), close the modal
+<!--span1.onclick = function() {-->
+  <!--modal1.style.display = "none";-->
+<!--}-->
+/*
+span.onclick = function() {
+  modal.style.display = "none";
+  model1.style.display = "none";
+}
+
+*/
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+		modal2.style.display = "none";
+		modal.style.display="none";
+  }
+}
+
+
+$('.close').click(function(){
+//	alert('closed');
+	modal1.style.display = "none";
+		modal2.style.display = "none";
+		modal3.style.display = "none";
+		modal4.style.display = "none";
+		modal.style.display = "none";
+})
+
+
+
+$('.dblclike-event').dblclick(function(){
+	alert('dblclicked');
+	$('#code-space').text('This is demo file');
+	selectedfile='Untitled.txt';
+	selectedfileLocation='';
+	$('#menunames').append('<li><a data-target="#project" data-toggle="tab" value="nd" id="Untitled.txt" class="tabname">Untitled.txt<label class="close closeTab" id="Untitled.txt"  action-field="project-close">×</label></a></li>')
+
+});
+
+$(document).bind('keydown', 'ctrl+s', function(){
+	
+			console.log('selected file location='+selectedfileLocation);
+if(selectedfileLocation=='nd'){
+	openfilesaver();
+}else{
+	var fs = require('fs');
+				var data = $("#code-space").text();
+	console.log('inside not null')
+var fs= require('fs');
+var data=$('#code-space').text();
+//console.log(data);
+fs.writeFile(pathfile,data, 'utf8',		// callback function
+					function(err) {
+						if (err) throw err;
+						console.log("Data is appended to file successfully."+pathfile)
+				});
+}
+
+});
+
+$('#javasettings').click(()=>{
+
+
+modal3.style.display="block";
+
+
+});
+
+$('#save').on('click',()=>{
+							console.log('selected file location='+selectedfileLocation);
+if(selectedfileLocation=='nd'){
+	openfilesaver();
+}else{
+	var fs = require('fs');
+				var data = $("#code-space").text();
+	console.log('inside not null')
+var fs= require('fs');
+var data=$('#code-space').text();
+//console.log(data);
+fs.writeFile(pathfile,data, 'utf8',		// callback function
+					function(err) {
+						if (err) throw err;
+						console.log("Data is appended to file successfully."+pathfile)
+				});
+}
+						
+			
+		
+
+
+			
+			});
+
+
+			$('#exit').click(function(){
+				window.close();
+			});
+
+	function drop_type(string)
+{
+    return /(\.[a-z0-9]{2,5})$/i.test(string) ? 'file' : 'directory';
+}
+
+$('#runToptoBottom').click(function(){
+console.log(folderfilesarray);
+//var e1='C:/Users/Shradha/Desktop/codefiles/c-language.c';
+//folderpath= e1.split("/").slice(0,-1).join("/") ;
+//folderpath=selectedfile.substr(0, e1.lastIndexOf("/"))
+//console.log('folderpath is'+folderpath);
+var i=0;
+for(i=0;i<folderfilesarray.length;i++){
+	
+	if(folderfilesarray[i].split('.')[1]=='py'){
+		selectedfile=folderfilesarray[i].split('.')[0]
+console.log(folderfilesarray[0].split('.')[1]);
+pyhtoncode(folderfilesarray[i]);
+	}else if(folderfilesarray[i].split('.')[1]=='c'){
+		selectedfile=folderfilesarray[i].split('.')[0]
+		runcfile(folderfilesarray[i])
+		console.log('c programme')
+	}else if(folderfilesarray[i].split('.')[1]=='cpp'){
+		selectedfile=folderfilesarray[i].split('.')[0]
+		runcppfile(folderfilesarray[i])
+		console.log('cpp programme')
+	}else if(folderfilesarray[i].split('.')[1]=='java'){
+		selectedfile=folderfilesarray[i].split('.')[0]
+			runjavafile(folderfilesarray[i])
+			console.log('java programme')
+	}
+
+}
+
+
+});
+
+
+
+
+function pyhtoncode(filelocation){
+//console.log(filelocation);
+
+
+var arrayofoutputs=[];
+
+fs.readFileSync('out.csv',(err,result)=>{
+if(err) throw err;
+
+arrayofoutputs.push(result);
+console.log(result);
+})
+
+
+	python.runFile(filelocation,{
+    executionPath: executionpath
+},(err,result)=>{
+	if(err) {
+console.log(err);
+	}else{
+		if(result['stdout']!=''){
+			arrayofoutputs.push(result['stdout']);
+	WriteintoCsv(filelocation,arrayofoutputs);
+		}
+
+term.write(result['stdout']);
+term.write(result['stderr']);
+//$('#out').text(result['stdout']);
+
+console.log(result['stdout']);
+console.log(result['stderr']);
+	}
+});
+
+
+}
+
+
+function runcppfile(filepath){
+
+	cpp.runFile(filepath,{
+    compilationPath: 'C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin' // something like C://Program Files//gcc//bin
+},(err,result)=>{
+	if(err) throw err;
+	term.write(result['stdout']);
+				term.write(result['stderr']);
+				WriteintoCsv(filepath,result['stdout']);
+});
+
+}
+
+
+
+function runcfile(filepath){
+
+	let resultPromise = c.runFile(filepath, {});
+resultPromise
+    .then(result => {
+       	term.write(result['stdout']);
+				term.write(result['stderr']);
+				WriteintoCsv(result['stdout']);
+				WriteintoCsv(filepath,result['stdout']);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+
+}
+
+
+
+function runjavafile(filepath){
+	java.runFile(filepath,{
+            compilationPath: javac,
+            executionPath: javapath
+        },(err,result)=>{
+          if(err) {
+						//throw err;
+					//	alert(err)
+					}
+					
+					term.write(result['stdout']);
+			//	alert("result"+result['stdout']);
+			WriteintoCsv(filepath,result['stdout']);
+          if(result['stderr']!=''){
+						term.write(result['stderr']);
+					//	alert("err"+result['stderr']);
+          }
+
+
+        });
+}
+
+			$('.subfiles').mousedown(function(e){
+  if (e.which == 1) {
+    
+// this is left click event.
+
+  }
+  if (e.which == 2) {
+    
+// this is middle click event.
+
+  }
+  if (e.which == 3) {
+alert('right cliked');
+
+  }
+});
+
+
+$('.close').click(function(){
+alert('close')
+});
+
+$(document).on('click','#logochange',function(){
+
+
+//alert('here');
+var classname=$(this).attr('id');
+alert(classname);
+$('#'+classname).removeClass();
+//$('#'+classname).addClass('fa fa-chevron-down');
+
+
+});
+
+
+$('#closeproject').click(function(){
+$('.fa-chevron-right').remove();
+$('#list').remove();
+	//console.log(folderfilesarray);
+	$('#t'+folderpath).remove();
+	let i=0;
+	$('.subfiles').remove();
+	var fn='';
+	var extentionoffile='';
+for(i=0;i<folderfilenames[i].length;i++){
+
+	extentionoffile=folderfilenames[i].split('.')[1];
+if(extentionoffile=='c'){
+	$('#'+folderfilenames[i]).hide();
+}else if(extentionoffile=='cpp'){
+	$('#'+folderfilenames[i]).hide();
+}else if(extentionoffile=='java'){
+	$('#'+folderfilenames[i]).hide();
+}else if(extentionoffile=='py'){
+	$('#'+folderfilenames[i]).hide();
+}
+//	$('#'+folderfilenames[i]).hide();
+	//fn=folderfilenames[i];
+	//console.log(folderfilenames[i]);
+//console.log('$(#'+fn+').hide()')
+//$(document).on('hide','#c-language.c',1000);
+}
+
+//	alert('clicked'+folderfilesarray.split('.'));
+});
+
+
+$('#savepaths').click(()=>{
+	var javacpath1=$('#javacpath').val();
+	var javapath1=$('#javapath').val();
+
+var datanew= [
+{"javac":javacpath1},
+{"java" :javapath1},
+{"gcc":"c/gcc"},
+{"g++":"c/g++"},
+{"executionpath":"python"}
+]
+//var fetchfiledata= new Promise((resolve,reject)=>{
+	fs.writeFile('configure.json',JSON.stringify(datanew),function(err,done){
+		if(err) throw err;
+	
+	console.log("doen"+done);
+	});
+//	resolve()
+// /})
+
+
+//	alert(javacpath1+' '+javapath1)
+})
+
+$('#htmlfile').click(function(){
+	//console.log('open file saver');
+	var FileSaver = require('file-saver');
+var blob = new Blob(["<html><head></head><body></body></html>"], {type: "text/plain;charset=utf-8"});
+FileSaver.saveAs(blob, "Untitled.html");
+console.log('file saved');
+});
+
+
+$('#cssfile').click(function(){
+	//console.log('open file saver');
+	var FileSaver = require('file-saver');
+var blob = new Blob([""], {type: "text/plain;charset=utf-8"});
+FileSaver.saveAs(blob, "Untitled.css");
+console.log('file saved');
+});
+
+
+$('#jsfile').click(function(){
+	//console.log('open file saver');
+	var FileSaver = require('file-saver');
+var blob = new Blob(["/*start writing code from here */"], {type: "text/plain;charset=utf-8"});
+FileSaver.saveAs(blob, "Untitled.js");
+console.log('file saved');
+});
+
+$('#createnewproject').click(function(){
+	var mkdirp = require('mkdirp');
+    
+mkdirp('/tmp/foo/bar/baz', function (err) {
+    if (err) console.error(err)
+    else console.log('pow!')
+});
+})
+
+
+$(document).on('click','.chld',function(){
+	//alert('cliked');
+
+})
+
+function hideproject(id1){
+$('#'+id1).removeClass('active');
+}
+
+/*
+$('#html-based-new-project').click(function(){
+
+	$('#myModal').modal({
+    show: 'false'
+}); 
+*/
+//$("#myModal").modal("show");
+//});
+
+$('#close1').click(function(){
+$("#myModel").modal('hide');
+});
+
+$('#create-html-project').click(function(){
+	var folder_name=$('#filename').val();
+	const createFolder = require("folder-create");
+var fs= require('fs');
+	new Promise((resolve,reject)=>{
+		fs.readFile('configure.json','utf-8',function(err,data){
+			if(err){
+
+				reject();
+				throw err;
+			}
+	
+		var workingdirectory =JSON.parse(data)[5].workingdirectory;
+	//	console.log(workingdirectory);
+		resolve(workingdirectory);
+		
+	})
+	}).then(function(data){
+		
+		console.log(data);
+		createnewfolder(data,folder_name);
+	})
+	//$('#files3').trigger('click');
+	///const createFolder = require("folder-create");
+//  model3.style.display = "block";
+	//var createfodler= new Promise((resolve,reject)=>{
+
+
+ //createFolder("C:/Users/Shradha/Desktop/codefiles",'test16');
+//})
+//$('#open4').trigger('click');
+});
+
+function createnewfolder(currentdir,foldername){
+	var fs = require('fs');
+	const createFolder = require("folder-create")
+	console.log(currentdir+" "+foldername);
+var absolutePath_of_folder='';
+var createfolderpromise=new Promise((resolve,reject)=>{
+	absolutePath_of_folder=currentdir+'/'+foldername;
+createFolder(currentdir,foldername);
+resolve(absolutePath_of_folder);
+}).then((foldern)=>{
+
+console.log('Folder name'+foldern);
+fs.writeFile(foldern+'/index.html','<html><head></head><body><h1>Hello World</h1></body></html>',function(err,result){
+if(err){
+	throw err;
+}
+console.log(result);
+})
+
+})
+
+}
+
+</script>
+<script>
+
+</script>
+
+</body>
+</html>

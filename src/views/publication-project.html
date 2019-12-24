@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Publication Project</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../assets/css/tab-design.css">
+      <script src="../assets/js/jquery-3.3.1.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>   
+      <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+      <script src="https://rawgit.com/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>         
+      <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/publication.css">
+      <script type="text/javascript" src="../assets/js/include-html.js"></script>
+      <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+      <script src="../assets/js/jquery-ui.js"></script>
+      <link data-require="codemirror@*" data-semver="4.2.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/codemirror.css" />
+      <!-- <link data-require="fontawesome@*" data-semver="4.3.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" /> -->
+      <script data-require="codemirror@*" data-semver="4.2.0" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/codemirror.js"></script>
+      <script data-require="jquery@2.1.3" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+      <!-- <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script> -->
+
+      <!-- <script data-require="bootstrap@*" data-semver="3.3.2" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="D:/generator-ak-2/src/assets/css/summernote.css"/>
+      <script src="D:/generator-ak-2/src/assets/js/summernote.js"></script>
+      <!-- <script src="D:/generator-ak-2/src/assets/js/script.js"></script> -->
+      <!-- <script src="D:/generator-ak-2/src/assets/js/jquery-resizable.js"></script> -->
+      
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+      <!-- <script src="html2pdf.bundle.min.js"></script> -->
+      <!-- <script src="es6-promise.auto.min.js"></script>
+         <script src="jspdf.min.js"></script>
+         <script src="html2canvas.min.js"></script>
+         <script src="html2pdf.min.js"></script> -->
+
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<!-- <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script> -->
+
+
+     
+      <style type="text/css">
+         .dropdown-submenu {
+         position: relative;
+         }
+         .dropdown-submenu .dropdown-menu {
+         top: 0;
+         left: 100%;
+         margin-top: -1px;
+         }
+         #more {
+         display: none;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+            <ul class="nav navbar-nav">
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+                  <ul class="dropdown-menu">
+                     <li class="dropdown-submenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">New <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                           <li class="dropdown-submenu">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">New File<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                 <li><a href="#">HTML File</a></li>
+                                 <li><a href="#">CSS File</a></li>
+                                 <li><a href="#">JS File</a></li>
+                              </ul>
+                           </li>
+                           <li class="dropdown-submenu">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">New Project<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">HTML Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New </a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                    </ul>
+                                 </li>
+                                 <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                       <li><a href="#">New</a></li>
+                                       <li><a href="#">Open</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a tabindex="-1" href="#">Open</a></li>
+                     <li><a tabindex="-1" href="#" id="save">Save</a></li>
+                     <li><a tabindex="-1" href="#">Save As</a></li>
+                     <li><a tabindex="-1" href="#">Close Project</a></li>
+                     <li><a tabindex="-1" href="#">Exit</a></li>
+                  </ul>
+               </li>
+               <div id="save1" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p class="form-label">Enter file name</p><br/>
+                   <input type="file" id="files"  class="form-control" name="files"  select/><br/>
+                   <button id="savebtn" type="submit"  class="btn btn-primary btn-sm" >Save AS</button>
+                  </div>
+                
+                </div>
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+                     <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+                     <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+                  </ul>
+               </li>
+               <li class="dropdown _child">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attach</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#" id="image4">Image</a></li>
+                     <li><a href="#" id="document">Document</a></li>
+                     <li><a href="#">Audio</a></li>
+                  </ul>
+               </li>
+               <div id="open14" class="modal">
+
+                     <!-- Modal content -->
+                     <div class="modal-content">
+                       <span class="close">&times;</span>
+                       <p class="form-label">Enter file name</p><br/>
+                      <input type="file" id="files14"  class="form-control" name="files[]" directory multiple/><br/>
+                      <button id="openbtn" type="submit"  class="btn btn-primary btn-sm" >OPEN</button>
+                     </div>
+                   
+                   </div>
+                   <div id="open15" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close">&times;</span>
+                          <p class="form-label">Enter file name</p><br/>
+                         <input type="file" id="files15"  class="form-control" name="files[]" directory multiple/><br/>
+                         <button id="openbtn" type="submit"  class="btn btn-primary btn-sm" >OPEN</button>
+                        </div>
+                      
+                      </div>
+
+               <li class="_child"><a href="#">Settings</a></li>
+               <li class="_child"><a href="#">Help</a></li>
+               <li class="_child"><a href="#">About</a></li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <div class="row">
+            <div style="display: flex;">
+               <div id="menu-holder" class="accessible">
+                  <div style="width: calc(100% + 30px); min-width: 510px;">
+                     <div class="arrow opened">
+                        <span><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                     </div>
+                     <div class="tab">
+                        <center>
+                           <button class="tablinks" onclick="openCity(event, 'Templates')" id="defaultOpen">
+                           <img src="../assets/images/svg/ic_template.svg"><br>Templates</button>
+                           <button class="tablinks" onclick="openCity(event, 'Elements')">
+                           <img src="../assets/images/svg/ic_element.svg"><br>Elements</button>
+                           <button class="tablinks" onclick="openCity(event, 'photo')">
+                           <img src="../assets/images/svg/ic_element.svg"><br>Photos</button>
+                           <button class="tablinks" onclick="openCity(event, 'Text')">
+                           <img src="../assets/images/svg/ic_text.svg"><br>Text </button>
+                           <button class="tablinks" onclick="openCity(event, 'Background')">
+                           <img src="../assets/images/svg/ic_bkground.svg"><br>Background </button>
+                           <button class="tablinks" onclick="openCity(event, 'Upload')">
+                           <img src="../assets/images/svg/ic_uploads.svg"><br>Upload </button>
+                        </center>
+                     </div>
+                  </div>
+                  <div id="menu-container">                  	
+	                  <div id="Templates" class="tabcontent">
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-templates" data-value="more">
+	                           <span>Templates</span>
+	                           <span>
+	                           <span class="mode-templates">More </span>
+	                           <span class="fa icon-templates fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div > 
+	                        <img class="templates" src="../../src/assets/images/tools/node.jpg" id="img1">
+	                        <img class="templates" src="../../src/assets/images/tools/python.jpg" id="img2">
+	                        <img class="templates" src="../../src/assets/images/tools/sql.jpg">
+	                        <span id="extra-templates" style="display: none;">
+	                        <img class="templates" src="../../src/assets/images/tools/templete.jpg" id="img3">
+	                        <img class="templates" src="../..src/assets/images/tools/templete.jpg" id="img4">
+	                        <img  class="templates" src="../../src/assets/images/tools/templete.jpg" id="img5"> 
+	                        </span>
+	                     </div>
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-templates1" data-value="more">
+	                           <span>Resume</span>
+	                           <span>
+	                           <span class="mode-templates1">More </span>
+	                           <span class="fa icon-templates1 fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div>
+	                        <img   src="../../src/assets/images/tools/resume.jpg" id="grid11">
+	                        <img   src="../../src/assets/images/tools/resume.jpg" id="grid12">
+	                        <img   src="../../src/assets/images/tools/resume.jpg" id="grid13">
+	                        <span id="extra-templates1" style="display: none;">
+	                        <img   src="../../src/assets/images/tools/resume.jpg" id="grid15">
+	                        <img   src="../../src/assets/images/tools/resume.jpg" id="grid16"> 
+	                        </span>
+	                     </div>
+	                  </div>
+	                  <div id="Elements" class="tabcontent">
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-elements" data-value="more">
+	                           <span>Grids</span>
+	                           <span>
+	                           <span class="mode-elements">More </span>
+	                           <span class="fa icon-elements fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div>
+	                        <img src="../../src/assets/images/tools/g1.png" class="grid" id="grid1">
+	                        <img src="../../src/assets/images/tools/g2.png" class="grid" id="grid2">
+	                        <img src="../../src/assets/images/tools/g3.jpg" class="grid" id="grid3">
+	                        <span id="extra-elements" style="display: none;">
+	                        <img src="../../src/assets/images/tools/g2.jpg" class="grid" id="grid4">
+                           <img src="../../src/assets/images/tools/g4.jpg" class="grid" id="grid5">
+	                        </span>
+	                     </div>
+                     </div>
+                     <div id="photo" class="tabcontent">
+                           <div class="element-tool">
+                              <div class="expand" id="expand-elements" data-value="more">
+                                 <span>Photos</span>
+                                 <span>
+                                 <span class="mode-elements">More </span>
+                                 <span class="fa icon-elements fa-chevron-right"></span>
+                                 </span>
+                              </div>
+                           </div>
+                           <div>
+                              <img class="photo" src="../../src/assets/images/tools/photo1.jpg" id="photo1">
+                              <img class="photo" src="../../src/assets/images/tools/photo3.jpg" id="photo2">
+                              <img class="photo" src="../../src/assets/images/tools/photo4.jpg"  id="photo3">
+                              <span id="extra-photo" style="display: none;">
+                              <img class="photo" src="../../src/assets/images/tools/photo5.jpg" id="photo4">
+                              <img class="photo" src="../../src/assets/images/tools/txt1.jpg" id="photo5">
+                              </span>
+                           </div>
+                        </div>
+	                  <div id="Text" class="tabcontent">
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-texts" data-value="more">
+	                           <span>Texts</span>
+	                           <span>
+	                           <span class="mode-texts">More </span>
+	                           <span class="fa icon-texts fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div >
+	                        <img class="text" src="D:/generator-ak-2/src/assets/images/tools/txt1.jpg" id="text1">
+	                        <img class="text" src="D:/generator-ak-2/src/assets/images/tools/txt.jpg" id="text2">
+	                        <span id="extra-texts" style="display: none;">
+	                        <img class="text" src="D:/generator-ak-2/src/assets/images/tools/txt1.jpg" id="text3">
+	                        <img class="text" src="D:/generator-ak-2/src/assets/images/tools/txt1.jpg" id="text4">
+	                        <img class="text" src="D:/generator-ak-2/src/assets/images/tools/txt1.jpg" id="text5">
+                           <img class="text" src="D:/generator-ak-2/src/assets/images/tools/txt.jpg"  id="text6"> 
+                           <img class="text" src="D:/generator-ak-2/src/assets/images/tools/node.jpg"  id="text7"> 
+
+	                        </span>
+	                     </div>
+	                  </div>
+	                  <div id="Background" class="tabcontent">
+	                     <div class="element-tool">
+	                        <div class="expand" id="expand-bkground" data-value="more">
+	                           <span>Grid</span>
+	                           <span>
+	                           <span class="mode-bkground">More </span>
+	                           <span class="fa icon-bkground fa-chevron-right"></span>
+	                           </span>
+	                        </div>
+	                     </div>
+	                     <div id="background1">
+                          
+	                        <img class="background1" src="../../src/assets/images/tools/bck.jpg" id="bg1">
+	                        <img class="background1" src="../../src/assets/images/tools/bck.jpg" id="bg2">
+	                        <img class="background1" src="../../src/assets/images/tools/bck.jpg" id="bg3">
+	                        <span id="extra-bkground" style="display: none;">
+	                        <img class="background1" src="../../src/assets/images/tools/bck1.jpg" id="bg4">
+	                        <img class="background1" src="../../src/assets/images/tools/bck1.jpg" id="bg5">
+	                        </span>
+	                     </div>
+	                  </div>
+	                  <div id="Upload" class="tabcontent">
+	                     <div class="file-upload" id="file-upload">
+	                        <div class="form-group">
+	                           <label for="files" class="btn btn-success" id="upload12">Upload an image</label>
+	                            <input type="file"  name="files"class="form-control" id="files12" type="files" style="display: none;" multiple>
+	                        </div>
+	                     </div>
+	                  </div>
+                  </div>
+               </div>
+               <div id="work-space-container" class="work-space-collapsed">
+                  <div data-asid="work-panel" class="work-panel">
+                     <div class="row" style="width: -webkit-fill-available; margin: 0;">
+                        <div class="tab-container main-container">
+                           <ul class="nav nav-tabs" data-asid="tab-layout">
+                              <li class="extra-tabs" style="">
+                                 <span class="scrollLeft">
+                                 <i class="fa fa-caret-left"></i>
+                                 </span>
+                                 <span class="scrollRight">
+                                 <i class="fa fa-caret-right"></i>
+                                 </span>
+                              </li>
+                              <li class="active"><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                              <li><a data-target="#project1" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                              <li><a data-target="#project2" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+                           </ul>
+                           <div class="tab-content" data-asid="tab-contents">
+                              <div class="tab-pane active" id="project">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="editor">
+                                          <div id="work-space" class="work-space">
+                                             <div class="work-space-top-tool">
+                                                <div class="work-space-top-tool-item">
+                                                   <ul>
+                                                      <li style="float:right">
+                                                         <a href="#" id="delete1"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                      </li>
+                                                      <li style="float:right">
+                                                         <a href="#"><i class="fa fa-arrows-alt" aria-hidden="true"></i></a>
+                                                      </li>
+                                                      <li style="float:right">
+                                                         <a href="#"><i class="fa fa-search-minus" id="zoomout"  aria-hidden="true"></i><input type="text" name=""><i class="fa fa-search-plus" id="zoomIn" aria-hidden="true"></i></a>
+                                                      </li>
+                                                      <li style="float:right">
+                                                            <a href="#" id="print"><span><strong>Print Poster</strong></span></a>
+                                                      </li>
+
+                                                      <li style="float:right">
+                                                         <a href="#" id="pdf4"><span><strong>Generate PDF</strong></span></a>
+                                                   </li>
+                                                      <li style="float:right">
+                                                         <a href="#"><span><strong>Fill</strong></span></a>
+                                                      </li>
+                                                      <li style="float:right">
+                                                         <a href="#"><span><strong>Fit</strong></span></a>
+                                                      </li>
+                                                   </ul>
+                                                </div>
+                                             </div>
+                                             
+                                           
+                                             <div class="design-temp-container"  >
+                                                   
+                                                   
+                                                 <div class="design-temp-container-items" >
+                                                   
+                                                   <div style="margin: auto;">
+                                                          
+                                                         <div class="copydata" id="copydata">
+                                                            <canvas  class="summernote" id="summernote"  >
+                                                            <!-- <img src="D:/generator-ak-2/src/assets/images/tools/node.jpg" height="400" width="400">. -->
+                                                            </canvas>
+                                                         <div class="design-temp-container-items-wrapper">
+                                                          <div class="design-tool" >
+                                                         
+                                                              
+                                                            <div class="append" id="append">
+                                                            <!-- <ul id="ul">
+                                                               <li><a href="#">Page 1 - &nbsp</a></li>
+                                                               <li><a href="#"><input type="text" name="" placeholder="Add Page title"></a></li>
+                                                               <li style="float:right">
+                                                                  <a id="delete" href="#" data-toggle="tooltip" title="Delete Page!"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                               </li>
+                                                               <li style="float:right">
+                                                                  <a href="#" id="copy"  data-toggle="tooltip" title="Copy Page"><i class="fa fa-clone" aria-hidden="true"></i></a>
+                                                               </li>
+                                                               <li style="float:right">
+                                                                  <a href="#" data-toggle="tooltip" title="Page Down" id="down"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                                               </li>
+                                                               <li style="float:right">
+                                                                  <a  href="#" data-toggle="tooltip" title="page Up" id="up"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+                                                               </li>
+                                                            </ul>
+                                                            
+                                                            <div class="note-editable"   width="409" height="629.625"><p>Click <b>Code View</b>!!!</p></div> -->
+                                                            </div>
+                                                            <div class="note-editable1"  contenteditable="true"  aria-multiline="true" spellcheck="true" role="textbox" id="testbox"  width="409" height="629.625"> 
+                                                            
+                                                                
+                                                            </div> 
+                                                         </div>
+                                                         <!-- <div class="summernote-container"></div> -->
+ 
+                                                      </div>
+                                                 </div>
+                                                          
+                                                                                                                  
+                                                    
+                                                         
+                                                        
+                                                       
+                                                        
+                                                      </div>
+                                                   
+                                                    
+                                                   </div>
+                                                    <div class="add-new-page" id="newpage" style="position: fixed;  font-size: 12px;  text-align: center;
+                                                      padding: 0px 0px;
+                                                      bottom:  20px;
+                                                      border-radius: 4px;
+                                                      width: 30%;
+                                                      height: 40Px;
+                                                      background-color: #d4d3d3;
+                                                      
+
+                                                         color: black;
+                                                         cursor: pointer;
+                                                         border: 2px solid gray"> + Add New Page </div>
+                                                 
+                                                </div>
+                                                
+                                             
+                                           
+                                         
+                                        </div>
+                                        
+                                    <!-- </div> -->
+                                          <div id="property-space" class="property-space">
+                                             <div>
+                                                <p>
+                                                <h6> &nbsp Properties</h6>
+                                                </p>
+                                                <table class="table">
+                                                   <tbody>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>accept</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>align</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>alt</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>autocomplete</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>autofocus</td>
+                                                         <td><input autofocus="off" type="text" id="autofocus"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>checked</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>disabled</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>form</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>formaction</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>formmethod</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>height</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>list</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>max</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>maxlength</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>min</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>multiple</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>name</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>pattern</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>placeholder</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><i class="fa fa-chevron-right"></i></td>
+                                                         <td>readonly</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>size</td>
+                                                         <td>
+                                                               <select>
+                                                                     <option value="A1">A1</option>
+                                                                     <option value="A2">A2</option>
+                                                                     <option value="A3">A3</option>
+                                                                     <option value="A4">A4</option>
+                                                                   </select>
+                                                            <!-- <input type="text" autocomplete="off"  id="size1"> -->
+                                                            </td> 
+                                                      </tr>
+                                                      <tr>
+                                                         <td></td>
+                                                         <td>src</td>
+                                                         <td><input autocomplete="off" type="text"></td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="tab-pane" id="project1">
+                                 <div class="">
+                                    <h1>Lorem ipsum</h1>
+                                    <p>Lorem ipsum is the dummy content for an encyclopedia to have, as determined by the community of participating editors..</p>
+                                 </div>
+                              </div>
+                              <div class="tab-pane" id="project2">
+                                 <div class="jumbotron">
+                                    <h1>About Tab</h1>
+                                    <p>because they are the most important for an encyclopedia to have, as determined by the community of participating editors..</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="../assets/js/publication-project.js"></script>
+      <script>
+         var path=require('path');
+         
+         var newpage= document.getElementById('copydata').innerHTML;
+         var n=document.getElementsByClassName('summernote').innerHTML;
+         var nn=$('.summernote').html();
+       //  alert(nn)
+        // alert(n)
+       //  alert(newpage)
+       var data=('<div class="note-editable" contenteditable="true" role="textbox" aria-multiline="true" spellcheck="true" ></div>')
+
+         var a=('width: 100% min-height: 63.1vh height: 63.1vh background: #fff border: 1px solid #a9a9a9 <ul id="ul"> <li><a href="#">Page 1 - &nbsp</a></l>  <li><a href="#"><input type="text" name="" placeholder="Add Page title"></a></li><li style="float:right"> <a id="delete" href="#" data-toggle="tooltip" title="Delete Page!"><i class="fa fa-trash-o" aria-hidden="true"></i></a> </li> <li style="float:right"> <a href="#" id="copy"  data-toggle="tooltip" title="Copy Page"><i class="fa fa-clone" aria-hidden="true"></i></a> </li> <li style="float:right"> <a href="#" data-toggle="tooltip" title="Page Down" id="down"><i class="fa fa-chevron-down" aria-hidden="true"></i></a> </li> <li style="float:right"> <a  href="#" data-toggle="tooltip" title="page Up" id="up"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>  </li> </ul>');
+         var ct=0;
+            //alert(newpage)
+         //   var button=document.getElementsByClassName('add-new-page').innerHTML;
+         //   alert(button)
+
+         // $(document).on('click','#newpage',()=>{
+         
+      $('#newpage').click(()=>{
+          
+         //$('.copydata').detach();
+         // var b=$("div").addClass("append");
+         var a=(' <ul id="ul"> <li><a href="#">Page 1 - &nbsp</a></l>  <li><a href="#"><input type="text" name="" placeholder="Add Page title"></a></li><li style="float:right"> <a id="delete" href="#" data-toggle="tooltip" title="Delete Page!"><i class="fa fa-trash-o" aria-hidden="true"></i></a> </li> <li style="float:right"> <a href="#" id="copy"  data-toggle="tooltip" title="Copy Page"><i class="fa fa-clone" aria-hidden="true"></i></a> </li> <li style="float:right"> <a href="#" data-toggle="tooltip" title="Page Down" id="down"><i class="fa fa-chevron-down" aria-hidden="true"></i></a> </li> <li style="float:right"> <a  href="#" data-toggle="tooltip" title="page Up" id="up"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>  </li> </ul>');
+
+
+         $('.note-editable').children().css('display: block; color: #a7a6a6; cursor: pointer; text-align: center;  position: relative; font-size: 15px;  top: -5px; padding: 5px 10px; text-decoration: none;');
+
+
+                 ct=ct+1
+            $('.copydata').append('<div class="copy1" id="'+ct+'">'+data+'"'+a+'"</div>' );
+           // $('.copy1').addClass("active"); 
+
+            // if(a!=null && a>=1){
+            //    $('.add-new-page').remove()
+            // }else{
+            //    $('.design-tool').append(a)
+            // }
+          
+      })
+
+         $('#ppt').click(()=>{
+
+            const officegen = require('officegen')
+            // var pptx = require("pptxgenjs");
+               const fs = require('fs')
+
+               // Create an empty PowerPoint object:
+               let pptx = officegen('pptx')
+               
+            var images = $('#testbox').find('img').map(function() { return this.src; }).get();
+            console.log(images)
+               var data1=$('#testbox').text()
+               var data2=data1.toString();
+               var data3=data2 +' ' +images
+               alert(data2 +' ' +images)
+
+               // Officegen calling this function after finishing to generate the pptx document:
+               pptx.on('finalize', function(written) {
+               console.log('Finish to create a Microsoft PowerPoint document.'+ written)
+               })
+
+               // Officegen calling this function to report errors:
+               pptx.on('error', function(err) {
+               console.log(err)
+               })
+
+               // Let's add a title slide:
+
+               let slide = pptx.makeTitleSlide('Officegen', data3)
+
+               // Pie chart slide example:
+
+               slide = pptx.makeNewSlide()
+               slide.data=data1
+               slide.name = 'Pie Chart slide'
+               slide.back = 'ffff00'
+            
+                
+               slide.addText(data3,{x:1.5, y:1.5, fontSize:18, color:'363636' })
+               //pptx.save('sample')
+
+               // Let's generate the PowerPoint document into a file:
+
+               let out = fs.createWriteStream('example.pptx')
+
+               out.on('error', function(err) {
+               console.log(err)
+               })
+
+               // Async call to generate the output file:
+               pptx.generate(out)
+                        })
+
+
+                        // $('#files').change(()=>{
+                        //    console.log($(this).files)
+
+                        // })
+                       
+                        $('#upload12').click( function () {
+                        $('#files12').trigger('click')
+                        })
+                        $('#files12').change(function(e){
+                          
+                           for(let i=0;i<e.target.files.length;i++){
+                              console.log(e.target.files[i].path);
+                              $('#file-upload').append('<img src="'+ e.target.files[i].path +'"/>');
+                           }
+                        })
+
+
+                        $('#ppt124').click(()=>{
+
+                        var images = $('#testbox').find('img').map(function() { return this.src; }).get();
+                        console.log(images)
+                           var data1=$('#testbox').text()
+                           var data2=data1.toString();
+                           var data3=data2 +' ' +images
+                           alert(data2 +' ' +images)
+
+                           var pptx = require("pptxgenjs");
+                           var slide = pptx.addNewSlides()
+                           slide.addText(data3 , { x:1.5, y:1.5, fontSize:18, color:'363636' });
+                           pptx.save('Sample Presentation');
+
+
+                           pptx.setAuthor('Brent Ely');
+                           pptx.setCompany('S.T.A.R. Laboratories');
+                           pptx.setRevision('15');
+                           pptx.setSubject('Annual Report');
+                           pptx.setTitle('PptxGenJS Sample Presentation');
+                        })
+
+                        // $('.grid').gridstack({
+
+                        // })
+
+                
+                     //       $(document).ready(function() {
+
+                     //    $('#summernote').summernote({
+                     //       airMode:true,
+                     //       toolbar: [
+
+                     //          ['mybutton',['pagesize']]
+                     //          ],
+                     //          buttons: {
+
+                     //          pagesize: pagesize
+                     //          }
+                     //    })
+                     // })
+
+                     function docxtopdf(){
+                        var fs = require("fs");
+                        var docxConverter = require('docx-pdf');
+
+                        // var images = $('.note-editable').find('img').map(function() { return this.src; }).get();
+                        // console.log(images)
+
+                           // var fs=require('fs')
+                           var textdata= $('.note-editable').text();
+                           alert(textdata)
+                           var data=textdata  
+
+                    
+                  //   var promise=new Promise(function (resolve,reject){
+
+                        fs.writeFile("temp.docx", data, (err) => {
+                        if (err)
+                        {
+                        // reject()
+                           throw err
+                            }
+                            else{
+                        console.log("Successfully Written to File.");
+                       // resolve('success')
+                            }
+                   })
+                     
+                  // }).then((data4)=>{
+                        //console.log(data4)
+                        //alert(data4)
+
+                        alert('hii')
+                        docxConverter('E:/Nilesh/generator-ak-2 (2)/generator-ak-2/temp.docx','./output2.pdf',function(err,result){
+                        if(err){
+                           console.log(err);
+                        }
+                        console.log('result'+result);
+                        });
+                   //  })
+                     }
+                  
+                  
+//   docxConverter(inputPath,outPath,function(err,result){
+//   if(err){
+//     console.log(err);
+//   }
+//   console.log('result'+result);
+// });
+                     
+                        $('#pdf').click(()=>{
+                          // docxtopdf()
+                          // readand()
+                          // const puppeteer = require('puppeteer')
+                            const PDFDocument = require('pdfkit');
+                           var images = $('.note-editable').find('img').map(function() { return this.src; }).get();
+                        console.log(images)
+
+                           var fs=require('fs')
+                           var textdata= $('.note-editable').text();
+                           alert(textdata)
+                        //    //const browser = await puppeteer.launch({ headless: true });
+                        //    //const page= textdata +" "+images;
+                        //    //const pdf=await page.pdf({format:'A4'})
+                        //   // console.log(pdf)
+                                          
+                       
+                        //       // Create a document
+                             const doc = new PDFDocument;
+
+                        //       // Pipe its output somewhere, like to a file or HTTP response
+                        //       // See below for browser usage
+                           doc.pipe(fs.createWriteStream('output.pdf'));
+
+                        //       // Embed a font, set the font size, and render some text
+                        //       // doc.font('fonts/PalatinoBold.ttf')
+                        //       //    .fontSize(25)
+                        //       //    .text('Some text with an embedded font!', 100, 100);
+
+                        //       // // Add an image, constrain it to a given size, and center it vertically and horizontally
+                              // doc.image(images, {
+                              //    //fit: [250, 300],
+                              //    align: 'center',
+                              //    valign: 'center'
+                              // });
+
+                              // Add another page
+                              // for(var i=0;i<=images.length;i++){
+                              
+                                 doc .fontSize(12)
+                                 .text(textdata, 50, 50)
+                                 .image(images)
+                              // }
+                              // Draw a triangle
+                              doc.save()
+                                 .moveTo(50, 100)
+                                 .lineTo(50, 150)
+                                 .lineTo(100, 150)
+                                 //.fill("#FF3300");
+
+                              // Apply some transforms and render an SVG path with the 'even-odd' fill rule
+                              doc.scale(0.6)
+                                 .translate(470, -380)
+                                 .path('M 250,75 L 323,301 131,161 369,161 177,301 z')
+                                 .fill('red', 'even-odd')
+                                 .restore();
+
+                              // Add some text with annotations
+                              // doc.addPage()
+                              //    .fillColor("blue")
+                              //    .text('Here is a link!', 100, 100)
+                              //    .underline(100, 100, 160, 27, {color: "#0000FF"})
+                               //  .link(100, 100, 160, 27, 'http://google.com/');
+
+                              // Finalize PDF file
+                              doc.end();
+                              alert('success')
+                         })
+
+         //                var selectedfileLocation='';
+         //                var pathfile='';
+
+         //    $('#save').on('click',()=>{
+			// 				console.log('selected file location='+selectedfileLocation);
+         //             if(selectedfileLocation=='nd'){
+	      //             openfilesaver();
+         //             }else{
+         //                var fs = require('fs');
+         //                var data = $("#note-editable").text();
+         //                console.log('inside not null')
+                         
+         //          //console.log(data);
+         //               fs.writeFile(pathfile,data, 'utf8',		// callback function
+         //                         function(err) {
+         //                            if (err) throw err;
+         //                            console.log("Data is appended to file successfully."+pathfile)
+         //                      });
+         //              }
+         // });
+    
+
+         
+               //    $('#save').click(()=>{
+
+               //       $('#save1').trigger('click');
+               //       savefile()
+               //    })
+
+               //    function savefile() {
+                     
+               //       var filedata=$("#note-editable").text();
+               //       alert(filedata)
+  
+               //    if (!window.ActiveXObject) {
+               //       var save = document.createElement('a');
+               //       save.href = fileURL;
+               //       save.download = fileName || 'save';
+
+               //       save.style = 'display:none;opacity:0;color:transparent;';
+               //       (document.body || document.documentElement).appendChild(save);
+
+               //       if (typeof save.click === 'function') {
+               //             save.click();
+               //       } else {
+               //             save.target = '_blank';
+               //             var event = document.createEvent('Event');
+               //             event.initEvent('click', true, true);
+               //             save.dispatchEvent(event);
+               //       }
+
+               //       (window.URL || window.webkitURL).revokeObjectURL(save.href);
+               //    }
+               // }
+ 
+         //   $("#size"). addEvent(function(){
+         //             var newHeight = $("#size").val();
+         //             alert(newHeight)
+         //             $(".note-editable").height(newHeight);
+         //          });
+             
+
+               // $('#autofocus').click(()=>{
+               //    var x = document.getElementById("").autofocus;
+               //    document.getElementById("demo").innerHTML = x;
+               // })
+
+ $('#pptx').click(()=>{
+                           const officegen = require('officegen')
+                           const fs = require('fs')
+
+                           // Create an empty PowerPoint object:
+                           let pptx = officegen('pptx')
+                           var images = $('.note-editable').find('img').map(function() { return this.src; }).get();
+                           console.log(images)
+                           var textdata= $('.note-editable').text();
+                           alert(textdata)
+                           var pptxdata=textdata+''+images;
+
+                           // Officegen calling this function after finishing to generate the pptx document:
+                           pptx.on('finalize', function(written) {
+                           console.log(
+                              'Finish to create a Microsoft PowerPoint document.'
+                           )
+                           })
+
+                           // Officegen calling this function to report errors:
+                           pptx.on('error', function(err) {
+                           console.log(err)
+                           })
+
+                           // Let's add a title slide:
+
+                           let slide = pptx.makeTitleSlide('Officegen','hello')
+
+                           // Pie chart slide example:
+
+                           slide = pptx.makeNewSlide(pptxdata)
+                           slide=pptxdata;
+                           
+
+                           // Let's generate the PowerPoint document into a file:
+
+                           let out = fs.createWriteStream('example.pptx')
+
+                           out.on('error', function(err) {
+                           console.log(err)
+                           })
+
+                           // Async call to generate the output file:
+                           pptx.generate(out)
+
+                       })
+
+                       
+                           $('#document').click(()=>{
+                            $('#files14').trigger('click')
+                           })
+
+                                                   //  function opendocs(){
+                                                   //    $('#files').trigger('click');
+
+                                                   //    var fileload=document.getElementById('files').files[0];
+                                                    //  alert('filelaod'+fileload)
+                                                    $('#files14').change(function(e){
+                                                      var fs=require('fs')
+                          
+                                                             for(let i=0;i<e.target.files.length;i++){
+                                                                var files1=e.target.files[i].path;
+                                                              alert(files1)
+                                                               fs.readFile(files1, function(err,content){
+                                                                  alert('inside file')
+                                                                  console.log(content.toString())
+                                                                $('.note-editable').text(content.toString());
+                                                                 // $('#note-editable').append('<embed src="'+content+'" width="600" height="500" type="application/pdf>' );
+                                                               
+                                                        //  $('#pdfclass').append('<embed src="E:/Nilesh/generator-ak-2 (2)/generator-ak-2/file1.pdf" width="650" height="1175" type="application/pdf">');
+
+                                                               })
+                                                               //$('#note-editable').append('<embed src="'+e.target.files[i].path+'" width="600" height="500" type="application/pdf>' );
+                                                              // $('#pdfclass').append('<embed src="E:/Nilesh/generator-ak-2 (2)/generator-ak-2/file1.pdf" width="650" height="1175" type="application/pdf">');
+
+                                                              }
+                                                         })
+                                                   // }
+
+
+                                                    $('#image4').click(()=>{
+                                                       alert('clicked')
+                                                       $('#files15').trigger('click')
+                                                    })
+
+                                                    $('#files15').change(function(e){
+                                                      alert('change')
+                                                     
+                          
+                                                   for(let i=0;i<e.target.files.length;i++){
+                                                      console.log(e.target.files[i].path);
+                                                      // alert(e.target.files[i].path)
+                                                      // alert('hiii')
+                                                 
+                                                      // $('#note-editable').text(e.target.files[i].path );
+                                                     $('.note-editable').append('<img src="'+ e.target.files[i].path +'"/>');
+                                                   }
+                                                 })
+
+                                           var txt=0;
+                                           $('.templates').on('click',function(){
+                                              
+                                                  
+                                                   //var Canvas2Image=require('')
+                                                   var temp=$(this).attr('src');
+                                                   var height=$('.note-editable').height();
+                                                   var width=$('.note-editable').width();
+
+                                                  //  alert(temp)
+                                                   txt=txt+1;
+                                                   alert('hii')
+
+                                                   // document.getElementsByClassName('note-editable').style.backgroundImage =temp;
+                                                //    //document.body.style.backgroundImage = temp;
+
+                                                   $(".note-editable").css("background", "url('" + temp + "' ) no-repeat center center").contenteditable=true;
+                                                  // $(".note-editable").css("background-repeat", "no-repeat ");
+                                                   $(".note-editable").css("background-size", "cover");
+                                                //   $('.note-editable').append('<img id="dynamicImg" src="'+ temp +' "height="'+ height +'" width="'+ width +'"""/>')
+                                                //   $('#dynamicImg').append('Hello Node Js')
+                                                })
+
+
+                                                // $('.note-editable').click(()=>{
+                                                //    getdata()
+                                                   
+                                                // })
+
+                                                // function getdata(){
+
+
+                                                //       // var canvasdata=  $('#myCanvas').css('background-image');
+                                                //       // alert(canvasdata);
+                                                //       let canvas = document.querySelector("canvas");
+                                                //          let cx = canvas.getContext("2d");
+                                                //          $('#myCanvas').keyup();
+                                                //          // cx.font = "28px Georgia";
+                                                //          //    cx.fillStyle = "fuchsia";
+                                                //          //    cx.fillText("I can draw text, too!", 10, 50);
+                                                //         // context.fillRect(10, 10, 100, 50);
+                                                //       }
+
+                                                $(document).on('click','.background1',function(){
+                                                      // $('.background1').on('click',function(){
+                                                      //    var dir1=process.cwd();
+                                                      //    alert(dir1)
+                                                      //    var temp=$(this).attr('src');
+                                                      //    alert(temp)
+
+                                                      //    var absulote= path.join(dir1, temp.split('../../')[1])
+                                                      //   alert(absulote)
+                                                      //   console.log(absulote)
+                                                      var temp=$(this).attr('src');
+
+                                                         var height=$('.note-editable').height();
+                                                         var width=$('.note-editable').width();
+
+                                                        // alert(temp)
+
+                                                         // $('#myCanvas').append("<img src='+ temp+'>");
+
+                                                         
+                                                         $(".note-editable").css("background", "url('" + temp + "' ) no-repeat center center");
+                                                      // $(".note-editable").css("background-repeat", "no-repeat ");
+                                                         $(".note-editable").css("background-size", "cover");
+                                                         // $('#testbox').append('<div id="txt" ><input type="textbox" id="txt"><span>Hey I am text on an Image.</span></p></div>')
+
+
+                                                      })
+
+                                                      // $(document).on('click','.text',()=>{
+                                                    $('.text').on('click', function(){
+                                                         var Tesseract = require('tesseract.js')
+                                                         // alert('clicked')
+                                                         // var img = $('.text').find('img').attr('src');
+                                                         var img=$(this).attr('src');
+                                                         alert(img)
+
+                                                                                       
+
+                                                               Tesseract.recognize(img)
+                                                                  //    .progress(function  (p) { 
+                                                                  //        console.log('progress', p)    })
+                                                                     .then(function (result) 
+                                                                     {
+                                                                        var txt=result.text;
+
+                                                                         console.log('result', result.text)
+                                                                         alert(txt) 
+                                                                         console.log(txt)
+                                                                      
+
+                                                                        //  $('#testbox').draggable();
+
+                                                       // alert(img)
+                                                       $("<div id='drag1'>"+txt+"</div> ").appendTo(".note-editable");
+                                                       $('.note-editable').css({fontSize:'16px'})
+                                                      // $('#testbox').textfill({ maxFontPixels: 16, widthOnly: true });
+                                                         //  $("<div id='drag1'>"+txt+"</div> ").appendTo("#testbox").resizable({
+                                                         //    appendTo:'#testbox', 
+                                                         //    containment:".note-editable"}).draggable({
+                                                         //       cursor: "move",
+                                                         //       grid: [1,1],
+                                                         //       start: function(e, ui) {
+                                                                     
+                                                         //       }, 
+                                                         //       drag: function(e, ui) {
+                                                                     
+                                                         //          var p=ui.position;
+                                                         //             console.log('dragging'+' left='+p.left+'right ='+p.top);   
+                                                                  
+
+                                                         //       },
+                                                         //       stop: function(e, ui) {
+                                                         //       },
+                                                         //       containment:".note-editable"
+                                                            //})
+                                                            $('#drag1').draggable({containment:".note-editable"});
+                                                            $('#drag1').resizable({containment:".note-editable"});
+
+
+                                                            $('#drag1').css('background', 'transparent');
+                                                         
+                                                         $("#drag1").offset($("#testbox").offset());
+ 
+                                                   })
+                                                })
+
+
+                                                   // $('#testbox').click(()=>{
+                                                   //    var layer = L.marker(latlng).addTo(map);   
+                                                   //    layer.addTo(map);
+                                                   //    layer.remove();
+                                                   // })
+                                                   // $('#testbox').click(()=>{
+                                                   //    $('#drag1').resize().draggable()
+                                                   // })
+                                                   
+
+                                                   // $(document).on('click','#copy',()=>{
+                                                      // $('#copy').click(()=>{
+
+
+
+                                                         var dynamic_id={'newfile':0}
+                                                         var count=0;
+                                                         // var copydata=document.getElementById('copydata').innerHTML;
+
+                                                         $(document).on('click','#copy',function(){
+
+                                                           
+                                                      // if($(document.on('click','#copy'))==1)
+                                                      // {
+      
+                                                      var copydata=document.getElementById('copydata').innerHTML;
+                                                      console.log(copydata)
+                                                      // alert(copydata)
+
+                                                      //   var copydata=$(' <div class="copydata"> <ul id="ul"> <li><a href="#">Page 1 - &nbsp</a></li> <li><a href="#"><input type="text" name="" placeholder="Add Page title"></a></li>  <li style="float:right"> <a href="#" data-toggle="tooltip" title="Delete Page!"><i class="fa fa-trash-o" aria-hidden="true"></i></a> </li>  <li style="float:right">  <a href="#" id="copy"  data-toggle="tooltip" title="Copy Page"><i id="copy" class="fa fa-clone" aria-hidden="true"></i></a> </li><li style="float:right"> <a href="#" data-toggle="tooltip" title="Page Down"><i class="fa fa-chevron-down" aria-hidden="true"></i></a> </li> <li style="float:right"> <a href="#" data-toggle="tooltip" title="page Up"><i class="fa fa-chevron-up" aria-hidden="true"></i></a> </li> </ul> <div class="note-editable" id="testbox" contenteditable="true"  > <div id="myCanvas"  width="409" height="629.625" style="border:1px solid #000000;" contenteditable="true"  onmousedown="mydragg.startMoving(this,event);" onmouseup="mydragg.stopMoving("testbox")"></div> </div> ');
+                                                    //  $("#two").html($("#one").clone());
+                                                      //var data=document.getElementsByClassName('copydata').innerHTML;
+                                                      //alert(data)
+                                                     // var text=$('#testbox').html()
+                                                      //alert(copydata.toString())
+                                                      // $('.copydata').remove(); 
+                                                     
+                                                       count=count+1
+
+                                                      $('.append').append('<div class="copy1" id="'+count+'">'+copydata+'</div')
+                                                      // }else{
+                                                      //    alert('dont add')
+                                                      // }
+                                                      // var temp=$('.copy1').attr('id')
+                                                      //       alert(temp)
+
+                                                   })
+ 
+                                                   $(document).on('click','.photo',function(){
+
+
+                                                      // $('.photo').on('click',function(){
+                                                         var dir=process.cwd()
+                                                         // console.log(dir)
+                                                         // alert(dir)
+                                                         var temp=$(this).attr('src');
+                                                         // alert(temp)
+                                                         // console.log(temp)
+
+                                                        var absulote= path.join(dir, temp.split('../../')[1])
+                                                        alert(absulote)
+                                                        console.log(absulote)
+                                                         // var dir=path.join(__dirname,'/temp');
+                                                         // alert(dir)
+            
+                                                           $(" <img id='drag2' src='"+absulote+"'  height='150px' width='100px' >" ).appendTo(".note-editable").resizable({containment:".note-editable"}).parent().draggable({
+                                                               cursor: "move",
+                                                               grid: [1,1],
+                                                               start: function(e, ui) {
+                                                                     
+                                                               }, 
+                                                               drag: function(e, ui) {
+                                                                     
+                                                                  var p=ui.position;
+                                                                     console.log('dragging'+' left='+p.left+'right ='+p.top);   
+                                                                  
+
+                                                               },
+                                                               stop: function(e, ui) {
+                                                               },
+                                                               containment:".note-editable"
+                                                            })
+                                                            $('#drag2').css('background', 'transparent');
+                                                         
+                                                         $("#drag2").offset($("#testbox").offset());
+ 
+                                                      })
+
+                                                
+
+
+                                     $(document).on('click','#print',()=>{         
+                                          //  var data=$('#testbox').val;
+                                          //  alert(data)
+                                          // window.print(data)
+                                          // var bi = $('.note-editable').css("background-image");
+                                          //  var img1=(bi.split(/"/)[1]);
+                                          //  var cs=$('#testbox').css('background-image')
+                                          //  alert(cs)
+                                          //  var css=cs.split(/"/g,'')[1]
+                                          //  alert(css.toString())
+                                          var bg=$(".note-editable").css('background')
+                                          // alert(bg)
+                                          
+                                          var printContents = $('.note-editable').html()
+                                           alert(printContents)
+                                             var originalContents = document.body.innerHTML;
+                                             alert(originalContents)
+                                             document.body.innerHTML  = printContents;
+                                             // $('#print').css({background:})
+                                             //document.getElementById('testbox').style.display = 'background-image';
+                                             window.print();
+
+         
+                                              document.body.innerHTML = originalContents;
+                                             
+                                       })  
+
+
+                                       function PrintShow() {
+                                             $(".Print").show();
+                                       }
+
+
+                                       $('.grid').on('click',function(){
+                                          var temp1=$(this).attr('src');
+                                          alert(temp1)
+                                          var height=$('.note-editable').height();
+                                          var width=$('.note-editable').width();
+                                        //  alert()
+ 
+                                     $(temp1).appendTo('#testbox').css(height="629.625px", width="409px")
+                                     
+                                          // $("<img id='drag2' src='"+temp1+"'  height='"+height+"' width='"+width+"'/>").appendTo('#testbox').resizable({containment:".note-editable"}).parent().draggable({
+                                          //                      cursor: "move",
+                                          //                      grid: [1,1],
+                                          //                      start: function(e, ui) {
+                                                                     
+                                          //                      }, 
+                                          //                      drag: function(e, ui) {
+                                                                     
+                                          //                         var p=ui.position;
+                                          //                            console.log('dragging'+' left='+p.left+'right ='+p.top);   
+                                                                  
+
+                                          //                      },
+                                          //                      stop: function(e, ui) {
+                                          //                      },
+                                          //                      containment:".note-editable"
+                                          //                   })
+                                          //                   $('#drag2').css('background', 'transparent');
+                                                         
+                                          //                $("#drag2").offset($("#testbox").offset());
+ 
+                                       })
+
+
+                                       // $('#delete').click(()=>{
+                                       //    alert('deleted')
+
+                                       //    $("#testbox").val("");
+                                           
+                                       // })
+
+                                       $('#pdf44').click(()=>{
+
+                                          //var imge12=[];
+
+                                          var htmlToImage=require('html-to-image')
+                                          
+                                          // var i= $('#testbox').attr('src')
+                                          // alert(i)
+                                          // imge12.push(document.getElementById('drag2'))
+                                          // var temp1=$('#testbox').attr('src');
+                                          // alert(temp1)
+
+                                          // var html2pdf=require('E:/Nilesh/generator-ak-2 (2)/generator-ak-2/node_modules/html2pdf.js/dist/html2pdf.js')
+                                          // var element = document.getElementById('testbox')
+                                          // var opt = {
+                                          // margin:       1,
+                                          // filename:     'myfile.pdf',
+                                          // image:        { type: 'jpg', quality: 0.98 },
+                                          // html2canvas:  { scale: 2 },
+                                          // jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                                          // };
+                                          
+                                          // New Promise-based usage:
+                                          // html2pdf().set(opt).from(element).save();
+                                          
+                                          // // Old monolithic-style usage:
+                                          // html2pdf(element, opt);
+                                          
+                                       //  var data=$('#myCanvas').val();
+                                       //  alert(data);
+                                       //  console.log(data)
+                                       var textdata=document.getElementsByClassName('note-editable')
+                                       alert(textdata);
+ 
+                                       //   var d="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZsAAAJ4CAYAAACzoE5JAAAgAElEQVR4Xu3dSag1XXcX8P0NDeJEBwEbJBPFiaIOAip+CMYQBKMOIqhBiWIaEYSIBNsoEiQBUWyJGalBBRODIFFBgs1MRAUlgoiKQgQdGLuhssjZn5ttne6eW/eutb7fnbzv8zznVK39W3Xrf6o5tb8w/BAgQIAAgZMFvnDy8i2eAAECBAgMYWMjIECAAIHTBYTN6cRWQIAAAQLCxjZAgAABAqcLCJvTia2AAAECBISNbYAAAQIEThcQNqcTWwEBAgQICBvbAAECBAi8u8CP/MiP/J8vfvGLX8qYtGEThb4y+nWQryzHewkQIEDgeYFSYfPWwNgH+TyTdxAgQIDAKwLC5hU97yVAgACBhwSEzUNMXkSAAAECrwgIm1f0vJcAAQIEHhIQNg8xeREBAgQIvCIgbF7R814CBAgQeEhA2DzE5EUECBAg8IqAsHlFz3sJECBA4CEBYfMQkxcRIECAwCsCwuYVPe8lQIAAgYcEhM1DTF5EgAABAq8ICJtX9LyXAAECBB4SEDYPMXkRAQIECLwiIGxe0fNeAgQIEHhIoFTYPDSiKy966xOjX1mn9xIgQIDATwiUCRsNI0CAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqAAIG6AsKmbu9UToAAgTICwqZMqxRKgACBugLCpm7vVE6AAIEyAsKmTKsUSoAAgboCwqZu71ROgACBMgLCpkyrFEqA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"
+                                       //   console.log(canvas1)
+                                         //alert(canvas1)
+                                       //   //var dataURL = canvas.toDataURL();
+                                       //   alert(canvas1.toString())
+                                      //   console.log(canvas1)
+
+                                         htmlToImage.toPng(textdata)
+                                          .then(function (dataUrl) {
+                                             var img = new Image();
+                                             
+                                             img.src = dataUrl;
+                                             document.body.appendChild(img);
+                                             console.log(img);
+                                             var jsPDF=require('E:/Nilesh/generator-ak-2 (2)/generator-ak-2/node_modules/jspdf/dist/jspdf.debug.js')
+
+                                             var doc = new jsPDF()
+
+                                                doc.setFontSize(40)
+                                                doc.text(35, 25, ' ')
+                                                doc.addImage(img, 'png', 15, 40, 180, 160)
+                                                doc.save('Filename.pdf')
+
+                                          })
+
+
+
+
+                                             // window.jsPDF = require('jspdf');
+                                             // var pdf = new jsPDF('p', 'pt', 'a4');
+                                             //    pdf.addHTML($("#pdf4"), 15, 15, img, function() {
+                                             //       pdf.save('pageContent.pdf');
+                                             //    });
+                                          // })
+                                          // .then(function(pdfdata,img){
+                                          //    console.log(img)
+                                          //    // $('#cmd').click(function() {
+                                          //    //    var options = {
+                                          //    //    };
+                                          //    //    var pdf = new jsPDF('p', 'pt', 'a4');
+                                          //    //    pdf.addHTML($("#content"), 15, 15, options, function() {
+                                          //    //       pdf.save('pageContent.pdf');
+                                          //    //    });
+                                          //    //    });
+                                          // })
+                                          // .catch(function (error) {
+                                          //    console.error('oops, something went wrong!', error);
+                                          // });
+                                          // html2canvas(canvas1).then(function(canvas) {
+                                          //       document.body.appendChild(canvas);
+                                          //    });
+                                           })
+                                        
+
+                                           $(document).on('click','#pdf4',()=>{ 
+                                          //  $('#pdf4').click(()=>{
+
+                                             var qs = require('qs');
+                                             var htmlToImage=require('html-to-image')
+
+                                  
+                                             var textdata=$('.note-editable').html()
+                                             alert(textdata)
+                                             // var textdata=document.getElementsByClassName('note-editable').innerHTML;
+                                             // // var obj = qs.parse(textdata);
+                                             //  alert(textdata);
+                                             console.log(textdata)
+
+                                             var promise45=new Promise(function(resolve,reject){
+                                                alert('child')
+                                              const spawn = require('child_process').spawn;
+                                              const ls = spawn('python', ['D:/generator-ak-2/src/views/pdf.py', textdata, 'arg2']); 
+                                             
+                                             ls.stdout.on('data', (data) => {
+                                                //alert('data1')
+                                             console.log('first ')
+                                                resolve(data)
+                                             console.log(`stdout: ${data}`);
+                                             });
+
+                                             ls.stderr.on('data', (data) => {
+                                                reject(data);
+                                                console.log('second ')
+                                             console.log(`stderr: ${data}`);
+                                             });
+
+                                             ls.on('close', (code) => {
+                                             console.log(`child process exited with code ${code}`);
+                                             });
+                                           })
+                                          //.then((data)=>{
+                                          //    // console.log(data);
+                                             
+                                          //    console.log(data)
+                                          //    // $('embed').remove();
+                                          //    // $('#pdfclass').append('<embed src="E:/Nilesh/generator-ak-2 (2)/generator-ak-2/file1.pdf" width="650" height="1175" type="application/pdf">');
+                                          // })
+
+
+                                                                     //    htmlToImage.toPng(textdata)
+                                                                     //    .then(function (dataUrl) {
+                                                                     //       var img = new Image();
+                                                                           
+                                                                     //       img.src = dataUrl;
+                                                                     //       document.body.appendChild(img);
+                                                                     //       console.log(img);
+                                                                     //       var jsPDF=require('E:/Nilesh/generator-ak-2 (2)/generator-ak-2/node_modules/jspdf/dist/jspdf.debug.js')
+
+                                                                     //       var doc = new jsPDF()
+
+                                                                     //          doc.setFontSize(40)
+                                                                     //          doc.text(35, 25, ' ')
+                                                                     //          doc.addImage(img, 'png', 15, 40, 180, 160)
+                                                                     //          doc.save('Filename.pdf')
+
+                                                                     //    })
+                                                                     })
+
+
+                                       $(document).on('click','#pdf44',()=>{   
+                                          
+                                          var element = $("#testbox"); // global variable
+                                          var getCanvas; // global variable
+                                          console.log(element)
+                                             // $("#btn-Preview-Image").on('click', function () {
+                                             //       html2canvas(element, {
+                                             //       onrendered: function (canvas) {
+                                             //             $("#previewImage").append(canvas);
+                                             //             getCanvas = canvas;
+                                             //          }
+                                             //       });
+                                             // });
+                                        
+                                          var imgageData = getCanvas.toDataURL("image/png"); 
+                                       
+                                          // Now browser starts downloading  
+                                          // it instead of just showing it 
+                                          var newData = imgageData.replace( 
+                                          /^data:image\/png/, "data:application/octet-stream"); 
+                                       
+                                          $("#testbox").attr( 
+                                          "download", "GeeksForGeeks.png").attr( 
+                                          "href", newData); 
+
+                                       }); 
+                                 
+
+                                    
+                                       // $(document).on('click','#delete',()=>{ 
+                                          $(document).on('click','#delete', ()=>{   
+                                             var temp1=$('.copy1').attr('id');
+                                             //alert(temp1)
+                                             if(temp1==1){
+                                               // alert('only on screen')
+                                                $('#'+temp1).remove();
+                                             } else{
+                                                $('#'+temp1).remove();
+                                             }
+
+                                        })
+
+
+
+                                                
+                                                  
+                                                var scrolled=0;
+
+                                             $(document).ready(function(){
+
+                                                   
+                                                $(document).on('click','#down',()=>{ 
+                                                   // alert('down')
+                                                            scrolled=scrolled+600;
+                                                   
+                                                         $(".design-temp-container").animate({
+                                                               scrollTop:  scrolled
+                                                            });
+
+                                                      });
+
+                                                
+                                                      $(document).on('click','#up',()=>{ 
+                                                         scrolled=scrolled-600;
+                                                         
+                                                         $(".design-temp-container").animate({
+                                                               scrollTop:  scrolled
+                                                            });
+                                                           });
+
+
+                                             $(".clearValue").on("click" ,function(){
+                                                         scrolled=0;
+                                                   });
+
+
+                                             });
+
+                                          
+                                 $(document).ready(function() {
+                                 $('#summernote').summernote();
+                                 });
+
+                              
+//   new FroalaEditor('testbox');
+
+$('#testbox').click(()=>{
+   var FroalaEditor = require('froala-editor');
+ 
+// Load a plugin.
+require('froala-editor/js/plugins/align.min');
+ 
+// Initialize editor.
+new FroalaEditor('#testbox');
+})
+
+
+var localprops={};
+
+
+$('#save').click(function(){
+
+alert('saved') 
+var body_data=$('.note-editable').html();
+var imgs= $('.note-editable').attr('src');
+//alert(imgs)
+
+var fs = require('fs')
+var createHTML = require('create-html')
+ 
+
+ 
+
+const Css = require('json-to-css');
+const css = Css.of(localprops);
+ console.log(JSON.stringify(css));
+
+fs.writeFile('D:/generator-ak-2/style.css',css,function(err,res){
+	if(err){
+	console.log(err)
+	throw err;
+	}
+})
+
+
+var html = createHTML({
+  title: 'index file',
+  css:'D:/generator-ak-2/style.css',
+  head: '<meta name="description" content="example"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">',
+  body:'<div class="container" >'+body_data+',"'+imgs+'"</div>'
+})
+ var html_schema={title: 'index file',
+  css:'D:/generator-ak-2/style.css',
+  head: '<meta name="description" content="example"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">',
+  body:'<div class="container" >'+body_data+'</div>'
+ }
+
+
+
+fs.writeFile('D:/generator-ak-2/html_schema.json', JSON.stringify(html_schema), function (err) {
+  if (err) console.log(err)
+})
+
+fs.writeFile('D:/generator-ak-2/css_schema.json', JSON.stringify(localprops), function (err) {
+  if (err) console.log(err)
+})
+fs.writeFile('D:/generator-ak-2/index.html', html, function (err) {
+  if (err) console.log(err)
+})
+});
+
+
+
+
+
+ </script> 
+
+ 
+
+<!-- include summernote css/js -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+
+  
+   </body>
+</html>

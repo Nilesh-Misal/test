@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Configure HTML Project</title>
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  
+  <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+
+  <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+
+  <link rel="stylesheet" type="text/css" href="../assets/css/project-selector.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/configure-html-project.css">
+
+  <script type="text/javascript" src="../assets/js/include-html.js"></script>
+</head>
+<body onload="resizeWindow(1000, 650)" style="background-color: #21354a; overflow-y: hidden;">
+	<div class="container-fluid">
+		<div class="row grad-bg">
+			<div class="col-md-12" style="display: flex; height: 95px;">
+				<img src="../assets/images/svg/logo1.svg" class="logo">
+				<h3 class="title">Configure HTML Project</h3>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" style="padding-top: 8.5%;">
+			<div class="col-md-12">
+				<form class="form-horizontal">
+				  <div class="form-group">
+				    <label class="control-label col-sm-2" for="project-name">Project Name:</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" data-asid="project-name" value="MyProject" style="font-weight: bold;">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="control-label col-sm-2" for="initial-page-name">Initial Page Name:</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" data-asid="project-name" value="index.html" style="font-weight: bold;">
+				    </div>
+				  </div>				  
+				  <div class="form-group" style="margin-top: 30%;">
+				    <label class="control-label col-sm-2" for="initial-page-name">Project Location:</label>
+				    <div class="col-sm-9" style="padding-right: 0;">
+				      <input type="text" class="form-control" id="folderPathSet" style="font-weight: bold;">
+				    </div>
+				    <div class="col-sm-1">
+				    	<label for="folderPathGet" id="folderPathSet" class="btn btn-default" style="padding: 6px 10px; outline: 0; font-weight: bold;">...</label>			    	
+				      <input id="folderPathGet" style="display: none;" type="file" nwdirectorydesc="Select Project Folder" nwdirectory>
+				    </div>
+				  </div>
+				  <div class="form-group" style="margin-top: 3%; float: right;">
+				  	<div class="col-sm-12">					  		
+					  <button class="btn btn-default" data-field="controller" style="padding: 3px 12px; outline: 0;" data-asid="project-selector">Cancel</button>
+					  <button type="submit" class="btn btn-success" data-field="controller" data-asid="html-project" style="padding: 3px 12px; outline: 0;">Start</button>
+				  	</div>
+				  </div>
+				</form>				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	  console.log("Including HTML files...")
+	  try {
+	    includeHTML();  
+	    console.log("Successfully included HTML files");
+	  } catch(e) {
+	    console.log("Error while including HTML files");
+	  }
+	  // $(document).ready(function () {
+	  // 	window.open($(this).attr('href'),'title', 'width=800, height=700');
+	  // 	return false;
+	  // });
+	 //  function resizeWindow(w, h) {
+		// var width = w; //600;
+		// var height = h; //400;
+		// window.resizeTo(width, height);
+		// window.moveTo(((screen.width - width) / 2), ((screen.height - height) / 2));      
+	 //  }
+	$('#folderPathGet').on('change', function () {
+		$('#folderPathSet').val($(this).val());
+	});	 
+
+	  $('button[data-field=controller]').click(function (e) {
+	  	e.preventDefault();
+	  	var type_id = $(this).attr('data-asid');
+	  	window.location = type_id + ".html";
+	  });
+
+	  function resizeWindow(w, h) {
+		var width = w; //600;
+		var height = h; //400;
+		window.resizeTo(width, height);
+		window.moveTo(((screen.width - width) / 2), ((screen.height - height) / 2));      
+	  }
+
+	// // Load native UI library
+	// var gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
+
+	// // Get the current window
+	// var win = gui.Window.get();
+
+	// // Minimize the window
+	// win.setResizable(false);
+	</script>
+</body>
+</html>

@@ -1,0 +1,1128 @@
+ 
+  
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>HTML Project</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/tab-design.css">
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/html-project.css">
+	<link href="../assets/summernote/summernote.css" rel="stylesheet">
+	<link href="../assets/summernote/summernote-bs3.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/codemirror.css" rel="stylesheet">
+	<link href="../assets/codemirror/lib/monokai.css" rel="stylesheet">
+
+
+	<script src="../assets/js/jquery-3.3.1.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/include-html.js"></script>
+	<script src="../assets/js/jquery-ui.js"></script>
+	<script src="../assets/summernote/summernote.min.js"></script>
+	<script src="../assets/codemirror/lib/codemirror.js"></script>
+	<script src="../assets/codemirror/lib/xml.min.js"></script>
+	<script src="../assets/js/formatting.js"></script>
+	<style type="text/css">
+		.dropdown-submenu {
+			position: relative;
+		}
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  padding-top: 100px; /* Location of the box */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+		/* Modal Content */
+		.modal-content {
+		  background-color:whitesmoke;
+		  margin: auto;
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 40%;
+		}
+		/* The Close Button */
+		.close {
+		  color: #aaaaaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		.dropdown-submenu .dropdown-menu { 
+			top: 0;
+			left: 100%;
+			margin-top: -1px;
+		}
+		.note-editor {
+			margin-bottom: 0 !important;
+			border-radius: 0;
+		    border: 0 !important;
+		}
+		.ui-icon-gripsmall-diagonal-se {
+		    display: none !important;
+		}
+		input[type=text]{
+		background-color: aqua;
+		}
+		.selected_item_here{
+			background-color:gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close">&times;</span>
+		  <p class="form-label">Enter file name</p><br/>
+		  <input type="file" id="files"  class="form-control" name="files[]" directory multiple/><br/>
+		  <button id="open1" type="submit" class="btn btn-primary btn-sm" >OPEN</button>
+		</div>
+	  
+	  </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="dropdown _child">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+	        <ul class="dropdown-menu">
+		      <li class="dropdown-submenu">
+		        <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New <span class="caret"></span></a>
+		        <ul class="dropdown-menu">
+		          <li class="dropdown-submenu">
+		            <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New File<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li><a href="#">HTML File</a></li>
+		              <li><a href="#">CSS File</a></li>
+		              <li><a href="#">JS File</a></li>
+		            </ul>
+		          </li>
+		          <li class="dropdown-submenu">
+		            <a class="dropdown-toggle test" data-toggle="dropdown" href="#">New Project<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+		              <li class="dropdown-submenu" >
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">HTML Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="javascript:void(0)" action-field="menuBtn-start-new" data-asid="configure-html-project">New </a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Latex Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Video Presentation<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">E-mail Design<span class="caret"></span></a>
+			             <ul class="dropdown-menu">
+				            <li><a href="javascript:void(0)" action-field="menuBtn-start-new">New</a></li>
+				         </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Social Based<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			            </ul>
+		              </li>
+		              <li class="dropdown-submenu">
+		              	<a class="dropdown-toggle test" data-toggle="dropdown" href="#">Publication Design<span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+			              <li><a href="#">New</a></li>
+			              <li><a href="#">Open</a></li>
+			            </ul>
+		              </li>
+		            </ul>
+		          </li>
+		        </ul>
+		      </li>
+		      <li><a tabindex="-1" href="#">Open</a></li>
+		      <li><a tabindex="-1" href="#" id="save">Save</a></li>
+		      <li><a tabindex="-1" href="#">Save As</a></li>
+		      <li><a tabindex="-1" href="#">Close Project</a></li>
+		      <li><a tabindex="-1" href="#">Exit</a></li>
+		    </ul>
+	  </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigate</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Send <span style="float: right;">Ctrl+Alt+Enter</span></a></li>
+          <li><a href="#">Reset <span style="float: right;">Ctrl+Alt+Esc</span></a></li>
+          <li><a href="#">Delete <span style="float: right;">Ctrl+Delete</span></a></li>
+        </ul>
+      </li>
+      <li class="dropdown _child">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attach</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Image</a></li>
+          <li><a href="#">Document</a></li>
+          <li><a href="#">Audio</a></li>
+        </ul>
+      </li>
+      <li class="_child"><a href="#">Settings</a></li>
+      <li class="_child"><a href="#">Help</a></li>
+      <li class="_child"><a href="#">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-toolbox">
+  <div class="container-fluid">
+    <div class="row">
+    	<div class="col-lg-12"style="padding: 0;">
+    		<center>
+    		<div class="tool-box">
+    			<ul class="tool tool-tabs">
+				    <li class="active"><a class="menu"data-toggle="tab" href="#all">All</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Media</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Big</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Buttons</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Common</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Forms</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Container</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#assets">Sliders</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#big">Texts</a></li>
+				    <li><a class="menu" data-toggle="tab" href="#buttons">Images</a></li>
+				</ul>
+    		</div>
+    		</center>
+    		<div class="tab-content" style="border:0;">
+			    <div id="all" class="tab-pane fade in active">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items" id="h1">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>h1</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h2">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>h2</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h3">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>h3</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h4">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>h4</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h5">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>h5</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="h6">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>h6</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="p">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>p</h6>
+			      		</div>
+			      		<div class="toolbox-items" id="img">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>img</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="assets" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="big" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			    <div id="buttons" class="tab-pane fade">
+			      <div class="row toolbox-holder">
+			      	<div class="col-md-12 toolbox-item-container">
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<im g src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      		<div class="toolbox-items">
+			      			<img src="../assets/images/tools/btn.png">
+			      			<h6>Button</h6>
+			      		</div>
+			      	</div>
+			      </div>
+			    </div>
+			  </div>
+			  
+			</div>
+    	</div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12 filepath-panel" data-asid="filepath-panel">
+	    	<div>
+	    		<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb">
+				    <li class="breadcrumb-item " ><i class="fa fa-folder"></i>Home <span class="line-arrow right"></span></li>
+				    <li class="breadcrumb-item"><i class="fa fa-folder"></i>Library <span class="line-arrow right"></span></li>
+				    <li class="breadcrumb-item"><i class="fa fa-file-text-o"></i>Data</li>
+				  </ol>
+				</nav>
+	    	</div>
+	    </div>
+	</div>
+	<div class="row" style="display: flex;">
+	    <div data-asid="directory-panel" class="directory-panel">
+	    	<ul class="parent" data-asid="dir">
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 0</span>
+					<ul class="chld">
+						<li>
+							<i class="fa fa-chevron-right"></i><span class="fld">File 1</span>
+      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+								<li>
+									<i class="fa fa-chevron-right"></i><span class="fld">Under File 1</span>
+		      						<ul class="chld">
+							          <li><i class="fa fa-file-text-o"></i>html 1</li>
+							          <li><i class="fa fa-file-text-o"></i>html 2</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+							        </ul>
+								</li>
+					        </ul>
+						</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 2</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					          <li><i class="fa fa-file-text-o"></i>html 2</li>
+					          <li><i class="fa fa-file-text-o"></i>html 3</li>
+					        </ul>
+      					</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 3</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					        </ul>
+      					</li>
+      					<li>
+      						<i class="fa fa-chevron-right"></i><span class="fld">File 4</span>
+      					</li>
+					</ul>
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 1</span>
+					<ul class="chld">
+						<li><i class="fa fa-chevron-right"></i><span class="fld">File 1</span></li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 2</span></li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 3</span>
+      						<ul class="chld">
+					          <li><i class="fa fa-file-text-o"></i>html 1</li>
+					          <li><i class="fa fa-file-text-o"></i>html 2</li>
+					          <li><i class="fa fa-file-text-o"></i>html 3</li>
+					        </ul>
+      					</li>
+      					<li><i class="fa fa-chevron-right"></i><span class="fld">File 4</span></li>
+					</ul>
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld">Directory 2</span>
+					<ul class="chld">
+					   <li><i class="fa fa-file-text-o"></i>html 1</li>
+					   <li><i class="fa fa-file-text-o"></i>html 2</li>
+					   <li><i class="fa fa-file-text-o"></i>html 3</li>
+					</ul>					
+				</li>
+				<li><i class="fa fa-chevron-right"></i><span class="fld" id="dir3">Directory 3</span>
+
+				</li>
+			</ul>
+			<ul style="margin-top:100%" id="addedelements">
+				<li>Hello</li>
+			</ul>
+	    </div>
+	    <div data-asid="work-panel" class="work-panel">
+	    	<div class="row" style="width: -webkit-fill-available; margin: 0;">
+	    		<div class="tab-container main-container">
+				  <ul class="nav nav-tabs" data-asid="tab-layout">
+				  	<li class="extra-tabs" style="">
+				  		<span class="scrollLeft">
+				  			<i class="fa fa-caret-left"></i>
+				  		</span>
+				  		<span class="scrollRight">
+				  			<i class="fa fa-caret-right"></i>
+				  		</span>
+				  	</li>
+				  	<li class="active"><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project1" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  	<li><a data-target="#project" data-toggle="tab">Project<label class="close closeTab" action-field="project-close">×</label></a></li>
+				  </ul>
+
+				  <div class="tab-content" data-asid="tab-contents">
+				  	<div class="tab-pane active" id="project">
+
+				  		<div class="tabbable tabs-bottom">
+			                <div class="tab-content" style="border-top: 0;">
+			    				<div class="tab-pane active" id="design">                
+									<div class="row">
+										<div class="col-md-12">
+											<div class="editor">
+												<div id="work-space" class="work-space">
+													
+												</div> 
+												<div id="property-space" class="property-space"> 
+												  <div>
+													<h6 style="padding-left: 5px; color: #000;">Properties</h6>
+													<table class="table table-bordered">
+														<tbody id="props_of_element">
+																<tr>
+																	
+																		<td>Id</td>
+																		<td><input autocomplete="off" id="elementid" type="text"></td>
+																	</tr>
+													   
+																	<tr class="edittext">
+																		
+																	  <td>EditText</td>
+																	  <td><input type="text" autocomplete="off" id="edittext"></td>
+																	</tr>
+														  <tr class="text-size">
+															
+														  <td>text-size</td>
+														  <td><input autocomplete="off"  type="range" min="0" max="100" id="text-size"></td>
+														</tr>
+														<tr class="color">
+															
+														  <td>text color</td>
+														  <td><input type="color" autocomplete="off" id="color" ></td>
+														</tr>
+														<tr class="height">
+															
+														  <td>height</td>
+														  <td><input type="text" autocomplete="off" id="height" ></td>
+														</tr>
+														<tr class="width">
+															
+														  <td>width</td>
+														  <td><input type="text" autocomplete="off" id="width"></td>
+														</tr>
+														<tr class="background-color">
+														
+														  <td>bg-color</td>
+														  <td><input type="color" autocomplete="off" id="background-color" ></td>
+														</tr>
+														<tr class="font-family">
+														
+															<td>font-family</td>
+															<td><select  autocomplete="off" id="font-family" >
+                                                                 <option value="monospace">Monospace</option>
+					                                       		</select>
+															</td>
+														  </tr>
+													    </tbody>
+													  </table>
+													  <div  id="html_code_area"  >
+                                                            
+													  </div>
+												  </div>  
+												</div>
+											</div>
+										</div>              
+									</div>
+								</div> 
+
+								<div class="tab-pane" id="text"> 
+									<div class="row">
+										<div class="col-md-12">
+											<form accept="">
+												<div class="form-group">
+													<textarea class="form-group summernote" id="code-space" rows="10"></textarea>
+												</div>
+											</form>
+										</div>               
+									</div>
+								</div>
+							</div>
+			                <!-- tab content -->
+							<ul class="nav nav-tabs bottom-tab">
+								<li class="active"><a href="#design" data-toggle="tab">Design</a></li>
+								<li><a href="#text" data-toggle="tab">Text</a></li>
+							</ul>
+						</div>
+				  	</div>
+				  	<div class="tab-pane" id="project1">
+						<div class="jumbotron">
+							<h1>About Tab</h1>
+							<p>because they are the most important for an encyclopedia to have, as determined by the community of participating editors..</p>                 
+						</div>
+				  	</div>
+				  </div>
+				</div> 
+	    	</div>
+		    <!-- <div data-asid="editor-panel" class="editor-panel"></div> -->
+		    <!-- <div data-asid="properties-panel" class="properties-panel"></div> -->
+		</div>
+	</div>
+</div>
+<script src="../assets/js/html-project.js"></script>
+<script>
+const fs = require('fs');
+const async=require('async');
+const promise=require('promise');
+const JsonFind = require('json-find');
+const searchjson = require('C:/Users/Shradha/Documents/pypsi/htmlmodel/generator-ak/tagdataset.json')
+var dataarray={};
+var keyarray={};
+var props=[];
+var selecte_element_id='';
+var i=0;
+var elemetid='';
+var localdata={
+	"h1":0,"h2":0,"h3":0,"h4":0,"h5":0,"h6":0,"p":0,"img":0
+};
+var count1=0;
+$('#dir3').draggable();
+$(document).ready(function(){
+$("#h11").draggable();
+});
+function hideprops(){
+$('.background-color').hide();
+$('.color').hide();
+$('.height').hide();
+$('.edittext').hide();
+$('.width').hide();
+$('.text-size').hide();
+$('.font-family').hide();
+}
+hideprops();
+var localprops={};
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+$('.toolbox-items').click(function(){
+	hideprops();
+//alert('clicked');
+//console.log($(this).html());
+ elemetid = $(this).attr('id');
+ //console.log(elemetid);
+ //console.log('item id'+$(this).attr('id'))
+var count=new Promise((resolve,reject)=>{
+	const doc = JsonFind(localdata);
+//	console.log();
+resolve(doc.checkKey(selecte_element_id))
+}).then(function(data){
+//console.log("this  is  data "+selecte_element_id+' '+elemetid);
+ count1=localdata[elemetid]+1;
+localdata[elemetid]=count1;
+//console.log(localdata);
+var idofcurrentelement='';
+var value=idofcurrentelement.concat(elemetid,count1);
+//console.log("idof"+value);
+var width=$('#work-space').width();
+ var height=$('#work-space').width();
+ console.log(width+' '+height);
+var bootstrap_grid_width=width/12;
+var bootstrap_grid_height=height/12;
+$('#work-space').css({'max-width':width});
+console.log(bootstrap_grid_width);
+selecte_element_id=value;
+if(elemetid=='h1'||elemetid=='h2'||elemetid=='h3'||elemetid=='h4'||elemetid=='h5'||elemetid=='h6'||elemetid=='p'){
+	$('<'+elemetid+' id="'+value+'"  >Edit Text Here</'+elemetid+'>').appendTo('#work-space').draggable({
+    grid: [bootstrap_grid_width,bootstrap_grid_height],
+		start: function(e, ui) {
+            var p=ui.position;
+           
+      //console.log('drag start');    
+		}, 
+		drag: function(e, ui) {
+            var p=ui.position;
+           // console.log('dragging'+' left='+p.left);    
+		},
+		stop: function(e, ui) {
+			selecte_element_id=$(this).attr('id');
+			var p=ui.position;
+		    console.log('id='+$(this).attr('id'));
+			if(Math.floor(p.left)>=Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<2*Math.floor(bootstrap_grid_width)){
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'10%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='10%';
+}
+			console.log('drag 10% '); 
+			//console.log(Math.floor(p.left)+'>'+Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+2*Math.floor(bootstrap_grid_width))  
+			}else if(Math.floor(p.left)>=2*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<3*Math.floor(bootstrap_grid_width)){
+				console.log('drag 20% ');
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'20%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='20%';
+}
+				//console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}else if(Math.floor(p.left)>=3*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<4*Math.floor(bootstrap_grid_width)){
+				console.log('drag 30% ');   
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'30%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='30%';
+}
+				//console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}else if(Math.floor(p.left)>=4*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<5*Math.floor(bootstrap_grid_width)){
+				console.log('drag 40% ');   
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'40%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='40%';
+}
+			//	console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}else if(Math.floor(p.left)>=5*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<6*Math.floor(bootstrap_grid_width)){
+				console.log('drag 50% ');   
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'50%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='50%';
+}
+				//console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}else if(Math.floor(p.left)>=6*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<7*Math.floor(bootstrap_grid_width)){
+				console.log('drag 60% ');   
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'60%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='60%';
+}
+				//console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}else if(Math.floor(p.left)>=7*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<8*Math.floor(bootstrap_grid_width)){
+				console.log('drag 70% ');   
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'70%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='70%';
+}
+			//	console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}else if(Math.floor(p.left)>=8*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<9*Math.floor(bootstrap_grid_width)){
+				console.log('drag 80% ');   
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'80%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='80%';
+}
+				//console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}else if(Math.floor(p.left)>=9*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<10*Math.floor(bootstrap_grid_width)){
+				console.log('drag 90% ');   
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'90%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='90%';
+}
+			//	console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}else if(Math.floor(p.left)>=10*Math.floor(bootstrap_grid_width)&&Math.floor(p.left)<11*Math.floor(bootstrap_grid_width)){
+				console.log('drag 100% ');   
+				if(isEmpty(localprops["#"+selecte_element_id])) {
+	localprops["#"+selecte_element_id]={'margin-left':'100%'};
+} else {
+	localprops["#"+selecte_element_id]['margin-left']='100%';
+}
+			//	console.log(Math.floor(p.left)+'>'+2*Math.floor(bootstrap_grid_width)+'&&'+Math.floor(p.left)+'<'+3*Math.floor(bootstrap_grid_width))
+			}
+		},
+		containment:"#drop-area"
+	})
+}else if(elemetid=='img'){
+	$('#work-space').append('<'+elemetid+' src="../assets/images/upload_image.png" style="height:100px;width:100px;" class="selectimage" id="'+value+'" />')
+}
+let html_code=$('#html_code_area').html().toString();
+console.log(html_code);
+let updated_html_code='';
+updated_html_code=html_code+'<'+elemetid+' id="'+value+'">Edit Text Here<'+elemetid+'>';
+$('#html_code_area').text(updated_html_code);
+//$('#'+selecte_element_id).addClass('selected_item_here');
+$('#elementid').val(selecte_element_id);
+//console.log(searchjson);
+const doc = JsonFind(searchjson);
+//	console.log();
+var fetched_data=[];
+fetched_data=doc.checkKey(elemetid);
+//console.log(fetched_data);
+let i=0;
+//console.log("shown "+JSON.stringify(fetched_data));
+//Here i have fetched possible css attributes from tagdataset.json file
+var dataarray={};
+async.forEachOf(fetched_data,function(value,key,callback){
+  
+//console.log(dataarray)
+dataarray[i]=value;
+$('.'+key).show();
+//$('#props_of_element').append('<tr><td><i class="fa fa-chevron-right"></i></td>	<td>'+key+'</td>	<td><input type="'+value+'" autocomplete="off" id="'+key+'" type="text"></td></tr>')
+     
+//console.log(key+' '+value+' '+i);
+//console.log(dataarray)
+i++;
+})
+});
+});
+$(document).on('change','#color',function(){
+	//console.log('inside');
+console.log($(this).val());
+let color1=$(this).val();
+var selected_item_id=$('#elementid').val();
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	// Object is empty (Would return true in this example)
+	//console.log('Object is empty (Would return true in this example');
+	localprops["#"+selecte_element_id]={'color':color1};
+} else {
+	// Object is NOT empty
+	//console.log('Object is NOT empty');
+	localprops["#"+selecte_element_id]['color']=color1;
+}
+$('#'+selected_item_id).css({'color':color1});
+//localprops["#"+selecte_element_id]={'color':color1};
+console.log(localprops);
+});
+$(document).on('change','#background-color',function(){
+	//console.log('inside');
+console.log($(this).val());
+let color1=$(this).val();
+var selected_item_id=$('#elementid').val();
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	// Object is empty (Would return true in this example)
+	//console.log('Object is empty (Would return true in this example');
+	localprops["#"+selecte_element_id]={'background-color':color1};
+} else {
+	// Object is NOT empty
+	//console.log('Object is NOT empty');
+	localprops["#"+selecte_element_id]['background-color']=color1;
+}
+$('#'+selected_item_id).css({'background-color':color1});
+console.log(localprops);
+});
+$(document).on('keyup','#edittext',function(){
+	//console.log('inside');
+console.log($(this).val());
+let text=$(this).val();
+var selected_item_id=$('#elementid').val();
+$('#'+selected_item_id).text(text);
+//$('#'+selected_item_id).css({content:text});
+localprops["#"+selecte_element_id]={content:text};
+console.log(localprops);
+});
+$(document).on('change','#text-size',function(){
+	//console.log('inside');
+console.log($(this).val());
+let val1=$(this).val();
+var selected_item_id=$('#elementid').val();
+if(isEmpty(localprops["#"+selecte_element_id])) {
+	// Object is empty (Would return true in this example)
+	//console.log('Object is empty (Would return true in this example');
+	localprops["#"+selecte_element_id]={'font-size':val1+'px'};
+} else {
+	// Object is NOT empty
+	//console.log('Object is NOT empty');
+	localprops["#"+selecte_element_id]['font-size']=val1+'px';
+}
+$('#'+selected_item_id).css({'font-size':val1+'px'});
+console.log(localprops);
+});
+function hex_to_RGB(hex) {
+    var m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i);
+    return {
+        r: parseInt(m[1], 16),
+        g: parseInt(m[2], 16),
+        b: parseInt(m[3], 16)
+    };
+}
+$('#save').click(function(){
+alert('clicked');
+var body_data=$('#html_code_area').text();
+var fs = require('fs')
+var createHTML = require('create-html')
+ 
+const Css = require('json-to-css')
+const css = Css.of(localprops);
+ console.log(JSON.stringify(css));
+fs.writeFile('C:/Users/Shradha/Desktop/programme-files/htmlproject/style.css',css,function(err,res){
+	if(err){
+	console.log(err)
+	throw err;
+	}
+})
+var html = createHTML({
+  title: 'index file',
+  css:'C:/Users/Shradha/Desktop/programme-files/htmlproject/style.css',
+  head: '<meta name="description" content="example"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">',
+  body:'<div class="container">'+body_data+'</div>'
+})
+ 
+fs.writeFile('C:/Users/Shradha/Desktop/programme-files/htmlproject/index.html', html, function (err) {
+  if (err) console.log(err)
+})
+});
+$(document).on('dblclick','h1',function(){
+//	alert('dblcliked');
+	var id4=$(this).attr('id');
+selecte_element_id=id4;
+$('#'+id4).attr('contenteditable','true');
+});
+/*
+$(document).on('h1','change', function() {alert('changed')}).on('blur keyup paste', function() { 
+  if (before != $(this).html()) { $(this).trigger('change'); }
+});
+*/
+$(document).on('click','h1',function(){
+//	alert('cliked');
+var id4=$(this).attr('id');
+selecte_element_id=id4;
+console.log('here');
+//console.log("updated html code="+updated_html_code);
+$('#elementid').val(selecte_element_id,elemetid);
+//$('.toolbox-items').trigger('click');
+//console.log('selected element'+selecte_element_id+' elementid '+elemetid);
+changeprops(selecte_element_id,elemetid);
+//hideprops();
+//	const doc1 = JsonFind(searchjson);
+//var fetched_data=[];
+//fetched_data=doc1.checkKey(elementid1);
+//console.log(doc1.checkKey(elementid1)+elementid1);
+//let i=0;
+//var dataarray={};
+//async.forEachOf(fetched_data,function(value,key,callback){
+//dataarray[i]=value;
+//$('.'+key).show();
+//$(document).show('')
+//i++;
+//})
+});
+function changeprops(selected_elment_id1,elementid1){
+	let elementid='';    
+	//hideprops();
+	const doc1 = JsonFind(searchjson);
+var fetched_data=[];
+fetched_data=doc1.checkKey(elementid1);
+console.log("data"+fetched_data+elementid);
+let i=0;
+//var dataarray={};
+async.forEachOf(fetched_data,function(value,key,callback){
+//dataarray[i]=value;
+if($("."+key).is(":visible")){
+                   // alert("The paragraph  is visible.");
+				   console.log('visible '+key)
+				   
+                } else{
+                    console.log("not visible "+key);
+					$('.'+key).css({'visibility':'visible'});
+					document.getElementsByClassName(key).style.visibility = "visible"; 
+                }
+console.log('key after change'+key);
+console.log("$('.'"+key+").show();");
+//$(document).show('')
+i++;
+})
+ 
+}
+/*
+$(document).on('click','p',function(){
+//	alert('dblcliked');
+	var id4=$(this).attr('id');
+selecte_element_id=id4;
+$('#'+id4).attr('contenteditable','true');
+});
+$(document).on('change','p',function(){
+//	alert('dblcliked');
+	var id4=$(this).attr('id');
+selecte_element_id=id4;
+$('#'+id4).attr('contenteditable','true');
+});
+*/
+$(document).on('blur','p',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4;
+  
+        alert('Handler for .change() called.');
+      var contents = $('#'+id4).html();    
+	var content1=	$('#work-space').html();
+	 $('#html_code_area').text($('#work-space').html());
+    });
+	$(document).on('blur','h1',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space').html();   
+	 $('#html_code_area').text($('#work-space').html());
+    });
+	$(document).on('blur','h2',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space').html();   
+	 $('#html_code_area').text($('#work-space').html());
+    });
+	$(document).on('blur','h3',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space').html();   
+	 $('#html_code_area').text($('#work-space').html());
+    });
+	$(document).on('blur','h4',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space').html();   
+	 $('#html_code_area').text($('#work-space').html());
+    });
+	$(document).on('blur','h5',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space').html();   
+	 $('#html_code_area').text($('#work-space').html());
+    });
+	$(document).on('blur','h6',function() {
+	var id4=$(this).attr('id');
+//
+selecte_element_id=id4; 
+      var contents = $('#'+id4).html();   
+	var content1=	$('#work-space').html();   
+	 $('#html_code_area').text($('#work-space').html());
+	});
+	
+	$(document).on('click','.selectimage',function(){
+		$('#myModal').show();
+      
+	});
+	$(document).on('click','.close',function(){
+		$('#myModal').hide();
+	})
+	$(document).on('click','#open1',function(){
+		var filehere=$('#files').prop('files');
+		console.log("file name "+filehere[0].path);
+	})
+	</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+ 
