@@ -623,9 +623,7 @@ function handleFileSelect5(evt,cb){
     // $(document).on('click',"#open1",function() {
 
         alert('hii')
-      term.clear();
-      term.refresh();
-     var files = evt.target.files; // FileList object
+      var files = evt.target.files; // FileList object
  
      // files is a FileList of Filze objects. List some properties.
      var output = [];
@@ -1172,10 +1170,9 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 
 					terminal.append(stdout);
 					terminal.append(stderr);
-
-			 
-      
+		      
        }
+       
        else if(selectedfile=='m'){
 
         
@@ -1190,11 +1187,12 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
                   ls.stdout.on('data', (tabledata) => {
                     // alert('data1')
                     console.log('first ')
-                    console.log(tabledata.toString())
-                    terminal.append(tabledata.toString())
+                    console.log(tabledata)
+                    // terminal.append('\r\n')
+                    terminal.append(tabledata +"\r\n")
 
                     //$('#testbox').text(data)
-                    $('#pdfclass').append(tabledata +"/n");
+                    // $('#pdfclass').append(tabledata +"/n");
                      resolve(data)
                      
                  // console.log(`stdout: ${data}`);
@@ -1207,11 +1205,11 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
                   console.log(`stderr: ${data}`);
                   terminal.append(data +"\n")
 
-                  });
+      });
 
-                  ls.on('close', (code) => {
-                  console.log(`child process exited with code ${code}`);
-            });
+  ls.on('close', (code) => {
+  console.log(`child process exited with code ${code}`);
+  });
 
          
 

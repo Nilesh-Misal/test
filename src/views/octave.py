@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import subprocess
 import pprint
 import os
-
 import sys
 
 file12=sys.argv[1]
@@ -20,8 +19,9 @@ f.close()
 
 file1=open('temp.m','r') 
 data=file1.readlines()
-
 oc.eval(data)
+ 
+
  # basic commands
 
 # x= np.linspace(0, 10, 100)
