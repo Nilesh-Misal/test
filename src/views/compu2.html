@@ -29,7 +29,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.js">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="/dist/renderer/bundle.js"></script>
+    <!-- <script src="/dist/renderer/bundle.js"></script> -->
     
 
     <!-- <link rel="stylesheet" href="index.css" />
@@ -506,10 +506,15 @@ var folderpath='';
 var openedtabs=[];
 var folderfilenames=[];
 var fs = require('fs');
+var terminal = $(".terminal");
+var title = $(".title");
+		var prompt = "➜";
+		var path = "~";
+
 
 // var matlab=require('C:/Octave/Octave-5.1.0.0/usr/bin')
 
-const {c, cpp, node, python, java,matlab} = require('compile-run');
+const {c, cpp, node, python, java} = require('compile-run');
 
 
     var modal2 = document.getElementById('openfolder');
@@ -936,9 +941,10 @@ $('#saveAs').click(()=>{
 		console.log('file saved');
 }
 
-function submit(){
+// function submit(){
 
 $(document).on('click','#submit',function(){
+  alert('clicked')
 	
 	 
 	var async = require("async");
@@ -953,7 +959,7 @@ $(document).on('click','#submit',function(){
 		//	var extention=fileextention.split('.');
 			///console.log(fileextention+extention);
 //			console.log('selected='+fileextention);
-			if(selectedfile==''){	
+			if(selectedfile ==''){	
 				alert('no file extention')
 
 			}else if(selectedfile=='c'){
@@ -1038,52 +1044,52 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 ]);
 	
 
-			term.write(result['stdout']);
+			terminal.append(result['stdout']);
 	//		var datacsv=['output1','hello'];
 			//createCSVFile('C:/Users/Shradha/Documents/pypsi/pypsinew/new/generator-ak/src/Output/Output.csv',datacsv);
 	
-				term.write(result['stderr']);
+				terminal.append(result['stderr']);
     })
     .catch(err => {
         console.log(err);
     });
 
 
-       }else if(selectedfile=='mat' || selectedfile=='m' || selectedfile=='mlx'|| selectedfile=='mdl' || selectedfile=='mex'){
+      //  }else if(selectedfile=='mat' || selectedfile=='mlx'|| selectedfile=='mdl' || selectedfile=='mex'){
 
-        console.log('hiii')
+      //   console.log('hiii')
 
-        runFile(pathfile,{
-					compilationPath: 'C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin' // something like C://Program Files//gcc//bin
-				},(err,result)=>{
-					if(err) throw err;
-					term.write(result['stdout']);
-					term.write(result['stderr']);
-				});
+      //   runFile(pathfile,{
+			// 		compilationPath: 'C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin' // something like C://Program Files//gcc//bin
+			// 	},(err,result)=>{
+			// 		if(err) throw err;
+			// 		term.write(result['stdout']);
+			// 		term.write(result['stderr']);
+			// 	});
 
 
-        var sourcecode=$('#code-space').text();
-        var shell = require('shelljs');
-                console.log("hiii")
-          // fs.writeFile('./temp/R')
+      //   var sourcecode=$('#code-space').text();
+      //   var shell = require('shelljs');
+      //           console.log("hiii")
+      //     // fs.writeFile('./temp/R')
           
-          if (!shell.which('git')) {
-					shell.echo('Sorry, this script requires git');
-					shell.exit(1);
-					}
-          shell.exec(cmd,function(sourcecode,stderr,stdout){
-                    console.log(stdout)
+      //     if (!shell.which('git')) {
+			// 		shell.echo('Sorry, this script requires git');
+			// 		shell.exit(1);
+			// 		}
+      //     shell.exec(cmd,function(sourcecode,stderr,stdout){
+      //               console.log(stdout)
 
-        console.log(stderr)
+      //   console.log(stderr)
 
-        console.log(code)
+      //   console.log(code)
 
-        alert('successfully execute')
+      //   alert('successfully execute')
 
-        term.write(stdout);
-        term.write(stderr);
+      //   term.write(stdout);
+      //   term.write(stderr);
 
-          })
+      //     })
 				
 					// var runme='Rscript "'+pathfile+'"';
 					// console.log(runme)
@@ -1140,17 +1146,17 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 
 
 		// 		// alert('no compiler found for this extention')
-			 }
+ }
        else if(selectedfile=='R' || selectedfile=='RData' || selectedfile=='rds' || selectedfile=='rda'){
 				 //alert("R")
 				var sourcecode=$('#code-space').text();
 				var shell = require('shelljs');
                 console.log("hiii")
 					// fs.writeFile('./temp/R')
-					if (!shell.which('git')) {
-					shell.echo('Sorry, this script requires git');
-					shell.exit(1);
-					}
+					// if (!shell.which('git')) {
+					// shell.echo('Sorry, this script requires git');
+					// shell.exit(1);
+					// }
 					var runme='Rscript "'+pathfile+'"';
 					console.log(runme)
 					const { stdout, stderr, code } = shell.exec(runme);
@@ -1164,12 +1170,100 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 					
 					alert('successfully execute')
 
-					term.write(stdout);
-					term.write(stderr);
+					terminal.append(stdout);
+					terminal.append(stderr);
 
 			 
       
        }
+       else if(selectedfile=='m'){
+
+        
+          var sourcecode=$('#code-space').text();
+
+                  console.log('inside table')
+                  // var tabledata=document.getElementById('testbox').value;
+
+                  const spawn = require('child_process').spawn;
+                  const ls = spawn('python', ['src/views/octave.py', sourcecode]);
+
+                  ls.stdout.on('data', (tabledata) => {
+                    // alert('data1')
+                    console.log('first ')
+                    console.log(tabledata.toString())
+                    terminal.append(tabledata.toString())
+
+                    //$('#testbox').text(data)
+                    $('#pdfclass').append(tabledata +"/n");
+                     resolve(data)
+                     
+                 // console.log(`stdout: ${data}`);
+                  });
+
+                  ls.stderr.on('data', (data) => {
+                     reject(data);
+                     console.log('second ')
+                     $('#testbox').text(data)
+                  console.log(`stderr: ${data}`);
+                  terminal.append(data +"\n")
+
+                  });
+
+                  ls.on('close', (code) => {
+                  console.log(`child process exited with code ${code}`);
+            });
+
+         
+
+        //   const blas = require('blasjs');
+        //   // alert('Octave')
+
+
+        //   var sourcecode=$('#code-space').text();
+				// var shell = require('shelljs');
+        //         console.log("hiii")
+
+        //         var cmd= 'C:\Octave\Octave-5.1.0.0\mingw64\bin';
+				// 	// fs.writeFile('./temp/R')
+				// 	// if (!shell.which('git')) {
+				// 	// shell.echo('Sorry, this script requires git');
+				// 	// shell.exit(1);
+				// 	// }
+        //   // console.log(pathfile)
+        //    var Filename= pathfile.split('\\').pop()
+        //   //  alert(filename)
+        // //  name1=path.split('\\').pop()
+        //   //   // console.log('value')
+        //   //   // console.log(path)
+        //     // var classname=pathfile.split('.')[1];
+        //   console.log(Filename)
+          
+				// 	var runme=`run(${pathfile});`; 
+				// 	console.log(runme)
+        //   // "C:\Octave\Octave-5.1.0.0\matlab.exe" -nodisplay -nosplash -nodesktop -r 
+          
+        //   console.log('runme')
+        //   // alert('runme')
+				// 	const { stdout, stderr, code } = shell.exec(cmd,runme);
+					
+
+				// 	console.log(stdout)
+        //   alert(stdout)
+
+				// 	console.log(stderr)
+
+				// 	console.log(code)
+					
+				// 	alert('successfully execute')
+
+					// terminal.write(stdout);
+					// terminal.write(stderr);
+
+			 
+      
+
+        }
+        
        else if(selectedfile=='rb'){
 				 //alert("R")
 				var sourcecode=$('#code-space').text();
@@ -1197,6 +1291,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 					term.write(stderr);
 
         }
+        
     //     if(selectedfile=='cpp'){
 
     //     cpp.runFile(pathfile,{
@@ -1211,7 +1306,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 
     // }
       })
-}
+// }
 var selectedfile1=''
 var name1=''
 
@@ -1433,35 +1528,35 @@ $(document).ready(function() {
 
 function python(){
 
-var filename=selectedfile1
-// var elements = document.getElementsByClassName("tabname");
-// var value = elements[0].value;
-console.log('ghiiiii')
-console.log(filename)
+            var filename=selectedfile1
+            // var elements = document.getElementsByClassName("tabname");
+            // var value = elements[0].value;
+            console.log('ghiiiii')
+            console.log(filename)
 
-// var files = evt.target.files;
-// // console.log(files)
-// console.log(document.getElementById("files").files[0].path);
-//   var path=document.getElementById('project').value;
+            // var files = evt.target.files;
+            // // console.log(files)
+            // console.log(document.getElementById("files").files[0].path);
+            //   var path=document.getElementById('project').value;
 
-// console.log(path)
+            // console.log(path)
 
-const { spawn } = require('child_process');
-  const bat = spawn('python', [filename]);
+            const { spawn } = require('child_process');
+              const bat = spawn('python', [filename]);
 
-bat.stdout.on('data', (data) => {
-terminal.append(data.toString());
-});
+            bat.stdout.on('data', (data) => {
+            terminal.append(data.toString());
+            });
 
-bat.stderr.on('data', (data) => {
-terminal.append(data.toString());
-});
+            bat.stderr.on('data', (data) => {
+            terminal.append(data.toString());
+            });
 
-bat.on('exit', (code) => {
-console.log(`Child exited with code ${code}`);
-});
+            bat.on('exit', (code) => {
+            console.log(`Child exited with code ${code}`);
+            });
 
-}
+            }
 
 
 
@@ -1482,22 +1577,22 @@ console.log(filename)
 
 // console.log(path)
 
-const { spawn } = require('child_process');
-  const bat = spawn('Rscript', [filename]);
+      const { spawn } = require('child_process');
+        const bat = spawn('Rscript', [filename]);
 
-bat.stdout.on('data', (data) => {
-terminal.append(data.toString());
-});
+      bat.stdout.on('data', (data) => {
+      terminal.append(data.toString());
+      });
 
-bat.stderr.on('data', (data) => {
-terminal.append(data.toString());
-});
+      bat.stderr.on('data', (data) => {
+      terminal.append(data.toString());
+      });
 
-bat.on('exit', (code) => {
-console.log(`Child exited with code ${code}`);
-});
+      bat.on('exit', (code) => {
+      console.log(`Child exited with code ${code}`);
+      });
 
-}
+      }
 
 
     
@@ -1516,10 +1611,7 @@ console.log(`Child exited with code ${code}`);
 
 		// END COMMANDS
 
-		var title = $(".title");
-		var terminal = $(".terminal");
-		var prompt = "➜";
-		var path = "~";
+	
 
 		var commandHistory = [];
     var historyIndex = 0;
@@ -1554,7 +1646,7 @@ console.log(`Child exited with code ${code}`);
           "function":Rscript
         },
         {
-          "name":`node1`,
+          "name":`node`,
           "function":version
         },
         {

@@ -1,0 +1,9 @@
+import numpy as np
+from oct2py import Oct2Py
+oc = Oct2Py()
+>>> # basic commands
+print(oc.abs(-1))
+print(oc.upper('xyz'))
+XYZ
+>>> # plotting
+>>> oc.plot([1,2,3],'-o', 'linewidth', 2)

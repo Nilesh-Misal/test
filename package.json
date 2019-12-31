@@ -40,6 +40,7 @@
     "@types/webpack": "^4.41.0",
     "atom": "^1.1.0",
     "ava": "^2.4.0",
+    "blasjs": "^1.0.13",
     "browserify": "^16.5.0",
     "canvas2pdf": "^1.0.7",
     "chai": "^4.2.0",
