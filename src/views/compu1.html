@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../assets/css/darcula.css" rel="stylesheet">
-	<!-- <script src="../assets/js/highlight.pack.js"></script> -->
+	 <script src="/../assets/js/highlight.pack.js"></script>
 	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/css/tab-design.css">
@@ -443,7 +443,8 @@ var hyp=require('C:/Users/Sjain/AppData/Roaming/Hyper/.hyper.js')
 // Load WebLinksAddon on terminal, this is all that's needed to get web links
 // working in the terminal.
 // terminal.loadAddon(new WebLinksAddon());
-// hljs.highlightBlock($('code').get(0));
+
+
 
 
 //Terminal code
@@ -1455,28 +1456,26 @@ $('.dblclike-event').dblclick(function(){
 
 $(document).bind('keydown', 'ctrl+s', function(){
 	 
-			console.log('selected file location='+selectedfileLocation);
-if(selectedfileLocation=='nd'){
-	openfilesaver();
-}else{
-	var fs = require('fs');
-	var data = $("#code-space").text();
-	console.log('inside not null')
-	var fs= require('fs');
-	var data=$('#code-space').text();
-//console.log(data);
-		fs.writeFile(pathfile,data, 'utf8',		// callback function
-					function(err) {
-						if (err) throw err;
-						console.log("Data is appended to file successfully."+pathfile)
-				});
-			}
+		console.log('selected file location='+selectedfileLocation);
+			if(selectedfileLocation=='nd'){
+				openfilesaver();
+			}else{
+				var fs = require('fs');
+				var data = $("#code-space").text();
+				console.log('inside not null')
+				var fs= require('fs');
+				var data=$('#code-space').text();
+			//console.log(data);
+					fs.writeFile(pathfile,data, 'utf8',		// callback function
+								function(err) {
+									if (err) throw err;
+									console.log("Data is appended to file successfully."+pathfile)
+							});
+						}
 
-		});
+					});
 
 $('#javasettings').click(()=>{
-
-
 modal3.style.display="block";
 
 

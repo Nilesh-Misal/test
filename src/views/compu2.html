@@ -5,7 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <link href="../assets/css/darcula.css" rel="stylesheet"> -->
-	<!-- <script src="../assets/js/highlight.pack.js"></script> -->
+  <script src="/src/assets/js/highlight.pack.js"></script>
+  
 	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/css/tab-design.css">
@@ -16,7 +17,9 @@
 	<link href="../assets/summernote/summernote-bs3.css" rel="stylesheet">
 	<link href="../assets/codemirror/lib/codemirror.css" rel="stylesheet">
 	<link href="../assets/codemirror/lib/monokai.css" rel="stylesheet">
-	<!-- <script src="../assets/xterm/dist/xterm.js"></script>  -->
+  <!-- <script src="../assets/xterm/dist/xterm.js"></script>  -->
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet" />
 
@@ -27,8 +30,16 @@
     <!-- <script src="/node_modules/xterm/lib/xterm.js"></script> -->
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:200' rel='stylesheet' type='text/css'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.js">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+  	<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+    <script src="/jQuery-Plugin-To-Create-Textarea-With-Line-Numbering-LineNumbers/jquery-linenumbers.js"></script>
+    <!-- <link href="/lined-textarea/jquery-linedtextarea.css" type="text/css" rel="stylesheet" /> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <!-- <script src="/dist/renderer/bundle.js"></script> -->
     
 
@@ -57,8 +68,22 @@
 
   <!-- <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"> </script> -->
 
+  	<script>hljs.initHighlightingOnLoad();</script>
+
 
   <style type="text/css">
+
+.lined {
+	float: left;
+
+}
+.col-md-12 {
+	padding: 0%;
+}
+.row{
+	margin: 0px;
+}
+
   
   .terminal{
   background: black;
@@ -189,6 +214,10 @@ background: transparent;
   content: "|";
   animation: blink 2s steps(1) infinite;
 }
+/* .dadaname{
+  float: left;
+  width: 40px;
+} */
 
 
 </style>
@@ -429,13 +458,12 @@ background: transparent;
                                               <div class="" id="text">
                                                   <div class="row">
                                                       <div class="col-md-12 ">
-                                                          <p id="arrayprint"></p>
-                                                         <form accept="">
-                                                          <pre class="col-md-12" style="height:400px;overflow:hidden;" >
-                                                          <code class="java" id="code-space" contenteditable="true" style="width:100%;height:100%;">
+                                                           <pre class="col-md-12" style="height:400px;overflow:hidden;" >
+                                                          <textarea class="lined" id="line_numbers" style="width:1230px;height:100%;">
+                                                            
                                                               
-                                                          </code>
-                                                          </pre>
+                                                          </textarea>
+                                                          </pre> 
                                                           
                                                          </form><hr/>
                                                          <!-- <div id="term">
@@ -493,6 +521,16 @@ background: transparent;
 	</div>
 </div>
 <!-- <script src="../assets/js/compute-project.js"></script> -->
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<link rel="stylesheet" href="/node_modules/highlight.js/styles/default.css">
+<script src="/node_modules/highlight.js\lib/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
+
+
+<script src="/jQuery-Plugin-To-Create-Textarea-With-Line-Numbering-LineNumbers/jquery-linenumbers.min.js"></script>
+<link rel="stylesheet" href="/jQuery-Plugin-To-Create-Textarea-With-Line-Numbering-LineNumbers/example.css">
+
+
 <script>
 
 var modal = document.getElementById('myModal');
@@ -636,7 +674,7 @@ function handleFileSelect5(evt,cb){
        reader.onload = function(e) {
          // The file's text will be printed here
          console.log(e.target.result)
-         $('#code-space').text(e.target.result);
+         $('#line_numbers').text(e.target.result);
        }
        
        reader.readAsText(f);
@@ -651,19 +689,20 @@ function handleFileSelect5(evt,cb){
 // })
 
  
-// $(document).on('click','.subfiles',(event)=>{
+ $(document).on('click','.subfiles',(event)=>{
 
 console.log($(event.target).attr('id'))
 var fname=files;
 var path=$(evt.target).attr('value');
 var extentionoffile=fname.split('.')[1];
-$('code').removeClass();
-$('code').addClass(extentionoffile);
+$('textarea').removeClass();
+$('textarea').addClass(extentionoffile);
+hljs.highlightBlock($('textarea').get(0));
 
 
 fs.readFile(path,function(err,result){
 
-    $("#code-space").text(result)
+    $("#line_numbers").text(result)
 })
 
  var x1=0;
@@ -694,10 +733,10 @@ if(x1==0){
 }else{
 
  }
-// })
+})
 }
 	
-  
+
 
 document.getElementById('files').addEventListener('change', handleFileSelect5, false);
 // document.getElementById('files').addEventListener('change', node, false);
@@ -779,6 +818,9 @@ $('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt
 }else if(extentionoffile=='js'){
   $('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt.target.files[i].path+'" class="subfiles" ><img src="../assets/images/symbols/programming-languages/js.png" id="codesymbol"> '+evt.target.files[i].name+'</li>')
 
+}else if(extentionoffile=='pl'){
+  $('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt.target.files[i].path+'" class="subfiles" ><img src="../assets/images/symbols/programming-languages/js.png" id="codesymbol"> '+evt.target.files[i].name+'</li>')
+
 }
 
 //console.log(evt.target.files[i]);
@@ -818,18 +860,19 @@ modal2.style.display = "none";
 
 
 $(document).on('click','.subfiles',(event)=>{
-	console.log($(event.target).attr('id'))
-var fname=$(event.target).attr('id');
-var path=$(event.target).attr('value');
-var extentionoffile=fname.split('.')[1];
-$('code').removeClass();
-$('code').addClass(extentionoffile);
+      console.log($(event.target).attr('id'))
+      var fname=$(event.target).attr('id');
+      var path=$(event.target).attr('value');
+      var extentionoffile=fname.split('.')[1];
+      $('textarea').removeClass();
+      $('textarea').addClass(extentionoffile);
 
 
 fs.readFile(path,function(err,result){
 
-    $("#code-space").text(result)
+    $("#line_numbers").text(result)
 })
+
 
 
 
@@ -917,7 +960,7 @@ function handleFileSelect3(evt, cb) {
 }
         $(document).on('click','#save',function(){
 
-          var data=$('#code-space').text();
+          var data=$('#line_numbers').text();
           console.log(data)
         var FileSaver = require('file-saver');
 		var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
@@ -931,7 +974,7 @@ $('#saveAs').click(()=>{
 
     function openfilesaver(){
   console.log('open file saver');
-  var data=$('#code-space').text();
+  var data=$('#line_numbers').text();
 
 	var FileSaver = require('file-saver');
 		var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
@@ -1023,7 +1066,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 });
 */
 //alert('inside py')
-	var sourcecode=$('#code-space').text();
+	var sourcecode=$('#line_numbers').text();
 			//	console.log(sourcecode);
 	let resultPromise = python.runSource(sourcecode);
 		resultPromise
@@ -1066,7 +1109,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 			// 	});
 
 
-      //   var sourcecode=$('#code-space').text();
+      //   var sourcecode=$('#line_numbers').text();
       //   var shell = require('shelljs');
       //           console.log("hiii")
       //     // fs.writeFile('./temp/R')
@@ -1101,7 +1144,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
       
     
 
-		// var sourcecode=$('#code-space').text();
+		// var sourcecode=$('#line_numbers').text();
 		// 	//	console.log(sourcecode);
 		// 	// let resultPromise = python.runSource(sourcecode);
 
@@ -1147,7 +1190,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
  }
        else if(selectedfile=='R' || selectedfile=='RData' || selectedfile=='rds' || selectedfile=='rda'){
 				 //alert("R")
-				var sourcecode=$('#code-space').text();
+				var sourcecode=$('#line_numbers').text();
 				var shell = require('shelljs');
                 console.log("hiii")
 					// fs.writeFile('./temp/R')
@@ -1173,10 +1216,10 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 		      
        }
        
-       else if(selectedfile=='m'){
+       else if(selectedfile=='m' ||selectedfile=='mat' || selectedfile=='mlx'|| selectedfile=='mdl' || selectedfile=='mex' ){
 
         
-          var sourcecode=$('#code-space').text();
+          var sourcecode=$('#line_numbers').text();
 
                   console.log('inside table')
                   // var tabledata=document.getElementById('testbox').value;
@@ -1217,7 +1260,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
         //   // alert('Octave')
 
 
-        //   var sourcecode=$('#code-space').text();
+        //   var sourcecode=$('#line_numbers').text();
 				// var shell = require('shelljs');
         //         console.log("hiii")
 
@@ -1264,7 +1307,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
         
        else if(selectedfile=='rb'){
 				 //alert("R")
-				var sourcecode=$('#code-space').text();
+				var sourcecode=$('#line_numbers').text();
 				var shell = require('shelljs');
 
 					// fs.writeFile('./temp/R')
@@ -1288,7 +1331,39 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 					term.write(stdout);
 					term.write(stderr);
 
-        }
+        } else if(selectedfile=='pl'){
+
+          var sourcecode=$('#line_numbers').text();
+
+          var util    = require('util');
+           var spawn   = require('child_process').spawn;
+           var  carrier = require('carrier');
+            var classname=pathfile.split('.')[1];
+           var pl_proc = spawn('perl', [classname, sourcecode]);
+          //  console.log(pl_proc)
+           var  my_carrier;
+          //  pl_proc.stdout.on('data',(data1)=>{
+          //    console.log('hiii')
+          //    console.log(data1)
+          //  })
+          //  ls.stdout.on('data', (tabledata) => {
+          //           // alert('data1')
+          //           console.log('first ')
+          //           console.log(tabledata)
+          //           // terminal.append('\r\n')
+          //           terminal.append(tabledata +"\r\n")
+
+
+              my_carrier = carrier.carry(pl_proc.stdout);
+              console.log(my_carrier);
+               my_carrier.on(terminal, function(line) {
+              // Do stuff...
+              console.log('lines')
+              console.log('line: ' + line);
+            })
+
+
+//         }
         
     //     if(selectedfile=='cpp'){
 
@@ -1302,11 +1377,11 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 
 
 
-    // }
-      })
-// }
-var selectedfile1=''
-var name1=''
+     }
+      
+})
+      var selectedfile1=''
+        var name1=''
 
             $(document).on('click','.tabname',(event)=>{
             var i=0;
@@ -1321,7 +1396,9 @@ var name1=''
             // console.log('value')
             // console.log(path)
             var classname=fname.split('.')[1];
-
+// hljs.highlightBlock($('code').get(0));
+// var hljs=require('hljs');
+// hljs.registerLanguage('c', c);
             let o=0;
 
             var flag=true;
@@ -1329,11 +1406,11 @@ var name1=''
             console.log(flag)
             }
             else {
-                $('code').removeClass();
-            $('code').addClass(classname);
-            // hljs.highlightBlock($('code').get(0));
-            // var hljs=require('hljs');
-            //hljs.registerLanguage('c', c);
+                $('textarea').removeClass();
+            $('textarea').addClass(classname);
+            hljs.highlightBlock($('textarea').get(0));
+            var hljs=require('hljs');
+            hljs.registerLanguage('c', c);
             console.log(openedfiles);
             if(fname=='Untitled.txt'){
             console.log('Untitled.txt');
@@ -1343,10 +1420,10 @@ var name1=''
             selectedfile=classname;
             pathfile=path;
             selectedfileLocation=path;
-            // hljs.highlightBlock($('code').get(0));
+            hljs.highlightBlock($('textarea').get(0));
             fs.readFile(pathfile, 'utf8', function(err, contents) {
             if(err) throw err;
-            $('#code-space').text(contents);
+            $('#line_numbers').text(contents);
             //console.log(contents);
             });
             }
@@ -1592,8 +1669,41 @@ console.log(filename)
 
       }
 
+      function matlab(){
 
-    
+                    var filename= selectedfile1
+            // var elements = document.getElementsByClassName("tabname");
+            // var value = elements[0].value;
+            console.log('ghiiiii')
+            console.log(filename)
+
+            // var files = evt.target.files;
+            // // console.log(files)
+            // console.log(document.getElementById("files").files[0].path);
+            //   var path=document.getElementById('project').value;
+
+            // console.log(path)
+
+                  const { spawn } = require('child_process');
+                    const bat = spawn('python', [filename]);
+
+                  bat.stdout.on('data', (data) => {
+                  terminal.append(data.toString());
+                  });
+
+                  bat.stderr.on('data', (data) => {
+                  terminal.append(data.toString());
+                  });
+
+                  bat.on('exit', (code) => {
+                  console.log(`Child exited with code ${code}`);
+                  });
+
+
+                  }
+
+
+                
 
 		function fortune() {
 				var xhr = new XMLHttpRequest();
@@ -1644,8 +1754,8 @@ console.log(filename)
           "function":Rscript
         },
         {
-          "name":`node`,
-          "function":version
+          "name":`run`,
+          "function":matlab
         },
         {
           "name":`python1`,
@@ -1655,7 +1765,7 @@ console.log(filename)
 
 function processCommand() {
   var data1=$('#terminal').val();
-    console.log(data1)
+    // console.log(data1)
 
 		var isValid = false;
 
@@ -1779,7 +1889,7 @@ $(document).keypress(function(e) {
 });
 
 // Set the window title
-// title.text("Julian's Server: ~ (zsh)");
+// title.text("Julian's Server: ~ (zsh) ");
 
 // Get the date for our fake last-login
 var date = new Date().toString(); date = date.substr(0, date.indexOf("GMT") - 1);
@@ -1788,6 +1898,23 @@ var date = new Date().toString(); date = date.substr(0, date.indexOf("GMT") - 1)
 terminal.append("Last login: " + date + " \n"); displayPrompt();
 
 });
+
+$('document').ready(function(){
+		$('#line_numbers').linenumbers({col_width:'-50px'});
+	})
+
+//   $(document).on('change','#line_numbers',function(data){
+    
+//   const hljs = require('node_modules/highlight.js/lib/highlight.js');
+  
+//   hljs.registerLanguage('javascript', require('D:/generator-ak-2/node_modules/highlight.js/lib/languages/javascript.js'));
+// hljs.registerLanguage('python', require('D:/generator-ak-2/node_modules/highlight.js/lib/languages/python.js'));
+// // highlight with providing the language
+// const highlightedCode = hljs.highlight('javascript', '<span>Hello World!</span>').value
+
+// // const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
+
+// })
 
 // console.log(process.env.python)
 
