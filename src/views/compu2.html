@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <link href="../assets/css/darcula.css" rel="stylesheet"> -->
   <script src="/src/assets/js/highlight.pack.js"></script>
+  <link href="C:/Users/Sjain/Downloads/prism.css" rel="stylesheet" />
+  <script src="C:/Users/Sjain/Downloads/prism.js"></script>
+
   
 	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -523,16 +526,20 @@ background: transparent;
 <!-- <script src="../assets/js/compute-project.js"></script> -->
 <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
 <link rel="stylesheet" href="/node_modules/highlight.js/styles/default.css">
-<script src="/node_modules/highlight.js\lib/highlight.js"></script>
+<script src="/node_modules/highlight.js/lib/highlight.js"></script>
+<script src="/src/assets/js/sh_main.js"></script>
 <script>hljs.initHighlightingOnLoad();</script> 
 
 
 <script src="/jQuery-Plugin-To-Create-Textarea-With-Line-Numbering-LineNumbers/jquery-linenumbers.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script> 
+
 <link rel="stylesheet" href="/jQuery-Plugin-To-Create-Textarea-With-Line-Numbering-LineNumbers/example.css">
 
 
-<script>
 
+<script>
+ 
 var modal = document.getElementById('myModal');
 
 var selectedfile='';
@@ -697,7 +704,7 @@ var path=$(evt.target).attr('value');
 var extentionoffile=fname.split('.')[1];
 $('textarea').removeClass();
 $('textarea').addClass(extentionoffile);
-hljs.highlightBlock($('textarea').get(0));
+// hljs.highlightBlock($('textarea').get(0));
 
 
 fs.readFile(path,function(err,result){
@@ -1386,6 +1393,8 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
             $(document).on('click','.tabname',(event)=>{
             var i=0;
 
+            // hljs.initHighlightingOnLoad();
+
                 //console.log($(event.target).attr('id'))
 
             var fname=$(event.target).attr('id');
@@ -1396,7 +1405,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
             // console.log('value')
             // console.log(path)
             var classname=fname.split('.')[1];
-// hljs.highlightBlock($('code').get(0));
+// hljs.highlightBlock($('code').get(0));  
 // var hljs=require('hljs');
 // hljs.registerLanguage('c', c);
             let o=0;
@@ -1406,11 +1415,11 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
             console.log(flag)
             }
             else {
-                $('textarea').removeClass();
-            $('textarea').addClass(classname);
-            hljs.highlightBlock($('textarea').get(0));
-            var hljs=require('hljs');
-            hljs.registerLanguage('c', c);
+                $('#line_numbers').removeClass();
+            $('#line_numbers').addClass(classname);
+            //  hljs.highlightBlock($('#line_numbers').get(0));
+            // var hljs=require('hljs');
+
             console.log(openedfiles);
             if(fname=='Untitled.txt'){
             console.log('Untitled.txt');
@@ -1420,7 +1429,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
             selectedfile=classname;
             pathfile=path;
             selectedfileLocation=path;
-            hljs.highlightBlock($('textarea').get(0));
+            // hljs.highlightBlock($('textarea').get(0));
             fs.readFile(pathfile, 'utf8', function(err, contents) {
             if(err) throw err;
             $('#line_numbers').text(contents);
@@ -1445,7 +1454,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
             // $('terminal').
 
 
-            $('#savepaths').click(()=>{
+          $('#savepaths').click(()=>{
             var javacpath1=$('#javacpath').val();
             var javapath1=$('#javapath').val();
 
@@ -1901,10 +1910,84 @@ terminal.append("Last login: " + date + " \n"); displayPrompt();
 
 $('document').ready(function(){
 		$('#line_numbers').linenumbers({col_width:'-50px'});
-	})
+  })
+  
 
-//   $(document).on('change','#line_numbers',function(data){
+  $(document).on('change','#line_numbers',(data)=>{
+
+     var code=$('#line_numbers').val();
+
+     const Prism = require('prismjs');
+
+// const code = `var data = 1;`;
+
+const html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
+
+console.log(html.toString())
+
+
+//     const hljs = require("highlight.js/lib/highlight.js");
+// // separately require languages
+// // hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
+// hljs.registerLanguage('javascript', require('D:/generator-ak-2/node_modules/highlight.js/lib/languages/javascript.js'));
+// hljs.registerLanguage('python', require('D:/generator-ak-2/node_modules/highlight.js/lib/languages/python.js'));
+
+
+// hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
+// highlight with providing the language
+hljs.highlightBlock($(code).get(0));
+
+const highlightedCode = hljs.highlight('javascript', code).value
+const highlightedCode1 = hljs.highlight('python', ' print(hello)').value
+
+console.log(highlightedCode)
+console.log(highlightedCode1)
+
+//     const highlight = require('highlight.js');
+//     var code=$('#line_numbers').val();
+
+//     // console.log(highlight(code))
+//     document.addEventListener('onkeyup', (event) => {
+//   document.querySelectorAll(code).forEach((block) => {
+//    console.log(hljs.highlightBlock(block));
+//   });
+// });
+
+    // console.log(code)
+
+
+
+    // const dom = new JSDOM(html);
+    // const document = dom.window.document;
+
+
+    // document.querySelectorAll('.Test_markup > code').forEach((node)=> {
+    //         var markup = node.innerHTML;
+    //         // console.log(markup);
+    //         highlight.highlightBlock(markup);
+    //         console.log(highlight.highlight('html', markup).value);
+
+
+    //       });
+
+
+
+
+    // const fs = require('fs'),  
+    // hljs = require('highlight.js')
+    //    file = process.argv[2],
+    //  lang =   hljs.registerLanguage('javascript', require('D:/generator-ak-2/node_modules/highlight.js/lib/languages/javascript.js'));
+
+//     data = fs.readFileSync(file);
+
+// var code = data.toString();
+// console.log(file)
+// console.log("<pre class=\"hljs\"><code class=\"" + lang + "\">"  
+//            + hljs.highlight(lang).value 
+//            + "</code></pre>");
+
     
+    // alert('hiii')
 //   const hljs = require('node_modules/highlight.js/lib/highlight.js');
   
 //   hljs.registerLanguage('javascript', require('D:/generator-ak-2/node_modules/highlight.js/lib/languages/javascript.js'));
@@ -1912,9 +1995,9 @@ $('document').ready(function(){
 // // highlight with providing the language
 // const highlightedCode = hljs.highlight('javascript', '<span>Hello World!</span>').value
 
-// // const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
+// const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 
-// })
+})
 
 // console.log(process.env.python)
 

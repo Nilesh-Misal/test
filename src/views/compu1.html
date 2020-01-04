@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../assets/css/darcula.css" rel="stylesheet">
-	 <script src="/../assets/js/highlight.pack.js"></script>
+	<script src="/src/assets/js/highlight.pack.js"></script>
 	<link rel="stylesheet" href="../assets/css/jquery-ui.css">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/css/tab-design.css">
@@ -62,7 +62,7 @@
 	<script>start = performance.now();</script>
 	<script>console.log('total init time', performance.now() - start);</script>
  -->
-	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
+	<script>hljs.initHighlightingOnLoad();</script>
 
 
 	 <style type="text/css">
@@ -411,7 +411,7 @@
 </div>
 <!-- <script src="../assets/js/compute-project.js"></script> -->
 <script>
-// var hljs=require('D:/generator-ak-2/node_modules/hljs/hljs.js')
+var hljs=require('D:/generator-ak-2/node_modules/hljs/hljs.js')
 // var  Terminal = require('xterm');
 var  WebLinksAddon =require('xterm-addon-web-links');
 
@@ -1220,7 +1220,7 @@ var path=$(event.target).attr('value');
 var extentionoffile=fname.split('.')[1];
 $('code').removeClass();
 $('code').addClass(extentionoffile);
-// hljs.highlightBlock($('code').get(0));
+hljs.highlightBlock($('code').get(0));
 
 //alert(extentionoffile);
 
@@ -1300,9 +1300,9 @@ console.log(flag)
 }else {
 	$('code').removeClass();
 $('code').addClass(classname);
-// hljs.highlightBlock($('code').get(0));
-// var hljs=require('hljs');
-//hljs.registerLanguage('c', c);
+hljs.highlightBlock($('code').get(0));
+var hljs=require('hljs');
+hljs.registerLanguage('c', c);
 console.log(openedfiles);
 if(fname=='Untitled.txt'){
 console.log('Untitled.txt');
@@ -1312,7 +1312,7 @@ console.log('Untitled.txt');
 selectedfile=classname;
 pathfile=path;
 selectedfileLocation=path;
-// hljs.highlightBlock($('code').get(0));
+hljs.highlightBlock($('code').get(0));
 fs.readFile(pathfile, 'utf8', function(err, contents) {
  if(err) throw err;
 $('#code-space').text(contents);
