@@ -15,7 +15,8 @@
 	<link rel="stylesheet" href="../assets/css/tab-design.css">
 	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/custom-font.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/html-project.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/html-project.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/src/assets/css/highlighter.css"> -->
 	<link href="../assets/summernote/summernote.css" rel="stylesheet">
 	<link href="../assets/summernote/summernote-bs3.css" rel="stylesheet">
 	<link href="../assets/codemirror/lib/codemirror.css" rel="stylesheet">
@@ -29,12 +30,20 @@
     <link rel="stylesheet" href="index.css" /> 
       <link rel="stylesheet" href="/node_modules/xterm/lib/xterm.css" />
 
+      <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css'>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js'></script>
+  
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/xcode.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<!-- <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- <link rel="stylesheet" href="/node_modules/xterm/css/xterm.css" /> -->
     <!-- <script src="/node_modules/xterm/lib/xterm.js"></script> -->
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:200' rel='stylesheet' type='text/css'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.js">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js"></script>
 
   	<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
 
@@ -43,6 +52,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylsheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/darcula.min.css"> -->
+  
     <!-- <script src="/dist/renderer/bundle.js"></script> -->
     
 
@@ -71,10 +84,60 @@
 
   <!-- <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"> </script> -->
 
-  	<script>hljs.initHighlightingOnLoad();</script>
+  	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
 
 
   <style type="text/css">
+
+@import url('https://fonts.googleapis.com/css?family=Gruppo');
+
+body {
+    margin: 0;
+}
+
+#editor {
+    /* width: 80%; */
+    height: 80vh;
+    /* margin: 20px auto 0 auto; */
+}
+
+.options {
+    text-align: center;
+}
+
+.options .options_selection {
+    padding: 10px;
+    border: none;
+    margin: 25px 0 10px 0;
+    text-align: center;
+    -webkit-appearance: none;
+    font-family: 'Gruppo', cursive;
+    font-size: 1em;
+    color: #333;
+    font-weight: bolder;
+    width: 30%;
+    background-color: #f2f2f2;
+}
+
+.options .options_selection:focus {
+    outline: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    #editor {
+        width: 50%;
+    }
+}
+
+/* #editor {
+    /** Setting height is also important, otherwise editor wont showup**/
+    /* height: 300px; */
+/* } */ 
+
 
 .lined {
 	float: left;
@@ -221,6 +284,8 @@ background: transparent;
   float: left;
   width: 40px;
 } */
+
+
 
 
 </style>
@@ -461,18 +526,53 @@ background: transparent;
                                               <div class="" id="text">
                                                   <div class="row">
                                                       <div class="col-md-12 ">
-                                                           <pre class="col-md-12" style="height:400px;overflow:hidden;" >
-                                                          <textarea class="lined" id="line_numbers" style="width:1230px;height:100%;">
+                                                           <!-- <pre class="col-md-12" style="height:400px;overflow:hidden;" >
+                                                          <textarea class="js" id="line_numbers" style="width:1230px;height:100%;">
                                                             
                                                               
                                                           </textarea>
-                                                          </pre> 
-                                                          
-                                                         </form><hr/>
+                                                          <textarea id="cousor" class="cousor"></textarea>
+
+                                                          </pre>  -->
+                                                          <!-- <pre>
+                                                            <code id="output" class="preview javascript" contenteditable>
+                                                              var a=10;
+                                                            </code>
+                                                                </pre>
+                                                         </form><hr/> -->
                                                          <!-- <div id="term">
                                                          </div>  -->
+                                                         <section class="options">
 
+                                                          <select class="options_selection" name="select-language" id="language">
+                                                              <option value="html">HTML</option>
+                                                              <option value="css">CSS</option>
+                                                              <option value="js">JS</option>
+                                                              <option value="python">Python</option>
+                                                              <option value="php">PHP</option>
+                                                              <option value="ruby">Ruby</option>
+                                                              <option value="java">Java</option>
+                                                          </select>
+                                                  
+                                                          <select class="options_selection" name="select-theme" id="theme">
+                                                              <option value="monokai">Monokai</option>
+                                                              <option value="dawn">Dawn</option>
+                                                              <option value="github">GitHub</option>
+                                                              <option value="solarizedlight">Solarized Light</option>
+                                                              <option value="sql_server">SQL Server</option>
+                                                              <option value="ambiance">Ambiance</option>
+                                                              <option value="chaos">Chaos</option>
+                                                              <option value="gruvbox">Gruvbox</option>
+                                                              <option value="solarized_dark">Solarized Dark</option>
+                                                              <option value="terminal">Terminal</option>
+                                                          </select>
+                                                  
+                                                  
+                                                      </section>
+                                                  
+                                                      <div id="editor"></div>
                                                          <div class="terminal">
+
                                                           <!-- <div id="history"> -->
                                                             
                                                           <!-- </div>
@@ -528,7 +628,7 @@ background: transparent;
 <link rel="stylesheet" href="/node_modules/highlight.js/styles/default.css">
 <script src="/node_modules/highlight.js/lib/highlight.js"></script>
 <script src="/src/assets/js/sh_main.js"></script>
-<script>hljs.initHighlightingOnLoad();</script> 
+<!-- <script>hljs.initHighlightingOnLoad();</script>  -->
 
 
 <script src="/jQuery-Plugin-To-Create-Textarea-With-Line-Numbering-LineNumbers/jquery-linenumbers.min.js"></script>
@@ -681,7 +781,7 @@ function handleFileSelect5(evt,cb){
        reader.onload = function(e) {
          // The file's text will be printed here
          console.log(e.target.result)
-         $('#line_numbers').text(e.target.result);
+         $('#editor').text(e.target.result);
        }
        
        reader.readAsText(f);
@@ -1314,31 +1414,17 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
         
        else if(selectedfile=='rb'){
 				 //alert("R")
-				var sourcecode=$('#line_numbers').text();
-				var shell = require('shelljs');
+        var sourcecode=$('#line_numbers').text();
+        var exec = require('child_process').exec
+        var classname=pathfile.split('.')[1];
 
-					// fs.writeFile('./temp/R')
-					if (!shell.which('git')) {
-					shell.echo('Sorry, this script requires git');
-					shell.exit(1);
-					}
-					var runme='Rscript "'+pathfile+'"';
-					console.log(runme)
-					const { stdout, stderr, code } = shell.exec(runme);
-					
 
-					console.log(stdout)
-
-					console.log(stderr)
-
-					console.log(code)
-					
-					alert('successfully execute')
-
-					term.write(stdout);
-					term.write(stderr);
-
-        } else if(selectedfile=='pl'){
+        exec(pathfile, function (error, stdout, stderr) {
+          console.log('stdout: ' + stdout);
+          console.log('stderr: ' + stderr);
+          console.log('error: ' + error);
+        });
+         } else if(selectedfile=='pl'){
 
           var sourcecode=$('#line_numbers').text();
 
@@ -1368,22 +1454,6 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
               console.log('lines')
               console.log('line: ' + line);
             })
-
-
-//         }
-        
-    //     if(selectedfile=='cpp'){
-
-    //     cpp.runFile(pathfile,{
-    //       compilationPath: 'C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin' // something like C://Program Files//gcc//bin
-    //     },(err,result)=>{
-    //       if(err) throw err;
-    //       term.write(result['stdout']);
-    //       term.write(result['stderr']);
-    //     });
-
-
-
      }
       
 })
@@ -1913,53 +1983,8 @@ $('document').ready(function(){
   })
   
 
-  $(document).on('change','#line_numbers',(data)=>{
-
-     var code=$('#line_numbers').val();
-
-     const Prism = require('prismjs');
-
-// const code = `var data = 1;`;
-
-const html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
-
-console.log(html.toString())
-
-
-//     const hljs = require("highlight.js/lib/highlight.js");
-// // separately require languages
-// // hljs.registerLanguage('html', require('highlight.js/lib/languages/html'));
-// hljs.registerLanguage('javascript', require('D:/generator-ak-2/node_modules/highlight.js/lib/languages/javascript.js'));
-// hljs.registerLanguage('python', require('D:/generator-ak-2/node_modules/highlight.js/lib/languages/python.js'));
-
-
-// hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
-// highlight with providing the language
-hljs.highlightBlock($(code).get(0));
-
-const highlightedCode = hljs.highlight('javascript', code).value
-const highlightedCode1 = hljs.highlight('python', ' print(hello)').value
-
-console.log(highlightedCode)
-console.log(highlightedCode1)
-
-//     const highlight = require('highlight.js');
-//     var code=$('#line_numbers').val();
-
-//     // console.log(highlight(code))
-//     document.addEventListener('onkeyup', (event) => {
-//   document.querySelectorAll(code).forEach((block) => {
-//    console.log(hljs.highlightBlock(block));
-//   });
-// });
-
-    // console.log(code)
-
-
-
-    // const dom = new JSDOM(html);
-    // const document = dom.window.document;
-
+ 
+     
 
     // document.querySelectorAll('.Test_markup > code').forEach((node)=> {
     //         var markup = node.innerHTML;
@@ -1997,8 +2022,149 @@ console.log(highlightedCode1)
 
 // const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 
-})
+// })
+
+
+
+// $(document).on('change','',(data)=>{
+// console.log("cahn")
+//   hljs.initHighlightingOnLoad();
+
+// });
+
+// $("#output").on("input", function(){ // Always prefer the 'input' event instead of keyup
+// console.log("cahn")
+//     $("#output").html($(this).val());
+//     hljs.highlightBlock($("#output").get(0)); // highlightBlock expect a DOM element
+// });
+//  $("#output").on("input", function(){ // Always prefer the 'input' event instead of keyup
+
+// const hljs1 = require('node_modules/highlight.js');
+// // const highlightedCode = hljs1.highlightAuto('<span>Hello World!</span>').value
+// hljs1.highlightBlock($("#output").get(0))
+
+//  })
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   console.log("cahn")
+//   document.querySelectorAll('pre code').forEach((block) => {
+//     hljs.highlightBlock(block);
+//   });
+// });
+
+// $(document).on('change','#line_numbers',(data)=>{
+
+//   var inputarea = document.getElementById("line_numbers");
+// var outputarea = document.getElementById("line_numbers");
+// var cousor = document.getElementById("cousor");
+
+
+// outputarea.addEventListener("click", function (event) {
+//   inputarea.style.zIndex = 4;
+//   inputarea.style.color = "black";
+// }, false);
+
+// inputarea.addEventListener("line_numbers", function (event) {
+//   outputarea.innerHTML = inputarea.value;
+
+//   inputarea.style.zIndex = 4;
+//   //
+//   refreshHighlighting();
+// }, false);
+
+
+// // Refresh highlighting when blured focus from textarea.
+// inputarea.addEventListener("blur", function (event) {
+//   refreshHighlighting();
+// }, false)
+
+
+// function refreshHighlighting() {
+//   hljs.highlightBlock(outputarea);
+//   //setTimeout("refreshHighlighting()", 1000);
+//   inputarea.style.zIndex = 0;
+//   inputarea.style.color = "transparent";
+// }
+// refreshHighlighting();
+
+
+//  })
 
 // console.log(process.env.python)
+
+
+                    // var editor = ace.edit("editor");
+                    // editor.setTheme("ace/theme/monokai");
+                    // editor.getSession().setMode("ace/mode/javascript");
+
+
+onload = function() {
+
+// Setup
+var languageOption = document.getElementById("language");
+var themeOption = document.getElementById("theme");
+var codeEditor = document.getElementById("editor");
+var theme = "monokai";
+
+// Ace Setup
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+editor.getSession().setMode("ace/mode/html");
+
+// Change content dynamically
+languageOption.onchange = function() { 
+    switch(this.value) {
+        case 'html':     changeContent('&lt!--\n\tDid you know?\n\tThe Sololearn CodePlayground\n\tis made with the Ace library\n\tused in this code!\n-->\n\n&lt;!DOCTYPE html>\n&lt;html lang="en">\n\t&lt;head>\n\t\t&lt;meta charset="UTF-8">\n\t&lt;/head>\n\t&lt;body>\n\t&lt;/body>\n&lt;/html>', "html"); break;
+        case 'js':         changeContent("// Just an arrow function... \n\nvar waifu = waifu => console.log('Your waifu is ' + waifu);\n\nwaifu('Rem');", "javascript"); break;
+        case 'css':     changeContent("/* Oh, let's write some CSS! */\n\nbody {\n\tmargin: 0;\n}\n\n.super_div {\n\tdisplay: inline-block;\n}", "css"); break;
+        case 'python':     changeContent("'''\nAlways wanted to learn something\nmore about Python,\nso simple and at the\nsame time so complex!\n'''\n\nprint('Have a nice day!')", "python"); break;
+        case 'php':     changeContent("&lt;?php\n\n// PHP and WordPress, nothing else! \n\nif( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ):\n\t wp_nonce_field( 'prefix_function', 'prefix_function_nonce' );\nendif;'", "php"); break;
+        case 'ruby':     changeContent("# Ruby, just Ruby!\n\nclass HelloTrema < Trema::Controller\n\tdef start(_args)\n\t\tlogger.info 'Trema started.'\n\tend\n\tdef switch_ready(datapath_id)\n\t\tlogger.info \"Hello #{datapath_id.to_hex}!\"\n\tend\nend", "ruby"); break;
+        case 'java':     changeContent("// Do you want some coffee?\n\npublic class HelloWorld\n{\n\tpublic static void main(String[] args) {\n\t\tSystem.out.println('Hello World!');\n\t}\n}", "java"); break;
+        default:         changeContent("&lt!-- Made by Maz -->", "html"); break;
+    }
+}
+
+// Change theme dynamically
+themeOption.onchange = function() {
+    switch(this.value) {
+        case 'monokai':         changeTheme("monokai");                break;
+        case 'dawn':             changeTheme("dawn");                 break;
+        case 'github':             changeTheme("github");                 break;
+        case 'plastic':         changeTheme("iplastic");             break;
+        case 'solarizedlight':     changeTheme("solarized_light");     break;
+        case 'sql_server':         changeTheme("sqlserver");             break;
+        case 'ambiance':         changeTheme("ambiance");             break;
+        case 'chaos':             changeTheme("chaos");                 break;
+        case 'gruvbox':         changeTheme("gruvbox");             break;
+        case 'solarized_dark':     changeTheme("solarized_dark");         break;
+        case 'terminal':         changeTheme("terminal");             break;
+        default:                 changeTheme("monokai");                break;
+    }
+}
+
+// Functions
+function changeContent(content, lang) {
+    var elementExists = document.getElementById("editor");
+    // alert()
+    // if( elementExists )document.body.removeChild(elementExists);
+    var div = document.createElement("div");
+    div.innerHTML = content;
+    div.id = "editor";
+    document.body.appendChild(div);
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/" + theme);
+    editor.getSession().setMode("ace/mode/" + lang);
+}
+
+function changeTheme(type) {
+    theme = type;
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/" + theme);
+}
+
+}
+
+
 
               </script>
