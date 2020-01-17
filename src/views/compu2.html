@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="index.css" /> 
       <link rel="stylesheet" href="/node_modules/xterm/lib/xterm.css" />
 
-      <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css'>
+      <!-- <link rel='stylesheet' type='text/css' media='screen' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css'> -->
       <script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js'></script>
   
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/xcode.min.css">
@@ -97,7 +97,7 @@ body {
 
 #editor {
     /* width: 80%; */
-    height: 80vh;
+    height: 400px;
     /* margin: 20px auto 0 auto; */
 }
 
@@ -394,6 +394,34 @@ background: transparent;
                   </ul>
                 </div>
               </nav>
+              <section class="options">
+
+                <select class="options_selection" name="select-language" id="language">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="js">JS</option>
+                    <option value="python">Python</option>
+                    <option value="php">PHP</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="java">Java</option>
+                </select>
+        
+                <select class="options_selection" name="select-theme" id="theme">
+                    <option value="monokai">Monokai</option>
+                    <option value="dawn">Dawn</option>
+                    <option value="github">GitHub</option>
+                    <option value="solarizedlight">Solarized Light</option>
+                    <option value="sql_server">SQL Server</option>
+                    <option value="ambiance">Ambiance</option>
+                    <option value="chaos">Chaos</option>
+                    <option value="gruvbox">Gruvbox</option>
+                    <option value="solarized_dark">Solarized Dark</option>
+                    <option value="terminal">Terminal</option>
+                </select>
+        
+        
+            </section>
+
               
               <div id="myModal" class="modal">
               
@@ -527,7 +555,7 @@ background: transparent;
                                                   <div class="row">
                                                       <div class="col-md-12 ">
                                                            <!-- <pre class="col-md-12" style="height:400px;overflow:hidden;" >
-                                                          <textarea class="js" id="line_numbers" style="width:1230px;height:100%;">
+                                                          <textarea class="js" id="editor" style="width:1230px;height:100%;">
                                                             
                                                               
                                                           </textarea>
@@ -542,33 +570,6 @@ background: transparent;
                                                          </form><hr/> -->
                                                          <!-- <div id="term">
                                                          </div>  -->
-                                                         <section class="options">
-
-                                                          <select class="options_selection" name="select-language" id="language">
-                                                              <option value="html">HTML</option>
-                                                              <option value="css">CSS</option>
-                                                              <option value="js">JS</option>
-                                                              <option value="python">Python</option>
-                                                              <option value="php">PHP</option>
-                                                              <option value="ruby">Ruby</option>
-                                                              <option value="java">Java</option>
-                                                          </select>
-                                                  
-                                                          <select class="options_selection" name="select-theme" id="theme">
-                                                              <option value="monokai">Monokai</option>
-                                                              <option value="dawn">Dawn</option>
-                                                              <option value="github">GitHub</option>
-                                                              <option value="solarizedlight">Solarized Light</option>
-                                                              <option value="sql_server">SQL Server</option>
-                                                              <option value="ambiance">Ambiance</option>
-                                                              <option value="chaos">Chaos</option>
-                                                              <option value="gruvbox">Gruvbox</option>
-                                                              <option value="solarized_dark">Solarized Dark</option>
-                                                              <option value="terminal">Terminal</option>
-                                                          </select>
-                                                  
-                                                  
-                                                      </section>
                                                   
                                                       <div id="editor"></div>
                                                          <div class="terminal">
@@ -654,7 +655,12 @@ var fs = require('fs');
 var terminal = $(".terminal");
 var title = $(".title");
 		var prompt = "➜";
-		var path = "~";
+    var path = "~";
+    
+    var languageOption = document.getElementById("language");
+var themeOption = document.getElementById("theme");
+var codeEditor = document.getElementById("editor");
+
 
 
 // var matlab=require('C:/Octave/Octave-5.1.0.0/usr/bin')
@@ -762,6 +768,8 @@ $('#open1').trigger('click');
 }
 
 function handleFileSelect5(evt,cb){
+  $('#'+languageOption.trigger('click'))
+
 	
     // alert('hii')
 
@@ -809,7 +817,7 @@ $('textarea').addClass(extentionoffile);
 
 fs.readFile(path,function(err,result){
 
-    $("#line_numbers").text(result)
+    $("#editor").text(result)
 })
 
  var x1=0;
@@ -928,6 +936,9 @@ $('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt
 }else if(extentionoffile=='pl'){
   $('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt.target.files[i].path+'" class="subfiles" ><img src="../assets/images/symbols/programming-languages/js.png" id="codesymbol"> '+evt.target.files[i].name+'</li>')
 
+}else if(extentionoffile=='jl'){
+  $('#'+mainfoldername).append('<li id="'+evt.target.files[i].name+'" value="'+evt.target.files[i].path+'" class="subfiles" ><img src="../assets/images/symbols/programming-languages/julia.png" id="codesymbol"> '+evt.target.files[i].name+'</li>')
+
 }
 
 //console.log(evt.target.files[i]);
@@ -976,8 +987,9 @@ $(document).on('click','.subfiles',(event)=>{
 
 
 fs.readFile(path,function(err,result){
+  changeContent();
 
-    $("#line_numbers").text(result)
+    $("#editor").text(result)
 })
 
 
@@ -1067,7 +1079,7 @@ function handleFileSelect3(evt, cb) {
 }
         $(document).on('click','#save',function(){
 
-          var data=$('#line_numbers').text();
+          var data=$('#editor').text();
           console.log(data)
         var FileSaver = require('file-saver');
 		var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
@@ -1081,7 +1093,7 @@ $('#saveAs').click(()=>{
 
     function openfilesaver(){
   console.log('open file saver');
-  var data=$('#line_numbers').text();
+  var data=$('#editor').text();
 
 	var FileSaver = require('file-saver');
 		var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
@@ -1173,7 +1185,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 });
 */
 //alert('inside py')
-	var sourcecode=$('#line_numbers').text();
+	var sourcecode=$('#editor').text();
 			//	console.log(sourcecode);
 	let resultPromise = python.runSource(sourcecode);
 		resultPromise
@@ -1216,7 +1228,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
 			// 	});
 
 
-      //   var sourcecode=$('#line_numbers').text();
+      //   var sourcecode=$('#editor').text();
       //   var shell = require('shelljs');
       //           console.log("hiii")
       //     // fs.writeFile('./temp/R')
@@ -1251,7 +1263,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
       
     
 
-		// var sourcecode=$('#line_numbers').text();
+		// var sourcecode=$('#editor').text();
 		// 	//	console.log(sourcecode);
 		// 	// let resultPromise = python.runSource(sourcecode);
 
@@ -1297,7 +1309,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
  }
        else if(selectedfile=='R' || selectedfile=='RData' || selectedfile=='rds' || selectedfile=='rda'){
 				 //alert("R")
-				var sourcecode=$('#line_numbers').text();
+				var sourcecode=$('#editor').text();
 				var shell = require('shelljs');
                 console.log("hiii")
 					// fs.writeFile('./temp/R')
@@ -1326,7 +1338,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
        else if(selectedfile=='m' ||selectedfile=='mat' || selectedfile=='mlx'|| selectedfile=='mdl' || selectedfile=='mex' ){
 
         
-          var sourcecode=$('#line_numbers').text();
+          var sourcecode=$('#editor').text();
 
                   console.log('inside table')
                   // var tabledata=document.getElementById('testbox').value;
@@ -1354,7 +1366,6 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
                      $('#testbox').text(data)
                   console.log(`stderr: ${data}`);
                   terminal.append(data +"\n")
-
       });
 
   ls.on('close', (code) => {
@@ -1367,7 +1378,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
         //   // alert('Octave')
 
 
-        //   var sourcecode=$('#line_numbers').text();
+        //   var sourcecode=$('#editor').text();
 				// var shell = require('shelljs');
         //         console.log("hiii")
 
@@ -1414,9 +1425,113 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
         
        else if(selectedfile=='rb'){
 				 //alert("R")
-        var sourcecode=$('#line_numbers').text();
+        var sourcecode=$('#editor').text();
         var exec = require('child_process').exec
         var classname=pathfile.split('.')[1];
+
+
+        exec(pathfile, function (error, stdout, stderr) {
+          terminal.append(stdout +"\n")
+
+          console.log('stdout: ' + stdout);
+          console.log('stderr: ' + stderr);
+          console.log('error: ' + error);
+        });
+         } else if(selectedfile=='pl'){
+
+          var sourcecode=$('#editor').text();
+ 
+          const fsPromises = require('fs').promises;
+
+          fs.writeFileSync("src/views/script.pl", sourcecode)
+          
+// await promise;
+
+
+        console.log(pathfile)
+        let path=require('path');
+
+        var classname=path.basename(pathfile);
+
+// var name = classname[classname.length - 1];
+         console.log(classname)
+
+
+          var util    = require('util');
+          var  exec   = require('child_process').exec;
+          var  carrier = require('carrier');
+          exec("perl src/views/script.pl", function(err,stdout, stderr){
+                          terminal.append(err)
+                          terminal.append(stdout)
+                          terminal.append(stderr)
+
+
+
+
+          console.log('stdout: ' + stdout);
+          console.log('stderr: ' + stderr);
+          console.log('error: ' + err);
+
+              })
+              // var util    = require('util');
+              // var  spawn   = require('child_process').spawn;
+              // var  carrier = require('carrier');
+              // var pl_proc = spawn('perl', ['src/views/script.pl']);
+              // var  my_carrier;
+              //     console.log('hiii')
+
+              // my_carrier = carrier.carry(pl_proc.stdout);
+
+              // my_carrier.on('line', function(err,line) {
+              //   if(err)                
+              //   {
+              //     terminal.append(err)
+              //     console.log(err)
+              //     throw err;
+
+              //   }else{
+              //   // Do stuff...
+              //   terminal.append(line)
+              //   console.log('line: ' + line);
+              //   }
+              // })
+
+
+
+
+
+          //   var  my_carrier;
+          //     console.log('hiii')
+
+          // my_carrier = carrier.carry(pl_proc.stdout);
+
+          // my_carrier.on('line', function(line) {
+          //   // Do stuff...
+          //   console.log('line: ' + line);
+          // })
+
+          
+      }
+     else if(selectedfile=='jl')
+     {
+     var sourcecode=$('#editor').text();
+
+      var julia = require('node-julia');
+      var classname=pathfile.split('.')[1];
+
+    var aScript = julia.Script(classname);
+
+     var result= aScript.exec();
+     console.log(result)
+
+      }else if(selectedfile=='lua')
+     {
+     var sourcecode=$('#editor').text();
+    //  var julia = require('node-julia');
+
+        var exec = require('child_process').exec
+        var classname=pathfile.split('.')[1];
+        alert(classname)
 
 
         exec(pathfile, function (error, stdout, stderr) {
@@ -1424,43 +1539,16 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
           console.log('stderr: ' + stderr);
           console.log('error: ' + error);
         });
-         } else if(selectedfile=='pl'){
-
-          var sourcecode=$('#line_numbers').text();
-
-          var util    = require('util');
-           var spawn   = require('child_process').spawn;
-           var  carrier = require('carrier');
-            var classname=pathfile.split('.')[1];
-           var pl_proc = spawn('perl', [classname, sourcecode]);
-          //  console.log(pl_proc)
-           var  my_carrier;
-          //  pl_proc.stdout.on('data',(data1)=>{
-          //    console.log('hiii')
-          //    console.log(data1)
-          //  })
-          //  ls.stdout.on('data', (tabledata) => {
-          //           // alert('data1')
-          //           console.log('first ')
-          //           console.log(tabledata)
-          //           // terminal.append('\r\n')
-          //           terminal.append(tabledata +"\r\n")
-
-
-              my_carrier = carrier.carry(pl_proc.stdout);
-              console.log(my_carrier);
-               my_carrier.on(terminal, function(line) {
-              // Do stuff...
-              console.log('lines')
-              console.log('line: ' + line);
-            })
      }
-      
+
+
 })
+
+
       var selectedfile1=''
         var name1=''
 
-            $(document).on('click','.tabname',(event)=>{
+           $(document).on('click','.tabname',(event)=>{
             var i=0;
 
             // hljs.initHighlightingOnLoad();
@@ -1485,9 +1573,9 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
             console.log(flag)
             }
             else {
-                $('#line_numbers').removeClass();
-            $('#line_numbers').addClass(classname);
-            //  hljs.highlightBlock($('#line_numbers').get(0));
+            $('#editor').removeClass();
+            $('#editor').addClass(classname);
+            //  hljs.highlightBlock($('#editor').get(0));
             // var hljs=require('hljs');
 
             console.log(openedfiles);
@@ -1502,7 +1590,7 @@ PythonShell.runString('x=1+1;print(x)', null, function (err) {
             // hljs.highlightBlock($('textarea').get(0));
             fs.readFile(pathfile, 'utf8', function(err, contents) {
             if(err) throw err;
-            $('#line_numbers').text(contents);
+            $('#editor').text(contents);
             //console.log(contents);
             });
             }
@@ -1979,7 +2067,7 @@ terminal.append("Last login: " + date + " \n"); displayPrompt();
 });
 
 $('document').ready(function(){
-		$('#line_numbers').linenumbers({col_width:'-50px'});
+		$('#editor').linenumbers({col_width:'-50px'});
   })
   
 
@@ -2052,10 +2140,10 @@ $('document').ready(function(){
 //   });
 // });
 
-// $(document).on('change','#line_numbers',(data)=>{
+// $(document).on('change','#editor',(data)=>{
 
-//   var inputarea = document.getElementById("line_numbers");
-// var outputarea = document.getElementById("line_numbers");
+//   var inputarea = document.getElementById("editor");
+// var outputarea = document.getElementById("editor");
 // var cousor = document.getElementById("cousor");
 
 
@@ -2064,7 +2152,7 @@ $('document').ready(function(){
 //   inputarea.style.color = "black";
 // }, false);
 
-// inputarea.addEventListener("line_numbers", function (event) {
+// inputarea.addEventListener("editor", function (event) {
 //   outputarea.innerHTML = inputarea.value;
 
 //   inputarea.style.zIndex = 4;
@@ -2101,9 +2189,6 @@ $('document').ready(function(){
 onload = function() {
 
 // Setup
-var languageOption = document.getElementById("language");
-var themeOption = document.getElementById("theme");
-var codeEditor = document.getElementById("editor");
 var theme = "monokai";
 
 // Ace Setup
@@ -2111,6 +2196,7 @@ var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.getSession().setMode("ace/mode/html");
 
+ 
 // Change content dynamically
 languageOption.onchange = function() { 
     switch(this.value) {
@@ -2127,6 +2213,8 @@ languageOption.onchange = function() {
 
 // Change theme dynamically
 themeOption.onchange = function() {
+  // $('#'+themeOption.trigger('click'))
+
     switch(this.value) {
         case 'monokai':         changeTheme("monokai");                break;
         case 'dawn':             changeTheme("dawn");                 break;
